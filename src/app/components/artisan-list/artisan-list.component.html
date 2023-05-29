@@ -1,0 +1,20 @@
+<h3>Chercher un Artisan</h3><hr>
+
+
+<form action="" class="myform">
+   
+   <input type="text" name="nom" id="nom" placeholder="Ville" >
+
+   <input type="text" name="prenom" id="prenom" placeholder="Artisan">
+   <button type="submit">Rechercher</button>
+ </form>  
+
+ <h5>Critére de Rechercher</h5>
+  <div class="container">
+   <app-artisan  *ngFor=" let a of artisan$ | async "  [artisan]="a" >
+      </app-artisan>
+      
+
+   </div>
+   
+

@@ -1,0 +1,47 @@
+<body>
+    <div class="contact-container"> 
+      <p class="title">Nous contacter :</p>
+      <p class="welcome-message"> Veuillez inserez les données nécessaire afin de nous contacter </p>
+      <form class="contact-form">
+        <div class="form-control">
+          <input type="text" name="userName" placeholder="🙋🏽‍ Nom d'utilisateur" id="userName" formControlName="userName" required>
+        </div>        
+        <div class="form-control">
+          <input type="email" name="email" placeholder="📬 Email"   required>
+        </div>
+        <div class="form-control">
+            <input type="text" name="sujet" placeholder="⭐ Sujet" id="sujet" formControlName="sujet" required>
+          </div>
+          <div class="form-control">
+            
+            <textarea placeholder="✏️ Description" name="description"  id="description"  height="150px" required></textarea>
+          </div>
+        <button class="submit" id="button"(click)="showMessageSoon()">Envoyer</button>
+        <p *ngIf="showMyMessage" class="succesmessage">✔ Message envoyé</p>
+      </form>
+    </div>
+    </body>
+
+
+
+
+
+
+
+<!--<div class="form-card">
+    <h1>Formulaire de contact</h1>
+    <form >
+        <label for="fname"></label>
+        <input type="text" id="fname" name="firstname" placeholder="Votre nom et prénom">
+
+        <label for="sujet"></label>
+        <input type="text" id="sujet" name="sujet" placeholder="L'objet de votre message">
+
+        <label for="emailAddress"></label>
+        <input id="emailAddress" type="email" name="email" placeholder="Votre email">
+
+        <textarea id="subject" name="subject" placeholder="Votre message" style="height:200px"></textarea>
+
+        <input type="submit" value="Envoyer">
+    </form>
+</div>-->

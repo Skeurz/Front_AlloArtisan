@@ -1,0 +1,47 @@
+h3{
+    padding-top: 25px;
+    margin-left: 15px;
+}
+hr{
+    margin-right: 50px;
+    margin-left: 15px;
+    border: 2px solid  rgb(63, 63, 53);
+}
+h5{
+    background-color:  rgb(132, 139, 43);
+    margin-right: 50px;
+    margin-left: 50px;
+    padding-left: 20px;
+    color: rgb(17, 17, 17);
+}
+.myform{
+   display: flex;
+   box-sizing : border-box;
+   border-radius:5px;
+   padding:20px;
+   width:50%;
+   margin:0 auto;
+    margin-top: 50px;
+    }
+    input{
+        display: inline-block;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box; 
+        margin-bottom: 16px;
+        margin-right: 10px;
+        margin-left: 0px;
+        background-color: rgb(247, 247, 247);
+    }
+    
+    button{
+        display: block;
+        background-color: rgb(132, 139, 43);
+        color: rgb(11, 11, 11);
+        font-size: 16px;
+        margin-left: 10px;
+        padding: 5px;
+        margin-bottom: 16px;
+    }
+   

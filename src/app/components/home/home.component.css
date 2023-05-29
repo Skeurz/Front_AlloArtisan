@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono:400');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Roboto:wght@100&display=swap');
+
+body {
+   background-color: black;
+   color: white;
+   font-family: 'Roboto', sans-serif;
+   padding: 0;
+   margin: 0;
+   overflow:visible;
+   max-width: 100%;
+   overflow-x: hidden;
+   
+}
+#image{
+    float: right;
+    margin-right: 200px;
+    border-radius: 7px;
+    transition: 0.3s;
+    width:450px;
+    height:400px;
+}
+
+/*@-webkit-keyframes slide_animation{
+    0% {left:0px;}
+    10% {left:0px;}
+    20% {left:1200px;}
+    30% {left:1200px;}
+    40% {left:2400px;}
+    50% {left:2400px;}
+    60% {left:120px;}
+    70% {left:1200px;}
+    80% {left:0px;}
+    90% {left:0px;}
+    100% {left:0px;}
+}
+.slider-frame{
+    overflow: hidden;
+    height: 800px;
+    width: 1200px;
+    margin-left: 360px;
+    margin-left: 20px;
+}
+.slide-images{
+    width: 3600px; 
+    height: 800px;
+    margin: 0 0 0 -2400px;
+    position: relative;
+    -webkit-animation-name: slide_animation;
+    -webkit-animation-duration: 33s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-play-state: running;
+}
+.img-container{
+    height: 800px;
+    width: 1200px;
+    position: relative;
+    float: left;
+}*/
+.section1 {
+    margin-left: 150px;
+    display: grid;
+    align-content: center;
+    min-height: 100vh;
+    padding-bottom: 200px;
+    padding-top: 150px;
+}
+
+.section1 p{
+    font-size: 35px;  
+
+}
+.section1 b /*animation alloartisan*/{
+    font-weight: 700;
+    text-align: center;
+    font-size: 35px;
+    font-family: Hack, sans-serif;
+    background: linear-gradient(90deg, #1c498d, #fff, #1c498d);
+    letter-spacing: 5px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: shine 2s linear infinite;
+    position: relative;
+  }
+  @keyframes shine {
+    0% {
+      background-position-x: -500%;
+    }
+    100% {
+      background-position-x: 500%;
+    }
+  }
+a{
+    padding: 10px;
+    height: 50px;
+    width: 200px;
+    font-size: large;
+    font-weight: bolder;
+}
+
+h1.premier /*animation titre*/{
+    font-weight: 600;font-size: 50px;
+    position: relative;
+    color: hsl(0, 0%, 68%);
+    font-family: "Anonymous Pro", monospace;
+    letter-spacing: 3px;
+    overflow: hidden;
+    border-right: 2px solid hsl(0, 0%, 80%);
+    white-space: nowrap;
+    animation: typewriter 2s steps(44) 1s 1 normal both,
+      blinkTextCursor 500ms infinite;
+  }
+  
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 1215px;
+    }
+  }
+  @keyframes blinkTextCursor {
+    from {
+      border-right-color: hsl(0, 0%, 80%);
+    }
+    to {
+      border-right-color: transparent;
+    }
+  }
+
+
+/* animation boutton*/
+ .btn{
+    animation: glitch 1s linear infinite;
+    font-family: 'Fira Mono', monospace;
+  }
+  
+  @keyframes glitch{
+    2%,64%{
+      transform: translate(2px,0) skew(0deg);
+    }
+    4%,60%{
+      transform: translate(-2px,0) skew(0deg);
+    }
+    62%{
+      transform: translate(0,0) skew(5deg); 
+    }
+  }
+  
+ .btn:before,
+ .btn:after{
+    content: attr(title);
+    position: absolute;
+    left: 0;
+  }
+  
+.btn:before{
+    animation: glitchTop 1s linear infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  }
+  
+  @keyframes glitchTop{
+    2%,64%{
+      transform: translate(2px,-2px);
+    }
+    4%,60%{
+      transform: translate(-2px,2px);
+    }
+    62%{
+      transform: translate(13px,-1px) skew(-13deg); 
+    }
+  }
+  
+.btn:after{
+    animation: glitchBotom 1.5s linear infinite;
+    clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  }
+  
+  @keyframes glitchBotom{
+    2%,64%{
+      transform: translate(-2px,0);
+    }
+    4%,60%{
+      transform: translate(-2px,0);
+    }
+    62%{
+      transform: translate(-22px,5px) skew(21deg); 
+    }
+  }
+  
+
+
+/* carte presentation */
+ .who{
+    text-align: center;
+    min-height: 10vh;
+    font-weight: 600;font-size: 50px;
+    position: relative;
+    
+    font-family: "Anonymous Pro", monospace;
+    letter-spacing: 1.5px;
+  }
+  .nous{
+    text-align: center;
+    font-size: 35px; 
+  } 
+
+
+.row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  user-select: none;
+  
+}
+
+  .card {
+    
+    color: #ffffff;
+    filter: drop-shadow(0 5px 10px 0 #ffffff);
+    width: 700px;
+    height: 380px;
+    background-color: #212529;
+    padding: 20px;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in;
+   
+  }
+  
+  .card::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    right: -15px;
+    background: #1c498d;
+    height:380px;
+    width: 25px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 1s ease-out;
+    
+  }
+  
+  .card:hover::before{
+      transition-delay:0.2s ;
+  
+    transform: scale(70);
+  }
+  
+  .card:hover{
+  color: #ffffff;
+  }
+  .card p{
+      padding: 10px 0;
+  }
+
+
+
+.premier2 {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+font-weight: bold;
+}
+
+
+
+  /* Timeline Container */
+.timeline {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary-color);
+  min-height: 100vh;
+}
+
+/* Outer Layer with the timeline border */
+.outer {
+  border-left: 3px solid #ffffff;
+}
+
+/* Card container */
+.cardd {
+  position: relative;
+  margin: 0 0 20px 20px;
+  padding: 10px;
+  background: #212529;
+  color: white;
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+/* Information de la timeline */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Title of the card */
+.title {
+  font-family: 'Oswald', sans-serif;
+  color: #1c498d;
+  position: relative;
+  font-weight: bold;
+}
+
+/* Timeline dot  */
+.title::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: white;
+  border-radius: 999px;
+  left: -39px;
+  border: 5px solid #1c498d;
+}
+.premier2 b {
+  font-weight: 700;
+    text-align: center;
+    font-size: 35px;
+    font-family: Hack, sans-serif;
+    
+    background: linear-gradient(90deg, #1c498d, #fff, #1c498d);
+    letter-spacing: 5px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: shine 2s linear infinite;
+}

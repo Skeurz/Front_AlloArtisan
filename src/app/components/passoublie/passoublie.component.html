@@ -1,0 +1,15 @@
+<body>
+    <div class="container">
+        <h1 class="title">J'ai oublié mon mot de passe</h1>
+        <p class="message-email">Entrez votre email :</p>
+        <form>
+            <div class="form-control">
+            <input type="email" placeholder="📬 Email" required>
+            </div>
+            <div>
+            <button (click)="showMessageSoon()" class="submit">Envoyer</button>
+            <p *ngIf="showMyMessage" class="succesmessage">✔ Email envoyé</p>
+        </div>
+        </form>
+    </div>
+</body>

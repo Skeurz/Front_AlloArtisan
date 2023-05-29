@@ -1,0 +1,13 @@
+
+<form action="" class="myform">
+   
+    <input type="text" name="nom" id="nom" placeholder="Ville" >
+ 
+    <input type="text" name="prenom" id="prenom" placeholder="Artisant ">
+    <button type="submit">Rechercher</button>
+  </form>  
+ 
+  <h5>Critére de Rechercher</h5>
+   <div class="container">
+   <app-offre  *ngFor=" let s of service$ | async "  [service]="s" > </app-offre>
+    </div>

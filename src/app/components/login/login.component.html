@@ -1,0 +1,36 @@
+<body>
+<div class="login-container"> 
+  <p class="title">Se connecter :</p>
+  <p class="welcome-message"> Veuillez entrez votre nom d'utilisateur 
+    ainsi que mot de passe </p>
+  <form class="login-form" [formGroup]="FormConnexion">
+ <!-- <form class="login-form" #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">  -->
+    <div class="form-control">
+      <input type="text" name="userName" placeholder="🙋🏽‍ Nom d'utilisateur" id="userName" formControlName="userName" required>
+    </div>
+    <div class="form-control">
+      <input type="password" name="password" placeholder="🔓 Mot de passe"  formControlName="password" required>
+      <!--<input type="password" name="password" placeholder="🔓 Mot de passe" ngModel required>-->
+      <p class="forgot-password" style="font-size:x-small;" routerLink="/passoublie">Avez-vous oublié votre mot de passe ?</p>
+    </div>
+    <!--<button class="submit" [disabled]="!loginForm.valid" >Connexion</button>-->
+    <button class="submit" id="button"  (click)="onAuthentifier()" [disabled]="FormConnexion.invalid">Connexion</button>
+    <div>Vous ne possédez pas de compte ?<a href="authentifier"> Inscrivez vous !</a></div>
+    <div *ngIf="errorMessage && !authentifie" class="error-message" style="color: red;">{{ errorMessage }}</div>
+  </form>
+</div>
+</body>
+
+
+
+<!--<div class="container">
+  <h2>Connexion</h2>
+  <form  [formGroup]=" FormConnexion">
+    <label for="userName"></label>
+    <input type="text" id="userName" name="userName" placeholder="Nom d'utilisateur" formControlName="userName">
+    <label for="password"></label>
+    <input id="password" type="password" name="password" placeholder="Mot de passe"  formControlName="password">
+    <button  type="submit"   (click)="onAuthentifier()" [disabled]="FormConnexion.invalid" >Se connecter</button>
+    <div *ngIf="errorMessage && !authentifie" class="error-message">{{ errorMessage }}</div>
+  </form>
+</div> -->

@@ -1,0 +1,187 @@
+<body>
+  <div class="container">
+    
+    <table class="table table-bordered text-light bg-dark" style="border-radius: 7px;">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Prénom </th>
+        <th>Nom</th>
+        <th>Nom d'utilisateur</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let a of artisan$ | async">
+        <td><span>{{a.id}}</span></td>
+        <td><span>{{a.prenom}}</span></td>
+        <td><span>{{a.nom}}</span></td>
+        <td><span>{{a.userName}}</span></td>
+        <td><span>{{a.email}}</span></td>
+        <td>
+          
+          <button class="btn btn-sm" style="background-color: #1c498d; color: white;"  >
+            <i class="fa fa-edit"></i> Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteUser(a.id)">
+            <i class="fa fa-remove"></i> Delete</button>
+        </td>
+      </tr>
+      </tbody>
+      
+    </table>
+    
+  </div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+<!--<body>
+    <table class="table align-middle mb-0 bg-dark border border-dark">
+        <thead class="bg-dark">
+          <tr>
+            <th >Nom, prénom et Email</th>
+            <th>Nom d'utilisateur</th>
+            <th>ID</th>   
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor=" let a of artisan$ | async">
+            <td>
+              <div class="d-flex align-items-center ">
+                <img
+                    src="https://static.vecteezy.com/system/resources/previews/005/544/718/original/profile-icon-design-free-vector.jpg"
+                    alt=""
+                    style="width: 45px; height: 45px"
+                    class="rounded-circle"
+                    />
+                <div class="ms-3 ">
+                  <p class="fw-bold mb-1">{{a.prenom}} {{a.nom}}</p>
+                  <p class="text-muted mb-0">{{a.email}}</p>
+                </div>
+              </div>
+            </td>
+          
+            <td  >
+              <p class="fw-normal mb-1" >{{a.userName}}</p>
+              
+            </td>
+            <td>
+              <span class="badge badge-success rounded-pill d-inline">{{a.id}}</span>
+            </td>
+            
+            <td>
+                <button type="button" class="btn" style="background-color: #1c498d; color: white; margin-right: 20px;" routerLink="/admin/edit">✏️ Editer</button>   
+                <button type="button" class="btn btn-danger">❌ Supprimer</button>
+            </td>
+          </tr>
+          <ng-template #contentDelete let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title">Confirm Delete</h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h2>Are you sure you want to delete this record.</h2>
+              <div class="border text-center"> 
+                <button data-dismiss="modal" class="btn btn-danger">Yes, Delete!</button> 
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+            </div>
+          </ng-template>-->
+
+
+
+
+
+
+
+         <!-- <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <img
+                    src="https://static.vecteezy.com/system/resources/previews/005/544/718/original/profile-icon-design-free-vector.jpg"
+                    class="rounded-circle"
+                    alt=""
+                    style="width: 45px; height: 45px"
+                    />
+                <div class="ms-3">
+                  <p class="fw-bold mb-1">Fadoua Elkhoudri</p>
+                  <p class="text-muted mb-0">zfzef@gmail.com</p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">fadoua</p>
+              
+            </td>
+            <td>
+              <span class="badge badge-primary rounded-pill d-inline"
+                    >Menuisier</span
+                >
+            </td>
+            
+            <td>
+              <button
+                      type="button"
+                      class="btn btn-primary">
+                      ✏️ Editer
+              </button>
+              <button
+                        type="button"
+                        class="btn btn-danger">
+                        X Supprimer
+                </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <img
+                    src="https://static.vecteezy.com/system/resources/previews/005/544/718/original/profile-icon-design-free-vector.jpg"
+                    class="rounded-circle"
+                    alt=""
+                    style="width: 45px; height: 45px"
+                    />
+                <div class="ms-3">
+                  <p class="fw-bold mb-1">Latifa Hafidi</p>
+                  <p class="text-muted mb-0">rfeqerg@gmail.com</p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">latifa</p>
+              
+            </td>
+            <td>
+              <span class="badge badge-warning rounded-pill d-inline">plombier</span>
+            </td>
+            
+            <td>
+                <button
+                type="button"
+                class="btn btn-primary">
+                ✏️ Editer
+        </button>
+        <button
+                  type="button"
+                  class="btn btn-danger">
+                  X Supprimer
+          </button>
+            </td>
+          </tr>-->
+ <!--      </tbody>
+      </table>
+</body>--> 
