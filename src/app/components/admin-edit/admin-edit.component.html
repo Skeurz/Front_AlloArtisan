@@ -1,1 +1,34 @@
-<p>admin-edit works!</p>
+<body>
+    <div class="edit-container"> 
+      <p class="title">Éditer :</p>
+      <p class="welcome-message"> Veuillez fournir les données nécessaires pour éditer l'utilsateur </p>
+      <form class="register-form">
+        <div class="form-control">
+          <input type="text" name="nom" placeholder="Nom" [(ngModel)]="user.nom" required>      
+        </div>
+        <div class="form-control">
+          <input type="text" name="prenom" placeholder="Prénom"  [(ngModel)]="user.prenom" required>      
+        </div>
+        <div class="form-control">
+          <input type="text" name="userName" placeholder="Nom d'utilisateur"  [(ngModel)]="user.userName" required>      
+        </div>
+        <div class="form-control">
+          <input type="email" name="email" placeholder="Email"  [(ngModel)]="user.email" required>      
+        </div>
+
+
+           <!-- <div class="form-control">
+                <input type="password" name="confirmpassword" placeholder="Confirmer mot de passe" formControlName="confirmpassword" required>
+        </div>-->
+       
+       
+       
+        <!--<select id="role" class="drop" required>
+          <option class="drop"> artisan</option>
+          <option class="drop"> client</option>
+        </select> -->
+        <button class="submit"  >Éditer</button>
+      </form>
+    </div>
+    </body>
+  

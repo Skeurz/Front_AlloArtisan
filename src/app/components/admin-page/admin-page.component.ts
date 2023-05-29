@@ -5,7 +5,6 @@ import { User } from 'src/app/core/modeles/user';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
-//import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -18,6 +17,7 @@ export class AdminPageComponent implements OnInit {
   users: any[] = [] 
   url: string = "http://localhost:8090/";
   id: number;
+  showComponent: boolean = false;
 
  
   constructor(private listArtisanService :ListArtisanService,private router: Router, private http: HttpClient, private location: Location){ }
@@ -42,6 +42,10 @@ export class AdminPageComponent implements OnInit {
    this.artisan$=this.listArtisanService.getAllArtisan();
 
  }
+
+ Activation() {
+  this.showComponent = !this.showComponent;
+}
  
 
 
