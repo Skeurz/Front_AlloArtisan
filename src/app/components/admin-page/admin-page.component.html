@@ -4,6 +4,8 @@
     <table class="table table-bordered text-light bg-dark" style="border-radius: 7px;">
       <thead>
       <tr>
+        <th>Date de création</th>
+        <th>Date de modification</th>
         <th>ID</th>
         <th>Prénom </th>
         <th>Nom</th>
@@ -14,6 +16,8 @@
       </thead>
       <tbody>
       <tr *ngFor="let a of artisan$ | async">
+        <td><span>{{a.dateCreated | date: 'dd/MM/yyyy HH:mm:ss'}}</span></td>
+        <td><span>{{a.lastModified | date: 'dd/MM/yyyy HH:mm:ss'}}</span></td>
         <td><span>{{a.id}}</span></td>
         <td><span>{{a.prenom}}</span></td>
         <td><span>{{a.nom}}</span></td>
