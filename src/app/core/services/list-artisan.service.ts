@@ -42,6 +42,16 @@ export class ListArtisanService {
       const url = `${this.urlApi}/delete/${id}`;
       return this.http.delete(url);
     }
+
+    updateUser(user: User): Observable<User> {
+      const url = `${this.urlApi}/edit/${user.id}`;
+      return this.http.put<User>(url, user);
+    } 
+
+    getUser(id: string): Observable<User> {
+      const url = `${this.urlApi}/${id}`;
+      return this.http.get<User>(url);
+    }
  
 
 

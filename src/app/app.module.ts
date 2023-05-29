@@ -38,7 +38,7 @@ import { AdminEditComponent } from './components/admin-edit/admin-edit.component
     OffreComponent,
     PassoublieComponent,
     AdminPageComponent,
-    AdminEditComponent, 
+    AdminEditComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,13 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,Input,OnInit } from '@angular/core';
 import { ListArtisanService } from '../../core/services/list-artisan.service';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/core/modeles/user';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
+import * as alertifyjs from 'alertifyjs';
+import { AdminEditComponent } from '../admin-edit/admin-edit.component';
+
 
 
 @Component({
@@ -18,8 +21,9 @@ export class AdminPageComponent implements OnInit {
   url: string = "http://localhost:8090/";
   id: number;
   showComponent: boolean = false;
+  selectedUser: User;
 
- 
+
   constructor(private listArtisanService :ListArtisanService,private router: Router, private http: HttpClient, private location: Location){ }
 
 
@@ -43,11 +47,30 @@ export class AdminPageComponent implements OnInit {
 
  }
 
- Activation() {
+ Activation(user: User) {
   this.showComponent = !this.showComponent;
+  this.selectedUser = user;
+  console.log(user)
 }
  
 
+updateUser(user: User): Observable<User> {
+  return this.listArtisanService.updateUser(user);
+}
+
+onUpdateUser(user: User) {
+  this.updateUser(user).subscribe(updatedUser => {
+    // Handle the updated user response if needed
+    console.log('User updated:', updatedUser);
+    alertifyjs.set('notifier','position', 'bottom-center');
+    alertifyjs.success('Utilisateur modifié avec succès');
+    window.location.reload();
+
+  }, error => {
+    // Handle error if the update fails
+    console.error('Error updating user:', error);
+  });
+}
 
 }
 

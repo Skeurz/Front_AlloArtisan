@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ListArtisanService } from 'src/app/core/services/list-artisan.service';
 import { User } from 'src/app/core/modeles/user';
+import { Observable } from 'rxjs';
+import { AdminPageComponent } from '../admin-page/admin-page.component';
 
 @Component({
   selector: 'app-admin-edit',
@@ -10,12 +12,17 @@ import { User } from 'src/app/core/modeles/user';
 })
 export class AdminEditComponent {
   user: User = new User();
-
+  
   userId: number;
+  artisan$!: Observable<User[]>;
 
   constructor(private listArtisanService: ListArtisanService) {}
 
-
+  ngOnInit() : void {
+    // this.artisan$=this.listArtisanService.getAllArtisan();
+     this.artisan$=this.listArtisanService.getAllArtisan();
+  
+   }
 
 /*onSubmit() {
   this.listArtisanService.updateUser(this.user).subscribe(
