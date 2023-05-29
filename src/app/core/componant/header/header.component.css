@@ -4,3 +4,6 @@
     top: 0;
     width: 100%;
     z-index:4}
+.navbar.navbar-expand-lg.navbar-dark{
+    background-color: #343a40;
+}
