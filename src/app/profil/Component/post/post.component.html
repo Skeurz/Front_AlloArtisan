@@ -11,7 +11,7 @@
             </select>
             </div>
             <div class="form-group">
-                <label for="">Type d'artisanat :</label>
+                <label for="">Nom d'utilisateur de l'artisan ou client :</label>
                 <input  type="text" name="type" formControlName="artisan" placeholder="Type d'artisanat" required> 
             </div>      
         <div class="form-group">
@@ -24,15 +24,20 @@
           </div>
           <div class="form-group">
             <label for="">Prix : </label>
-            <input type="text" placeholder="Prix en DH" name="prix"  required>
+            <input type="text" placeholder="Prix en DH" name="prix" formControlName="prix"  required>
           </div>
           <div>
           <label for=""> Description de l'annonce</label>
           <br>
             <textarea id="subject" name="subject" placeholder="Votre message" style="height:100px;width: 400px;" formControlName="description"></textarea>
         </div>
+        <div>
+            <label for="">Lien de la photo descriptive</label>
+            <br>
+              <input type="text" placeholder="Image link" id="imgUrl" name="imgUrl"   formControlName="imgUrl">
+          </div>
         <div class="action-buttons">
-            <button  class="submit" type="submit" id="button" (click)="onSubmite()"  >Ajouter</button>
+            <button  class="submit" type="submit" id="button" (click)="onSubmit()"  >Ajouter</button>
         </div>
         
       </form>

@@ -10,6 +10,7 @@ import { ListBesoinsComponent } from './components/list-besoins/list-besoins.com
 import { PassoublieComponent } from './components/passoublie/passoublie.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { AdminEditComponent } from './components/admin-edit/admin-edit.component';
+import { AdminListeOffresBesoinsComponent } from './components/admin-liste-offres-besoins/admin-liste-offres-besoins.component';
 
 
 
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path :'admin',component: AdminPageComponent},
   {path :'admin/edit', component: AdminEditComponent},
   {path :'login',component: LoginComponent},
-  {path :'login/user', loadChildren: () => import('./profil/profil.module').then(m => m.ProfilModule) } 
+  {path :'login/user', loadChildren: () => import('./profil/profil.module').then(m => m.ProfilModule) },
+  {path :'adminposts', component: AdminListeOffresBesoinsComponent},
    
 
 ];

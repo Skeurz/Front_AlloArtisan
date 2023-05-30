@@ -1,0 +1,93 @@
+<body>
+    <div class="container">
+      <button class="btn btn-primary" routerLink="/admin">Liste des utilisateurs >></button>
+      <table class="table table-bordered text-light bg-dark" style="border-radius: 7px;">
+        <thead>
+        <tr>
+          <th>Date de création</th>
+          <th>ID</th>
+          <th>Type</th>
+          <th>Nom d'utilisateur de l'artisan / client </th>
+          <th>Ville</th>
+          <th>Titre</th>
+          <th>Description</th>
+          <th>Image Url</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of post$ | async">
+          <td><span>{{p.dateCreated | date: 'dd/MM/yyyy HH:mm:ss'}}</span></td>
+          <td><span>{{p.id}}</span></td>
+          <td><span>{{p.type}}</span></td>
+          <td><span>{{p.artisan}}</span></td>
+          <td><span>{{p.ville}}</span></td>
+          <td><span>{{p.titreAnnonce}}</span></td>
+          <td><span>{{p.description}}</span></td>
+          <td><span>{{p.imgUrl}}</span></td>
+          <td>
+            
+            <button class="btn btn-sm" style="background-color: #1c498d; color: white;" (click)="Activation(p)">
+              <i class="fa fa-edit"></i> Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="deletePost(p.id)">
+              <i class="fa fa-remove"></i> Delete</button>
+          </td>
+        </tr>
+        </tbody> 
+      </table>
+      </div>
+
+
+
+      <div class="edit" >
+        <div class="edit-container" *ngIf="showComponent"> 
+          <p class="title">Éditer :</p>
+          <p class="welcome-message"> Veuillez fournir les données nécessaires pour éditer le post </p>
+          <form class="register-form">
+              <label>Nom d'utilisateur de l'artisan ou client :</label>
+              <div class="form-control">
+                <input type="text" name="artisan" placeholder="Nom d'utilisateur de l'artisan ou client" [(ngModel)]="selectedPost.artisan" required>      
+              </div>
+              <label>Titre d'annonce :</label>
+              <div class="form-control">
+                <input type="text" name="titreAnnonce" placeholder="Titre d'annonce" [(ngModel)]="selectedPost.titreAnnonce" required>      
+              </div>
+              <label>Ville :</label>
+              <div class="form-control">
+                <input type="text" name="ville" placeholder="Ville" [(ngModel)]="selectedPost.ville" required>      
+              </div>
+            <label>Prix :</label>
+            <div class="form-control">
+              <input type="text" name="prix" placeholder="Prix en MAD"  [(ngModel)]="selectedPost.prix" required>      
+            </div>
+            <label>Description de l'annonce :</label>
+            
+           
+              <textarea id="description" name="description" [(ngModel)]="selectedPost.description" placeholder="Votre message.." style="height:100px;width: 400px;" formControlName="description" required></textarea>    
+            
+            <label>lien de la photo descriptive :</label>
+            <div class="form-control">
+              <input type="email" name="email" placeholder="Email"  [(ngModel)]="selectedPost.imgUrl" required>      
+            </div>
+            <label>Type :</label>
+            
+                <select formControlName="type" [(ngModel)]="selectedPost.type" required>
+                    <option >Offre</option>
+                    <option >Besoin</option>
+                </select>
+                
+        
+        
+               <!-- <div class="form-control">
+                    <input type="password" name="confirmpassword" placeholder="Confirmer mot de passe" formControlName="confirmpassword" required>
+            </div>-->
+            <!--<select id="role" class="drop" required>
+              <option class="drop"> artisan</option>
+              <option class="drop"> client</option>
+            </select> -->
+            <button class="submit" (click)="onUpdatePost(selectedPost)" >Éditer</button>
+          </form>
+        </div>
+        </div>
+</body>
+      

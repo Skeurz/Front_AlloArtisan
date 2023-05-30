@@ -19,7 +19,7 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
     this.userPost = this.formBuilder.group({
       type: [null],
-      artisant: [null],
+      artisan: [null], 
       titreAnnonce: [null],
       description: [null],
       ville: [null],
@@ -34,7 +34,7 @@ export class PostComponent implements OnInit {
     this.router.navigateByUrl("/connexion/user");
 
   }
-  onSubmite() {
+  onSubmit() {
     console.log(this.userPost.value);
 
     // console.log(this.userPost.value)
