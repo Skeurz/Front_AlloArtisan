@@ -24,7 +24,7 @@ const routes: Routes = [
   {path :'service',component: ListServiceComponent},
   {path :'besoin',component: ListBesoinsComponent},
   {path :'admin',component: AdminPageComponent},
-  {path :'admin/edit', component: AdminEditComponent},
+ // {path :'admin/edit', component: AdminEditComponent},
   {path :'login',component: LoginComponent},
   {path :'login/user', loadChildren: () => import('./profil/profil.module').then(m => m.ProfilModule) },
   {path :'adminposts', component: AdminListeOffresBesoinsComponent},
@@ -33,8 +33,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{
-    scrollPositionRestoration: 'enabled'})],
+  imports: [RouterModule.forRoot(routes,
+    {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

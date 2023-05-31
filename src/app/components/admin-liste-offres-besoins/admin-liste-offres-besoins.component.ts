@@ -27,9 +27,9 @@ export class AdminListeOffresBesoinsComponent {
 
   Activation(post: Post) {
     
-
+    
     this.showComponent = !this.showComponent;
-   
+    
     this.selectedPost = post;
     console.log(post)
     

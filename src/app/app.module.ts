@@ -21,6 +21,7 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
 import { AdminEditComponent } from './components/admin-edit/admin-edit.component';
 import { JwtModule, JwtHelperService } from '@auth0/angular-jwt';
 import { AdminListeOffresBesoinsComponent } from './components/admin-liste-offres-besoins/admin-liste-offres-besoins.component';
+import { Back2TopComponent } from './components/back2-top/back2-top.component';
 
 
 
@@ -44,6 +45,7 @@ import { AdminListeOffresBesoinsComponent } from './components/admin-liste-offre
     AdminPageComponent,
     AdminEditComponent,
     AdminListeOffresBesoinsComponent,
+    Back2TopComponent,
   ],
   imports: [
     BrowserModule,
