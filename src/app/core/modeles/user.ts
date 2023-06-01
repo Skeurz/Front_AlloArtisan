@@ -1,6 +1,8 @@
 export class User {
     dateCreated!: Date;
     id!:number;
+    telephone!:number;
+    adresse!:string;
     nom!: string;
     userName!: string ;
     prenom!: string; 

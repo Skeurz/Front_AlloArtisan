@@ -56,7 +56,7 @@ export class MenuProfilComponent implements OnInit{
         console.log('User updated:', updatedUser);
         alertifyjs.set('notifier','position', 'bottom-center');
         alertifyjs.success('Utilisateur modifié avec succès');
-        
+        window.location.reload();
     
       }, error => {
         // Handle error if the update fails

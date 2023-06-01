@@ -6,7 +6,8 @@
             <img src="https://static.vecteezy.com/system/resources/previews/005/544/718/original/profile-icon-design-free-vector.jpg" alt="avatar"
               class="rounded-circle img-fluid" style="width: 150px;">
             <h5 class="my-3">{{profil.prenom}} {{profil.nom}}</h5>
-            <p class="text-muted mb-4">Morocco 🇲🇦</p>
+            <p class="text-muted mb-4">{{profil.adresse}}</p>
+            <p class="text-muted mb-4">Rôle ici</p>
             <div class="d-flex justify-content-center mb-2">
               <button type="button" class="btn btn-primary" (click)="toggleEdit()" *ngIf="!isEditing">Éditer mon profil</button>
               <button type="button" class="btn btn-primary" (click)="togglerEdit()"*ngIf="isEditing">Revenir</button>
@@ -72,10 +73,10 @@
                 <p class="mb-0">Téléphone</p>
               </div>
               <div class="col-sm-9" *ngIf="!isEditing">
-                <p class="text-muted mb-0">06 66 66 66 66</p>
+                <p class="text-muted mb-0">{{profil.telephone}}</p>
               </div>
               <div class="col-sm-9" *ngIf="isEditing">
-                <input type="text" />
+                <input type="text" [(ngModel)]="profil.telephone"/>
               </div>
             </div>
             
@@ -85,10 +86,10 @@
                 <p class="mb-0">Adresse</p>
               </div>
               <div class="col-sm-9" *ngIf="!isEditing">
-                <p class="text-muted mb-0">Morocco 🇲🇦</p>
+                <p class="text-muted mb-0">{{profil.adresse}}</p>
               </div> 
               <div class="col-sm-9" *ngIf="isEditing">
-                <input type="text" />
+                <input type="text" [(ngModel)]="profil.adresse"/>
               </div>            
             </div>
             <hr>
