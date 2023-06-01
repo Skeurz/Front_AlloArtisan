@@ -9,6 +9,7 @@ import * as alertifyjs from 'alertifyjs';
 import { AdminEditComponent } from '../admin-edit/admin-edit.component';
 import { Post } from 'src/app/core/modeles/post';
 import { ViewChild, ElementRef } from '@angular/core';
+import { ListePostsService } from 'src/app/core/services/liste-posts.service';
 
 @Component({
   selector: 'app-admin-liste-offres-besoins',
@@ -21,9 +22,9 @@ export class AdminListeOffresBesoinsComponent {
   selectedPost: Post;
   showComponent: boolean = false;
 
-  constructor(private listArtisanService :ListArtisanService,private router: Router, private http: HttpClient, private location: Location){ }
+  constructor(private listePostsService :ListePostsService,private router: Router, private http: HttpClient, private location: Location){ }
 
-  ngOnInit() : void { this.post$=this.listArtisanService.getAllPosts(); } //Montre tous les postes dans la BDD une fois atteri sur la page.
+  ngOnInit() : void { this.post$=this.listePostsService.getAllPosts(); } //Montre tous les postes dans la BDD une fois atteri sur la page.
 
   Activation(post: Post) {
     
@@ -36,7 +37,7 @@ export class AdminListeOffresBesoinsComponent {
   }
 
   deletePost(id: number) {
-    this.listArtisanService.deletePost(id)
+    this.listePostsService.deletePost(id)
       .subscribe(
         () => { console.log('User deleted successfully.');
         this.posts = this.posts.filter(post => post.id !== id);
@@ -50,7 +51,7 @@ export class AdminListeOffresBesoinsComponent {
   }
 
   updatePost(post: Post): Observable<Post> {
-    return this.listArtisanService.updatePost(post);
+    return this.listePostsService.updatePost(post);
   }
 
   onUpdatePost(post: Post) {

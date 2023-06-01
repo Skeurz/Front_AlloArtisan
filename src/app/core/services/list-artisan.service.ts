@@ -26,40 +26,9 @@ export class ListArtisanService {
       getArtisanById(id: number): Observable<User>{
         //  return this.http.get<User>(`${this.urlApi}user/${id}`)
         return this.http.get<User>(`${this.urlApi}/profile/${id}`)
-        }   
+        }  
 
-        
-   lancerPost(post:Post): Observable<Post> {
-  return this.http.post <Post>(`${this.urlApi}/offre`,post);}
-
-  getAllPosts():Observable<Post[]>{
-    return this.http.get<Post[]>
-    (this.urlApi+'/offres');}
-
-  getAllService():Observable<Post[]>{
-    return this.http.get<Post[]>(`${this.urlApi}/posts/service`);}
-
-  getAllBesoin():Observable<Post[]>{
-    return this.http.get<Post[]>(`${this.urlApi}/posts/besoin`);}
-
-  deletePost(id: number): Observable<any> {
-      const url = `${this.urlApi}/deletepost/${id}`;
-      return this.http.delete(url);
-    }
-    updatePost(post: Post): Observable<Post> {
-      const url = `${this.urlApi}/editoffre/${post.id}`;
-      return this.http.put<Post>(url, post);
-    }
-
-    getPost(id: string): Observable<Post> {
-      const url = `${this.urlApi}/${id}`;
-      return this.http.get<Post>(url);
-    }
-
-
-
-
-  deleteUser(id: number): Observable<any> {
+    deleteUser(id: number): Observable<any> {
       const url = `${this.urlApi}/delete/${id}`;
       return this.http.delete(url);
     }

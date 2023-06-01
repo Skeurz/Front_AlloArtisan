@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthentificationServiceService } from 'src/app/core/services/authentification-service.service';
 import { ListArtisanService } from 'src/app/core/services/list-artisan.service';
+import { ListePostsService } from 'src/app/core/services/liste-posts.service';
+import * as alertifyjs from 'alertifyjs';
+
 
 @Component({
   selector: 'app-post',
@@ -12,7 +15,8 @@ import { ListArtisanService } from 'src/app/core/services/list-artisan.service';
 export class PostComponent implements OnInit {
   userPost!: FormGroup;
 
-  constructor(private router: Router,
+  constructor(private listePostsService :ListePostsService,
+     private router: Router,
      private formBuilder: FormBuilder,
      private liste:ListArtisanService,) { }
 
@@ -36,9 +40,11 @@ export class PostComponent implements OnInit {
   }
   onSubmit() {
     console.log(this.userPost.value);
-
     // console.log(this.userPost.value)
-    this.liste.lancerPost(this.userPost.value).subscribe();
+    this.listePostsService.lancerPost(this.userPost.value).subscribe();
+
+    alertifyjs.set('notifier','position', 'bottom-center');
+    alertifyjs.success('Post ajouté avec succès');
   
 
   

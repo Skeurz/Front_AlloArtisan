@@ -6,6 +6,12 @@
     background-color: #343a40;
 }
 
+.d-flex.justify-content-center.justify-content-lg-between.p-4.border-bottom{
+   
+    
+}
+
+
 
 
 footer {
@@ -25,7 +31,7 @@ footer:hover {
     color:#1d9bf0;
 }
 .fa-facebook:hover{
-    color:#1e4190;
+    color:#2d498a;
 }
 .fa-google:hover{
     color:#de4032;

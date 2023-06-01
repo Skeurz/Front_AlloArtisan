@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';import { Post } from 'src/app/core/modeles/post';
 import { ListArtisanService } from 'src/app/core/services/list-artisan.service';
+import { ListePostsService } from 'src/app/core/services/liste-posts.service';
+
 
 @Component({
   selector: 'app-list-service',
@@ -11,11 +13,11 @@ export class ListServiceComponent implements OnInit {
 
   service$!:Observable<Post[]>;
 
-  constructor(private listService :ListArtisanService){ }
+  constructor(private listePostsService :ListePostsService){ }
 
 
   ngOnInit(): void {
-    this.service$=this.listService.getAllService();
+    this.service$=this.listePostsService.getAllService();
 
   }
 
