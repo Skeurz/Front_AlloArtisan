@@ -25,7 +25,7 @@ export class ListArtisanService {
 
       getArtisanById(id: number): Observable<User>{
         //  return this.http.get<User>(`${this.urlApi}user/${id}`)
-        return this.http.get<User>(`${this.urlApi}/profile/${id}`)
+        return this.http.get<User>(`${this.urlApi}/profil/${id}`)
         }  
 
     deleteUser(id: number): Observable<any> {

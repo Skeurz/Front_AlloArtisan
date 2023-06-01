@@ -12,14 +12,18 @@ import { ListePostsService } from 'src/app/core/services/liste-posts.service';
   styleUrls: ['./list-besoins.component.css']
 })
 export class ListBesoinsComponent implements OnInit {
-  besoin$!:Observable<Post[]>;
+ // besoin$!:Observable<Post[]>;
+  
+  post$!: Observable<Post[]>;
 
   constructor(private listePostsService :ListePostsService){ }
 
 
   ngOnInit(): void {
-    this.besoin$=this.listePostsService.getAllBesoin();
+   /* this.besoin$=this.listePostsService.getAllBesoin();*/
+   this.post$=this.listePostsService.getPostsByType("besoin");
 
   }
+
 
 }

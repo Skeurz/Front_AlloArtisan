@@ -5,26 +5,41 @@
           <div class="card-body text-center ">
             <img src="https://static.vecteezy.com/system/resources/previews/005/544/718/original/profile-icon-design-free-vector.jpg" alt="avatar"
               class="rounded-circle img-fluid" style="width: 150px;">
-            <h5 class="my-3">Anas Zahou</h5>
-            <p class="text-muted mb-1">Jardinier</p>
+            <h5 class="my-3">{{profil.prenom}} {{profil.nom}}</h5>
             <p class="text-muted mb-4">Morocco 🇲🇦</p>
             <div class="d-flex justify-content-center mb-2">
-              <button type="button" class="btn btn-primary">Éditer mon profil</button>
+              <button type="button" class="btn btn-primary" (click)="toggleEdit()" *ngIf="!isEditing">Éditer mon profil</button>
+              <button type="button" class="btn btn-primary" (click)="togglerEdit()"*ngIf="isEditing">Revenir</button>
               <button type="button" class="btn btn-outline-primary ms-1" routerLink="post">Postuler une annonce</button>
             </div>
           </div>
         </div>
-       
-      </div>
+ </div>
+
       <div class="col-lg-8" >
         <div class="card mb-4 bg-dark">
           <div class="card-body">
             <div class="row">
               <div class="col-sm-3">
+                <p class="mb-0">Nom d'utilisateur</p>
+              </div>
+              <div class="col-sm-9" *ngIf="!isEditing">
+                <p class="text-muted mb-0" >{{profil.userName}}</p>
+              </div>
+              <div class="col-sm-9" *ngIf="isEditing">
+                <input type="text" [(ngModel)]="profil.userName"/>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
                 <p class="mb-0">Prénom</p>
               </div>
-              <div class="col-sm-9" >
-                <p class="text-muted mb-0" style="z-index: -1;">Anas</p>
+              <div class="col-sm-9" *ngIf="!isEditing">
+                <p class="text-muted mb-0" >{{profil.prenom}}</p>
+              </div>
+              <div class="col-sm-9" *ngIf="isEditing">
+                <input type="text" [(ngModel)]="profil.prenom"/>
               </div>
             </div>
             <hr>
@@ -32,8 +47,11 @@
               <div class="col-sm-3">
                 <p class="mb-0">Nom </p>
               </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">Zahou</p>
+              <div class="col-sm-9" *ngIf="!isEditing">
+                <p class="text-muted mb-0">{{profil.nom}}</p>
+              </div>
+              <div class="col-sm-9" *ngIf="isEditing">
+                <input type="text" [(ngModel)]="profil.nom"/>
               </div>
             </div>
             <hr>
@@ -41,44 +59,67 @@
               <div class="col-sm-3">
                 <p class="mb-0">Email</p>
               </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">example@example.com</p>
+              <div class="col-sm-9" *ngIf="!isEditing">
+                <p class="text-muted mb-0">{{profil.email}}</p>
+              </div>
+              <div class="col-sm-9" *ngIf="isEditing">
+                <input type="text" [(ngModel)]="profil.email"/>
               </div>
             </div>
             <hr>
             <div class="row">
-              <div class="col-sm-3">
+              <div class="col-sm-3" > 
                 <p class="mb-0">Téléphone</p>
               </div>
-              <div class="col-sm-9">
+              <div class="col-sm-9" *ngIf="!isEditing">
                 <p class="text-muted mb-0">06 66 66 66 66</p>
               </div>
+              <div class="col-sm-9" *ngIf="isEditing">
+                <input type="text" />
+              </div>
             </div>
+            
             <hr>
             <div class="row">
               <div class="col-sm-3">
                 <p class="mb-0">Adresse</p>
               </div>
-              <div class="col-sm-9">
+              <div class="col-sm-9" *ngIf="!isEditing">
                 <p class="text-muted mb-0">Morocco 🇲🇦</p>
-              </div>             
+              </div> 
+              <div class="col-sm-9" *ngIf="isEditing">
+                <input type="text" />
+              </div>            
             </div>
             <hr>
             <div class="row">
-              <div class="col-sm-3">
+              <div class="col-sm-3" >
                 <p class="mb-0">Rôle</p>
               </div>
-              <div class="col-sm-9">
+              <div class="col-sm-9" *ngIf="!isEditing">
+                <p class="text-muted mb-0">Artisan</p>
+              </div>  
+              <div class="col-sm-9" *ngIf="isEditing">
                 <select formControlName="roleName" id="role" style="width: 80px;">
 
                   <option>Artisan</option>
                   <option>Client</option>
                 </select>
-              </div>             
+              </div>           
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3" >
+                <p class="mb-0">Date de création</p>
+              </div>
+              <div class="col-sm-9" >
+                <p class="text-muted mb-0">{{profil.dateCreated | date: 'dd/MM/yyyy HH:mm:ss'}}</p>
+              </div>         
             </div>
           </div>
         </div>
       </div>
+       <div class="btn btn-success" *ngIf="isEditing" (click)="onUpdateUser(profil)">Éditer</div>
     </div>
 </body>
 

@@ -10,15 +10,17 @@ import { ListePostsService } from 'src/app/core/services/liste-posts.service';
   styleUrls: ['./list-service.component.css']
 })
 export class ListServiceComponent implements OnInit {
+  
+  post$!: Observable<Post[]>;
+ // service$!:Observable<Post[]>;
 
-  service$!:Observable<Post[]>;
 
   constructor(private listePostsService :ListePostsService){ }
 
 
   ngOnInit(): void {
-    this.service$=this.listePostsService.getAllService();
-
+    this.post$=this.listePostsService.getPostsByType("offre");
   }
+
 
 }

@@ -6,13 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./back2-top.component.css']
 })
 export class Back2TopComponent {
+windowScrolled = false;
 
 
-  BackToTop() {
 
-    scrollTo({top: 0, left: 0, behavior: 'smooth'})
+
+
+  BackToTop(): void {
+    window.scrollTo(0, 0);
+  }
+ 
   }
 
-}
+  
 
 

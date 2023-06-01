@@ -3,7 +3,7 @@ body{
      background:
      url("src/assets/images/v116_215.png");
      background-repeat:no-repeat;
-   height: 1000px;
+   height: 100vh;
    background-size: cover; 
    background-position: center center;
    background-repeat: no-repeat;
@@ -11,17 +11,15 @@ body{
    margin:auto;
    padding:0;
    overflow:-moz-hidden-unscrollable;
-   min-height: 100vh;
    overflow-x: hidden;
  }
 
 
 .row {
-  
   z-index: 0;
   box-sizing: border-box;
   position:relative;
-  transform: translate(0%, 60%);
+  
   
 }
 
@@ -37,4 +35,16 @@ p{
   .brighter-span {
     filter: brightness(150%);
   }
+}
+
+
+.col-lg-8 {
+  margin-top: 100px !important;
+}
+.col-lg-4 {
+  margin-top: 100px !important;
+}
+.btn.btn-success {
+  margin-left: 550px;
+  width: 100px;
 }
