@@ -44,7 +44,7 @@ export class InscriptionFormComponent implements OnInit {
     
     //this.liste.addRoleToUser
 
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/role/:userName');
   }
 
 }

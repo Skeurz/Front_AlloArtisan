@@ -14,14 +14,39 @@ body {
    overflow-x: hidden;
    
 }
-#image{
+section {
+  margin-bottom: 100px !important;
+}
+img{
     float: right;
     margin-right: 200px;
     border-radius: 7px;
-    transition: 0.3s;
-    width:450px;
+    width:500px;
     height:400px;
-}
+ 
+  }
+
+  .image-slider {
+    position: relative;
+    height: 200px; /* Adjust the height as needed */
+    overflow: hidden;
+  }
+  
+  .image-slider img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out; /* Define the desired transition properties */
+  }
+  
+  .image-slider img.hidden {
+    opacity: 0;
+  }
+  
+
 
 /*@-webkit-keyframes slide_animation{
     0% {left:0px;}
@@ -224,7 +249,7 @@ h1.premier /*animation titre*/{
 }
 
   .card {
-    
+    border-radius: 32px !important;
     color: #ffffff;
     filter: drop-shadow(0 5px 10px 0 #ffffff);
     width: 700px;
@@ -259,13 +284,47 @@ h1.premier /*animation titre*/{
   
     transform: scale(70);
   }
+
+
+
+  .card2 {
+    border-radius: 32px !important;
+    color: #ffffff;
+    filter: drop-shadow(0 5px 10px 0 #ffffff);
+    width: 700px;
+    height: 380px;
+    background-color: #212529;
+    padding: 20px;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in;
+   
+  }
   
-  .card:hover{
-  color: #ffffff;
+  .card2::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    left: -15px;
+    background: #1c498d;
+    height:380px;
+    width: 25px;
+    border-radius: 32px !important;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 1s ease-out;
+    
   }
-  .card p{
-      padding: 10px 0;
+  
+  .card2:hover::before{
+      transition-delay:0.2s ;
+  
+    transform: scale(70);
   }
+
+
 
 
 
@@ -332,11 +391,11 @@ font-weight: bold;
   border: 5px solid #1c498d;
 }
 .premier2 b {
-  font-weight: 700;
+  
+    font-weight: 700;
     text-align: center;
     font-size: 35px;
     font-family: Hack, sans-serif;
-    
     background: linear-gradient(90deg, #1c498d, #fff, #1c498d);
     letter-spacing: 5px;
     -webkit-background-clip: text;
@@ -345,4 +404,6 @@ font-weight: bold;
     background-repeat: no-repeat;
     background-size: 80%;
     animation: shine 2s linear infinite;
+
 }
+

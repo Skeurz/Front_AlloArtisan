@@ -42,6 +42,13 @@ export class ListArtisanService {
       const url = `${this.urlApi}/${id}`;
       return this.http.get<User>(url);
     }
+
+    getUserByUserName (userName:string){
+      return this.http.get<User>(`${this.urlApi}/users/${userName}`)
+  
+    }
+
+    
  
 
 

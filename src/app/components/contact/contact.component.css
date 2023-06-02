@@ -19,7 +19,7 @@ body {
        background:
        url("src/assets/images/v116_215.png");
        background-repeat: no-repeat;
-     height: 1000px;
+     height: 140vh;
      background-size: cover; 
      background-position: center center;
      background-repeat: no-repeat;
@@ -45,6 +45,7 @@ button {
 }
 
 .contact-container {
+  margin:120px!important;
   max-width: 720px;
   background-color: #212529;
   padding: 24px;

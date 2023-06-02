@@ -36,16 +36,20 @@
        </div>
   </div>
 </div>-->
-    <p><img src="https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" id="image"     
-        style="">  
-        <img src="https://images.pexels.com/photos/11091016/pexels-photo-11091016.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" id="image"
-        style="display: none;">
-        <img src="https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" id="image" 
-        style="display: none;">  
-        Avez vous besoin de trauvaux que ça soit en menuiseries, construction, carrelage, plomberies, jardinage ou n'importe quel 
+      
+      <p> 
+        <img [src]="images[currentImageIndex]" id="image" style="">
+         Avez vous besoin de trauvaux que ça soit en menuiseries, construction, carrelage, plomberies, jardinage ou n'importe quel 
         travaux artisanaux ? <b style="color:#1c498d; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">AlloArtisan</b> 
         vous liera avec un artisan professionel en quelques cliques !
-       <br><br> <br>  <a *ngIf="!loggedin()" class="btn" style="background-color: #1c498d; color: white;" href="authentifier">S'inscrire >></a></p>
+        
+       <br><br><a *ngIf="!loggedin()" class="btn" style="background-color: #1c498d; color: white;" href="authentifier">S'inscrire >></a>
+      </p>
+      
+      <!--  <img src="https://images.pexels.com/photos/11091016/pexels-photo-11091016.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" id="image"
+        style="display: none;">
+        <img src="https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" id="image" 
+        style="display: none;"> -->
        
        
       <!-- <script type="text/javascript">
@@ -65,6 +69,7 @@
 </section>
 
 
+
 <section class="section 2">
     <div class="row">
         <div class="card">
@@ -73,6 +78,21 @@
         </div>
     </div>
 </section>
+
+
+<section class="section 2">
+  <div class="row">
+      <div class="card2">
+      <h1 class="who">Êtes-vous expert dans un domaine ? </h1>
+      <p class="nous">Rejoignez notre platforme afin de partager votre expertise avec plusieurs utilisateurs. Ne perdez pas de temps, Inscrivez vous!</p>
+      </div>
+  </div>
+</section>
+
+
+
+
+
 <section>
   <h1 class="premier2">Comment marche&nbsp;<b style="color:#1c498d; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">AlloArtisan</b> ?</h1>
 <div class="timeline">
@@ -107,10 +127,7 @@
 
 
 
-<section>
-    <h2>  </h2>
-    <p></p>
-</section>
+
 
 
 </body>

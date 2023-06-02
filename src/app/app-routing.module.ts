@@ -11,6 +11,7 @@ import { PassoublieComponent } from './components/passoublie/passoublie.componen
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { AdminEditComponent } from './components/admin-edit/admin-edit.component';
 import { AdminListeOffresBesoinsComponent } from './components/admin-liste-offres-besoins/admin-liste-offres-besoins.component';
+import { RoleComponent } from './components/role/role.component';
 
 
 
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path :'login',component: LoginComponent},
   {path :'login/user', loadChildren: () => import('./profil/profil.module').then(m => m.ProfilModule) },
   {path :'adminposts', component: AdminListeOffresBesoinsComponent},
+  {path :'role/:userName',component: RoleComponent},
    
 
 ];

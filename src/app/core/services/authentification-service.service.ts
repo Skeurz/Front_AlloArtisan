@@ -31,7 +31,11 @@ export class AuthentificationServiceService {
  return this.http.post<Itoken>(`${this.urlApi}/authenticate`,user);}
 
 
- 
+ getUserByUserName (userName:string){
+  return this.http.get<User>(`${this.urlApi}/users/${userName}`)
+
+}
+
   
   ajouterUser(user: User): Observable<User> {
     
@@ -47,14 +51,14 @@ export class AuthentificationServiceService {
 
   getUserProfil(userId: number): Observable<User> {
     return this.http.get<User>(`${this.urlApi}/profil/${userId}`);
-
-
   }
+
+
   getUserByEmail(userEmail: string): Observable<User> {
     return this.http.get<User>(`http://localhost:8090/users/${userEmail}`);
-
-
   }
+
+
    handleError(error: HttpErrorResponse) {
     let msg = '';
     if (error.error instanceof ErrorEvent) {
@@ -66,5 +70,12 @@ export class AuthentificationServiceService {
     }
     return throwError(msg);
   }
+
+  addRoleToUser(userName: string, roleName: string) {
+    const url = `${this.urlApi}/addRoleToUser`;
+    const roleForm = { userName, roleName };
+    return this.http.post<void>(url, roleForm);
+  }
+
 
 }
