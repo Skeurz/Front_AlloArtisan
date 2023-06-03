@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { AuthentificationServiceService } from 'src/app/core/services/authentification-service.service';
 import * as alertifyjs from 'alertifyjs';
+import { User } from 'src/app/core/modeles/user';
 
 
 @Component({
@@ -14,6 +15,7 @@ import * as alertifyjs from 'alertifyjs';
 })
 export class InscriptionFormComponent implements OnInit {
   artisanForm !: FormGroup;
+  user!: User;
   constructor(private formBuilder: FormBuilder,
      private router: Router,
      private liste: AuthentificationServiceService,
@@ -35,6 +37,8 @@ export class InscriptionFormComponent implements OnInit {
     //this.liste.ajouterUser(this.artisanForm.value).subscribe();
     console.log(this.artisanForm.value);
     this.liste.ajouterUser(this.artisanForm.value).subscribe(data=>{
+      this.user=data;
+      this.router.navigateByUrl(`/role/${this.user.userName}`);
       alertifyjs.set('notifier','position', 'bottom-center');
       alertifyjs.success('Compte créé');}, error=>{alertifyjs.set('notifier','position', 'bottom-center');
       alertifyjs.success('Compte créé')});
@@ -43,8 +47,8 @@ export class InscriptionFormComponent implements OnInit {
 
     
     //this.liste.addRoleToUser
-
-    this.router.navigateByUrl('/role/:userName');
+    this.router.navigateByUrl(`/role/${this.user.userName}`);
+    //this.router.navigateByUrl('/role/:userName');
   }
 
 }
