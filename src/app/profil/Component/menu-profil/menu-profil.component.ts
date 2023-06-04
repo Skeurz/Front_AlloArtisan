@@ -8,6 +8,7 @@ import jwt_decode from 'jwt-decode';
 import { ListArtisanService } from 'src/app/core/services/list-artisan.service';
 import { Router } from '@angular/router';
 import * as alertifyjs from 'alertifyjs';
+import { appRole } from 'src/app/core/modeles/role';
 
 
 @Component({
@@ -17,9 +18,14 @@ import * as alertifyjs from 'alertifyjs';
 })
 export class MenuProfilComponent implements OnInit{
   profil!:any;
-  profilForm !: FormGroup;
+  
   isEditing: boolean = false;
   loggedinUser : any;
+  userName: string;
+  userRoles: User[];
+  id: number;
+  
+
 
 
   constructor(private router: Router,private listArtisanService :ListArtisanService,private service:AuthentificationServiceService,
@@ -31,19 +37,26 @@ export class MenuProfilComponent implements OnInit{
    /* this.profilForm= this.formBuilder.group({
       userName: [null, Validators.required],
       roleName:[null, Validators.required],})*/
+      
       this.loggedinUser = localStorage.getItem('access_token')!;
    const decodedToken: any = jwt_decode(this.loggedinUser); 
    const subject = decodedToken.payload;
-    const id = subject.id
+    const id = subject.id  
+   
+   
     this.listArtisanService.getArtisanById(id).subscribe(
       (user: User) => {
         this.profil = user;
+        
       },
       (error) => {
         console.log(error); // Handle the error appropriately
       }
     );;
-   
+    this.listArtisanService.getUserRoles(id)
+    
+    
+    
     }
 
     updateUser(user: User): Observable<User> {
@@ -57,6 +70,7 @@ export class MenuProfilComponent implements OnInit{
         alertifyjs.set('notifier','position', 'bottom-center');
         alertifyjs.success('Utilisateur modifié avec succès');
         window.location.reload();
+        
     
       }, error => {
         // Handle error if the update fails
@@ -72,15 +86,18 @@ export class MenuProfilComponent implements OnInit{
    this.profil=this.listArtisanService.getArtisanById(id);
   } */
 
-
-    onAddRole(){
-    //  this.service.addRoleToUser(this.profilForm.value).subscribe();
-
-
-    }
+ /* getUserRoles(id: number): void {
+    this.listArtisanService.getUserRoles(id)
+      .subscribe(
+        roles => this.userRoles = roles,
+        error => console.log('Error:', error)
+      );
+      console.log(this.userRoles)
+  }*/
 
      //Ouverture fermeture bouton editer
         toggleEdit() {
+          
           this.isEditing = true;
           
         } 

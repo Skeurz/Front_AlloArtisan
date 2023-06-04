@@ -27,9 +27,12 @@ export class RoleComponent implements OnInit {
   ngOnInit(): void {
     this.roleForm = this.formBuilder.group({
       roleName: [null, Validators.required],
-      userName: [null, Validators.required],
+      
     })
+    this.getUser();
   }
+
+  
   getUser(){
     const userNameUser =this.route.snapshot.params['userName'];
     this.service.getUserByUserName(userNameUser).subscribe(
@@ -39,7 +42,19 @@ export class RoleComponent implements OnInit {
     );
 
   }
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
   addRoleToUser(userName: string, roleName: string): void {
+    
     this.service.addRoleToUser(userName, roleName).subscribe(
       () => {
         // Handle success if needed

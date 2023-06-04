@@ -97,8 +97,8 @@
               <div class="col-sm-3" >
                 <p class="mb-0">Rôle</p>
               </div>
-              <div class="col-sm-9" *ngIf="!isEditing">
-                <p class="text-muted mb-0">Artisan</p>
+              <div class="col-sm-9" *ngIf="!isEditing" >
+               <p class="text-muted mb-0" > {{profil.role}}</p>
               </div>  
               <div class="col-sm-9" *ngIf="isEditing">
                 <select formControlName="roleName" id="role" style="width: 80px;">

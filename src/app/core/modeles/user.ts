@@ -9,4 +9,6 @@ export class User {
     email!:string;
     password!:string;
     lastModified!: Date;
+    role!: string;
+    idRole!: number;
 }

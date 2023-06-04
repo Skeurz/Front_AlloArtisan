@@ -1,12 +1,9 @@
 <body>
     <div class="contact-container"> 
       <p class="title">Rôle :</p>
+      <h3>Bienvenu, {{this.user.userName}} !</h3>
       <p class="welcome-message"> Veuillez choisir votre rôle :</p>
-      <form class="contact-form" (submit)="addRoleToUser(userName.value, selectedRole)">
-        <div class="form-control">
-            <h5>Confirmez votre nom d'utilisateur:</h5>
-          <input type="text" #userName  required>
-        </div>        
+      <form class="contact-form" (submit)="addRoleToUser(this.user.userName, selectedRole)">     
         <label>
           <input type="radio" name="role" value="Artisan" [(ngModel)]="selectedRole" required > Artisan &nbsp;&nbsp;&nbsp;
         </label>     

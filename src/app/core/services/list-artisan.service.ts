@@ -3,10 +3,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Post } from '../modeles/post';
 import { User } from '../modeles/user';
+import { appRole } from '../modeles/role';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ListArtisanService {
 
   urlApi="http://localhost:8090"
@@ -46,6 +48,10 @@ export class ListArtisanService {
     getUserByUserName (userName:string){
       return this.http.get<User>(`${this.urlApi}/users/${userName}`)
   
+    }
+    getUserRoles(id: number): Observable<User> {
+      const url = `${this.urlApi}/${id}/roles`;
+      return this.http.get<User>(url);
     }
 
     

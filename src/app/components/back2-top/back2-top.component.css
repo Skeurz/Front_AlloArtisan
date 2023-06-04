@@ -1,8 +1,8 @@
 button {
-    position: fixed;
-    bottom:12%;
-    margin-left: 95%;
-    height: 5%;
-    border-radius: 999px;
+    position: fixed!important;
+    bottom:12%!important;
+    margin-left: 95%!important;
+    height: 5%!important;
+    border-radius: 999px!important;
        }
 
