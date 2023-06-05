@@ -90,8 +90,7 @@ img{
     display: grid;
     align-content: center;
     min-height: 100vh;
-    padding-bottom: 200px;
-    padding-top: 150px;
+    
 }
 
 .section1 p{

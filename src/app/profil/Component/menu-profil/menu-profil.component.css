@@ -13,13 +13,16 @@ body{
    overflow:-moz-hidden-unscrollable;
    overflow-x: hidden;
  }
-
+img:hover{
+  opacity: 0.5;
+  cursor: pointer;
+}
 
 .row {
   z-index: 0;
   box-sizing: border-box;
   position:relative;
-  
+  margin-left: 100px !important;
   
 }
 
@@ -40,6 +43,7 @@ p{
 
 .col-lg-8 {
   margin-top: 100px !important;
+  width: 900px;
 }
 .col-lg-4 {
   margin-top: 100px !important;

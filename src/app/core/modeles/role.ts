@@ -1,4 +1,4 @@
-export class appRole {
+export class AppRole {
   idRole: number;
   role: string;
 

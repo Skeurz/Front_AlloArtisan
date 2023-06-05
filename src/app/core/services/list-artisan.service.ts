@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Post } from '../modeles/post';
 import { User } from '../modeles/user';
-import { appRole } from '../modeles/role';
+import { AppRole } from '../modeles/role';
+import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -49,9 +51,16 @@ export class ListArtisanService {
       return this.http.get<User>(`${this.urlApi}/users/${userName}`)
   
     }
-    getUserRoles(id: number): Observable<User> {
+   /* getUserRoles(id: number): Observable<AppRole> {
       const url = `${this.urlApi}/${id}/roles`;
-      return this.http.get<User>(url);
+      return this.http.get<AppRole>(url);
+    }*/
+
+    getUserRoles(id: number): Observable<string[]> {
+      const url = `${this.urlApi}/${id}/roles`;
+      return this.http.get<AppRole[]>(url).pipe(
+        map((roles: AppRole[]) => roles.map(role => role.role))
+      );
     }
 
     

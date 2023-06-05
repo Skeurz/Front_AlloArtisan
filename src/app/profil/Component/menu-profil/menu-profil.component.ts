@@ -6,9 +6,9 @@ import { AuthentificationServiceService } from 'src/app/core/services/authentifi
 import { JwtHelperService } from '@auth0/angular-jwt';
 import jwt_decode from 'jwt-decode';
 import { ListArtisanService } from 'src/app/core/services/list-artisan.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as alertifyjs from 'alertifyjs';
-import { appRole } from 'src/app/core/modeles/role';
+import { AppRole } from 'src/app/core/modeles/role';
 
 
 @Component({
@@ -22,14 +22,15 @@ export class MenuProfilComponent implements OnInit{
   isEditing: boolean = false;
   loggedinUser : any;
   userName: string;
-  userRoles: User[];
+  userRoles: string[] = [];
   id: number;
+  user!:User;
   
 
 
 
   constructor(private router: Router,private listArtisanService :ListArtisanService,private service:AuthentificationServiceService,
-    private jwtHelper: JwtHelperService ,private formBuilder: FormBuilder){
+    private jwtHelper: JwtHelperService ,private formBuilder: FormBuilder, private route: ActivatedRoute){
 
   }
 
@@ -38,10 +39,10 @@ export class MenuProfilComponent implements OnInit{
       userName: [null, Validators.required],
       roleName:[null, Validators.required],})*/
       
-      this.loggedinUser = localStorage.getItem('access_token')!;
+   this.loggedinUser = localStorage.getItem('access_token')!;
    const decodedToken: any = jwt_decode(this.loggedinUser); 
    const subject = decodedToken.payload;
-    const id = subject.id  
+   const id = subject.id  
    
    
     this.listArtisanService.getArtisanById(id).subscribe(
@@ -54,8 +55,12 @@ export class MenuProfilComponent implements OnInit{
       }
     );;
     this.listArtisanService.getUserRoles(id)
+      .subscribe(
+        roles => this.userRoles = roles,
+        error => console.log('Error:', error)
+      );
     
-    
+      
     
     }
 
@@ -86,14 +91,14 @@ export class MenuProfilComponent implements OnInit{
    this.profil=this.listArtisanService.getArtisanById(id);
   } */
 
- /* getUserRoles(id: number): void {
+   /*  getUserRoles(id: number): void {
     this.listArtisanService.getUserRoles(id)
       .subscribe(
-        roles => this.userRoles = roles,
+        roles => this.userRoles = roles.map(role => role.roleName),
         error => console.log('Error:', error)
       );
-      console.log(this.userRoles)
   }*/
+  
 
      //Ouverture fermeture bouton editer
         toggleEdit() {

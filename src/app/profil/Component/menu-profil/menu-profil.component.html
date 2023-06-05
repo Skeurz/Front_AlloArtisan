@@ -98,11 +98,11 @@
                 <p class="mb-0">Rôle</p>
               </div>
               <div class="col-sm-9" *ngIf="!isEditing" >
-               <p class="text-muted mb-0" > {{profil.role}}</p>
+               <p class="text-muted mb-0" > {{userRoles}}</p>
               </div>  
               <div class="col-sm-9" *ngIf="isEditing">
-                <select formControlName="roleName" id="role" style="width: 80px;">
-
+                <select  id="role" style="width: 80px;">
+                  <option></option>
                   <option>Artisan</option>
                   <option>Client</option>
                 </select>

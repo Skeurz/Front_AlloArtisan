@@ -27,7 +27,7 @@ const routes: Routes = [
   {path :'admin',component: AdminPageComponent},
  // {path :'admin/edit', component: AdminEditComponent},
   {path :'login',component: LoginComponent},
-  {path :'login/user', loadChildren: () => import('./profil/profil.module').then(m => m.ProfilModule) },
+  {path :'profil', loadChildren: () => import('./profil/profil.module').then(m => m.ProfilModule) },
   {path :'adminposts', component: AdminListeOffresBesoinsComponent},
   {path :'role/:userName',component: RoleComponent},
    

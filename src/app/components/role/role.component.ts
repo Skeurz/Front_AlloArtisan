@@ -40,7 +40,6 @@ export class RoleComponent implements OnInit {
         this.user=data;
         }
     );
-
   }
   
   
