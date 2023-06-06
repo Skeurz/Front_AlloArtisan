@@ -22,13 +22,15 @@
               <input type="password" name="confirmpassword" placeholder="Confirmer mot de passe" formControlName="confirmpassword" required>
       </div>-->
      
-     
+      <div *ngIf="artisanForm.get('email')?.invalid && artisanForm.get('email')?.touched">
+        <p class="error-message">Invalid email address</p></div>
      
       <!--<select id="role" class="drop" required>
         <option class="drop"> artisan</option>
         <option class="drop"> client</option>
       </select> -->
       <button class="submit" (click)="onSubmitForm()">Inscription</button>
+      
       <div> Vous possédez déjà un compte? <a href="login">Connectez vous !</a></div>
     </form>
   </div>

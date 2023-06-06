@@ -6,6 +6,7 @@ import { tap } from 'rxjs/operators';
 import { AuthentificationServiceService } from 'src/app/core/services/authentification-service.service';
 import * as alertifyjs from 'alertifyjs';
 import { User } from 'src/app/core/modeles/user';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 
 @Component({
@@ -26,13 +27,49 @@ export class InscriptionFormComponent implements OnInit {
     this.artisanForm = this.formBuilder.group({
       nom: [null, Validators.required],
       userName: [null, Validators.required],
+      
       prenom: [null, Validators.required],
-      email: [null, Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      //email: [null, Validators.required],
       password: [null, Validators.required],
     });
 
   }
+  validateEmail(email: string): boolean {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  }
+
   onSubmitForm() {
+    console.log(this.artisanForm.controls['email'].status);
+    
+  
+    const email = this.artisanForm.value.email;
+    if (!this.validateEmail(email)) {
+      // Invalid email, show an error message or handle the error
+      return;
+    }
+    console.log(this.artisanForm.value);
+    this.liste.ajouterUser(this.artisanForm.value).subscribe(
+      data => {
+        this.user = data;
+        this.router.navigateByUrl(`/role/${this.user.userName}`);
+        alertifyjs.set('notifier', 'position', 'bottom-center');
+        alertifyjs.success('Compte créé');
+      },
+      error => {
+        alertifyjs.set('notifier', 'position', 'bottom-center');
+        alertifyjs.error('Erreur lors de la création du compte');
+      }
+    );
+  }
+
+  
+  
+  
+  
+  
+  /*onSubmitForm() {
 
     //this.liste.ajouterUser(this.artisanForm.value).subscribe();
     console.log(this.artisanForm.value);
@@ -49,6 +86,6 @@ export class InscriptionFormComponent implements OnInit {
     //this.liste.addRoleToUser
     this.router.navigateByUrl(`/role/${this.user.userName}`);
     //this.router.navigateByUrl('/role/:userName');
-  }
+  }*/
 
 }

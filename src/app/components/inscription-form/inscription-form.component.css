@@ -27,6 +27,12 @@ body {
      overflow:-moz-hidden-unscrollable;
    
 }
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
 
 input[type="text"],
 input[type="password"],

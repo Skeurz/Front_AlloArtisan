@@ -87,23 +87,31 @@ export class MenuProfilComponent implements OnInit{
 
     deleteUser(id: number) {
       
-      this.listArtisanService.deleteUser(id)
-      
-        .subscribe(
-          () => { console.log('User deleted successfully.');
-
-          this.users = this.users.filter(user => user.id !== id);
-          localStorage.removeItem('access_token');
-          this.router.navigate([""]);
-          alertifyjs.set('notifier','position', 'bottom-center');
-          alertifyjs.success('Utilisateur supprimé');
-            // Handle successful deletion, e.g., show a success message
+      alertifyjs.confirm("Voulez vous vraiment supprimer votre compte ?", () => {
+        // User confirmed deletion
+        this.listArtisanService.deleteUser(id).subscribe(
+          () => {
+            // User deleted successfully
+            console.log('Utilisateur supprimé');
+            this.users = this.users.filter(user => user.id !== id);
+            localStorage.removeItem('access_token');
+            this.router.navigate([""]);
+            alertifyjs.set('notifier', 'position', 'bottom-center');
+            alertifyjs.success('Utilisateur supprimé');
           },
-          (error) => {  console.error('An error occurred while deleting the user:', error)
+          (error) => {
+            // An error occurred while deleting the user
+            console.error('Erreur', error);
             // Handle error, e.g., show an error message
+            alertifyjs.error('Erreur lors de la suppression');
           }
         );
+      }, () => {
+        // User canceled the deletion
+        alertifyjs.error('Suppression annulée');
+      }).set({title:"Suppression de compte"}).set('labels', {ok:'Oui', cancel:'Annuler'}); ;
     }
+    
   
  /* getData() {
     return sessionStorage.getItem('token');

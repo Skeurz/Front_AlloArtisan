@@ -22,6 +22,7 @@ export class AdminPageComponent implements OnInit {
   id: number;
   showComponent: boolean = false;
   selectedUser: User;
+  userRoles: string[] = [];
 
 
   constructor(private listArtisanService :ListArtisanService,private router: Router, private http: HttpClient, private location: Location){ }
@@ -44,6 +45,7 @@ export class AdminPageComponent implements OnInit {
    ngOnInit() : void {
   // this.artisan$=this.listArtisanService.getAllArtisan();
    this.artisan$=this.listArtisanService.getAllArtisan();
+   
 
  }
 
