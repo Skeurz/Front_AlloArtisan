@@ -25,6 +25,7 @@ export class MenuProfilComponent implements OnInit{
   userRoles: string[] = [];
   id: number;
   user!:User;
+  users: any[] = [] 
   
 
 
@@ -81,6 +82,27 @@ export class MenuProfilComponent implements OnInit{
         // Handle error if the update fails
         console.error('Error updating user:', error);
       });
+    }
+
+
+    deleteUser(id: number) {
+      
+      this.listArtisanService.deleteUser(id)
+      
+        .subscribe(
+          () => { console.log('User deleted successfully.');
+
+          this.users = this.users.filter(user => user.id !== id);
+          localStorage.removeItem('access_token');
+          this.router.navigate([""]);
+          alertifyjs.set('notifier','position', 'bottom-center');
+          alertifyjs.success('Utilisateur supprimé');
+            // Handle successful deletion, e.g., show a success message
+          },
+          (error) => {  console.error('An error occurred while deleting the user:', error)
+            // Handle error, e.g., show an error message
+          }
+        );
     }
   
  /* getData() {

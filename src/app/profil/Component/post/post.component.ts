@@ -14,6 +14,7 @@ import * as alertifyjs from 'alertifyjs';
 })
 export class PostComponent implements OnInit {
   userPost!: FormGroup;
+  profil!:any;
 
   constructor(private listePostsService :ListePostsService,
      private router: Router,

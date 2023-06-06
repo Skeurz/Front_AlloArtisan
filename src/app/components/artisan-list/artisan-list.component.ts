@@ -11,15 +11,40 @@ import { User } from 'src/app/core/modeles/user';
   styleUrls: ['./artisan-list.component.css']
 })
 export class ArtisanListComponent implements OnInit {
-
+ selectedadresse: string;
  artisan$!: Observable<User[]>;
+
+ users: any;
+ 
+
+ 
+
 
 
  constructor(private listArtisanService :ListArtisanService){ }
 
-  ngOnInit() : void {
- // this.artisan$=this.listArtisanService.getAllArtisan();
-  this.artisan$=this.listArtisanService.getAllArtisan();
-}
+  ngOnInit() : void {}
+
+  tous() {
+    
+    this.artisan$=this.listArtisanService.getAllArtisan();
+  }
+
+  clearSearch() {window.location.reload();}
+
+    
+  
+
+
+  searchUsers(adresse: string) {
+    if (!this.selectedadresse) {
+      return console.log("No"); 
+    }
+    this.listArtisanService.getUserByAdresse(this.selectedadresse)
+    .subscribe(users => {
+      this.users = users;
+      console.log(this.users)
+    });
+  }
 
 }
