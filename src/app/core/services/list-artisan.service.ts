@@ -69,6 +69,12 @@ export class ListArtisanService {
       return this.http.get<User>(url);
     }
 
+
+
+    getUsersByRoleId(idRole: number): Observable<any> {
+      return this.http.get<any>(`${this.urlApi}/roles/${idRole}`);
+    }
+
     
  
 

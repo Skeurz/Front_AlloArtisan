@@ -27,7 +27,7 @@ export class ArtisanListComponent implements OnInit {
 
   tous() {
     
-    this.artisan$=this.listArtisanService.getAllArtisan();
+    this.artisan$=this.listArtisanService.getUsersByRoleId(8);
   }
 
   clearSearch() {window.location.reload();}
