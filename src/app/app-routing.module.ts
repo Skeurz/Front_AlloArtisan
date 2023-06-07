@@ -12,6 +12,7 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
 import { AdminEditComponent } from './components/admin-edit/admin-edit.component';
 import { AdminListeOffresBesoinsComponent } from './components/admin-liste-offres-besoins/admin-liste-offres-besoins.component';
 import { RoleComponent } from './components/role/role.component';
+import { AdminReclamationComponent } from './components/admin-reclamation/admin-reclamation.component';
 
 
 
@@ -24,11 +25,12 @@ const routes: Routes = [
   {path :'artisans',component: ArtisanListComponent},
   {path :'service',component: ListServiceComponent},
   {path :'besoin',component: ListBesoinsComponent},
-  {path :'admin',component: AdminPageComponent},
+  {path :'admin/users',component: AdminPageComponent},
+  {path :'admin/reclamations', component: AdminReclamationComponent},
  // {path :'admin/edit', component: AdminEditComponent},
   {path :'login',component: LoginComponent},
   {path :'profil', loadChildren: () => import('./profil/profil.module').then(m => m.ProfilModule) },
-  {path :'adminposts', component: AdminListeOffresBesoinsComponent},
+  {path :'admin/posts', component: AdminListeOffresBesoinsComponent},
   {path :'role/:userName',component: RoleComponent},
    
 

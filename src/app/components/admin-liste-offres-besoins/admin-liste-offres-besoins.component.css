@@ -1,6 +1,8 @@
 body {   
     overflow-x: hidden;
     z-index: -50;
+    font-size: 14px; 
+    color: #1c498d;
        background:
        url("src/assets/images/v116_215.png");
        background-repeat: no-repeat;
@@ -9,10 +11,22 @@ body {
      background-position: center center;
      background-repeat: no-repeat;
      text-align:center;
-     
      overflow:auto;
      
  }
+
+ h1 {
+  margin-top: 120px;
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
+  text-shadow:
+     3px 3px 0 #fff,
+   -1px -1px 0 #fff,  
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+     1px 1px 0 #fff;
+  font-weight: 900;
+  font-family: fantasy !important;
+}
 /*
  .col-lg-8.mx-auto{
     display: grid;

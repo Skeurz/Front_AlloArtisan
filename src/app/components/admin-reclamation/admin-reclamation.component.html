@@ -1,0 +1,28 @@
+<body>
+<div class="container">
+  <h1>Réclamations :</h1>
+<button class="btn btn-primary" style="margin: 5px !important;" routerLink="/admin/users">Liste des utilisateurs >></button>
+<button class="btn btn-primary" style="margin: 5px !important;" routerLink="/admin/posts">Listes des postes >></button>
+  <div class="row">
+      <div class="col-lg-4 " *ngFor="let rec of reclamations" >
+          <div class="card card-margin bg-dark text-light">
+              <div class="card-header no-border">
+                  <h4 class="card-title" > {{rec.sujet}} </h4>
+              </div>
+              <div class="card-body">
+                  <div>
+                          <p class="liste1">Nom d'utilisateur : <b>{{rec.userName}}</b></p>
+                          <p class="liste1">Email : <b>{{rec.email}}</b></p>
+                  <div class="widget-49-meeting-action">
+                          <a> {{rec.description}}</a>
+                      </div>
+                      <br>
+                     <button class="btn btn-sm btn-danger" (click)="deleteReclamation(rec.reclamationId)" style="margin-left: 300px;"> <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>
+                     </button>
+                    </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</body>

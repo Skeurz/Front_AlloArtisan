@@ -43,10 +43,7 @@ export class AdminPageComponent implements OnInit {
 }
 
    ngOnInit() : void {
-  // this.artisan$=this.listArtisanService.getAllArtisan();
    this.artisan$=this.listArtisanService.getAllArtisan();
-   
-
  }
 
  Activation(user: User) {

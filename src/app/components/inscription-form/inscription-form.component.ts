@@ -46,7 +46,7 @@ export class InscriptionFormComponent implements OnInit {
   
     const email = this.artisanForm.value.email;
     if (!this.validateEmail(email)) {
-      // Invalid email, show an error message or handle the error
+      
       return;
     }
     console.log(this.artisanForm.value);

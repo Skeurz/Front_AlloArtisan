@@ -2,22 +2,24 @@
     <div class="contact-container"> 
       <p class="title">Nous contacter :</p>
       <p class="welcome-message"> Veuillez inserez les données nécessaire afin de nous contacter </p>
-      <form class="contact-form">
+      <form [formGroup]="reclamationForm" (ngSubmit)="onSubmit()">
+        <label for="userName">Nom d'utilisateur :</label>
         <div class="form-control">
           <input type="text" name="userName" placeholder="🙋🏽‍ Nom d'utilisateur" id="userName" formControlName="userName" required>
         </div>        
-        <div class="form-control">
-          <input type="email" name="email" placeholder="📬 Email"   required>
+        <label for="email">Email:</label>
+        <div class="form-control">      
+          <input type="email" name="email" placeholder="📬 Email" formControlName="email"  required>       
         </div>
-        <div class="form-control">
+        <label for="sujet">Sujet:</label>
+        <div class="form-control">         
             <input type="text" name="sujet" placeholder="⭐ Sujet" id="sujet" formControlName="sujet" required>
           </div>
-          <div class="form-control">
-            
-            <textarea placeholder="✏️ Description" name="description"  id="description"  height="150px" required></textarea>
+          <label for="description">Description:</label>
+          <div class="form-control">            
+            <textarea placeholder="✏️ Description" name="description"  id="description" formControlName="description" height="150px" required></textarea>
           </div>
-        <button class="submit" id="button"(click)="showMessageSoon()">Envoyer</button>
-        <p *ngIf="showMyMessage" class="succesmessage">✔ Message envoyé</p>
+        <button class="submit" id="button"[disabled]="reclamationForm.invalid">Envoyer</button>
       </form>
     </div>
     </body>
