@@ -20,61 +20,47 @@
 
 <body>
 
-<section class="section1">
+
+  
+
+  <section class="section1">
     <h1 class="premier">Services artisanaux aux bouts des doigts</h1>
-    
-   <!-- <div class="slider-frame"><div class="slide-images">
-        <div class="img-container">
-     <img src="https://images.pexels.com/photos/13794443/pexels-photo-13794443.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="400"
-     height="400" class="image">
-    </div>
-    <div class="img-container">
-        <img src="https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="400"
-        height="400" class="image">
-       </div>
-       <div class="img-container">
-        <img src="https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="400"
-        height="400" class="image">
-       </div>
+    <p class="paragraph1"> 
+      Avez-vous besoin de travaux que ce soit en menuiseries, construction, carrelage, plomberie, jardinage ou n'importe quel 
+      travaux artisanaux ? <b class="highlight">AlloArtisan</b> vous liera avec un artisan professionnel en quelques cliques !
+      <br><br>
+      <a *ngIf="!loggedin()" class="btn" href="authentifier">S'inscrire >></a>
+    </p>
+  </section>
+
+
+  <section><i class="fas fa-angle-down fa-light fa-beat fa-2xl" style="color: #c0c0c0;
+    display: flex; justify-content: center; align-items: center;" ></i></section>
+
+
+<section>
+  <div class="row1">
+<div class="image-wrapper ">
+  <div *ngFor="let image of images; let i = index" class="image-container  border border-primary border-5 rounded"
+   [class.hidden]="i !== currentImageIndex">
+    <img [src]="image" alt="Image">
   </div>
-</div>-->
-      
-      <p> 
-        <img [src]="images[currentImageIndex]" id="image" style="">
-         Avez vous besoin de trauvaux que ça soit en menuiseries, construction, carrelage, plomberies, jardinage ou n'importe quel 
-        travaux artisanaux ? <b style="color:#1c498d; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">AlloArtisan</b> 
-        vous liera avec un artisan professionel en quelques cliques !
-        
-       <br><br><a *ngIf="!loggedin()" class="btn" style="background-color: #1c498d; color: white;" href="authentifier">S'inscrire >></a>
-      </p>
-      
-      <!--  <img src="https://images.pexels.com/photos/11091016/pexels-photo-11091016.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" id="image"
-        style="display: none;">
-        <img src="https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" id="image" 
-        style="display: none;"> -->
-       
-       
-      <!-- <script type="text/javascript">
-        let image = document.getElementById('image');
-        let images = ['https://images.pexels.com/photos/11091016/pexels-photo-11091016.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-        ,'https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-        ,'https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1']
-        setInterval(function(){ let random=Math.floor(Math.random()*4);
-        image.src=images[random];},800);
-       </script>-->
-       <script>
-        var images = []
-        images[0]=['https://images.pexels.com/photos/11091016/pexels-photo-11091016.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'];
-        images[1]=['https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'];
-        images[2]=['https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'];
-       </script>
+</div>
+</div>
 </section>
 
+
+
+
 <section><i class="fas fa-angle-down fa-light fa-beat fa-2xl" style="color: #c0c0c0;
-display: flex; justify-content: center; align-items: center;" ></i></section>
+  display: flex; justify-content: center; align-items: center;" ></i></section>
+
+
+
+
 
 <section class="section 2">
-    <div class="row">
+    <div class="row1">
         <div class="card">
         <h1 class="who">Qui sommes nous ? </h1>
         <p class="nous">On est une poignée d'étudiants amateurs en programmation qui sont entrain de passer leur license professionel et ceci est comme projet PFE.</p>
@@ -88,7 +74,7 @@ display: flex; justify-content: center; align-items: center;" ></i></section>
 
 
 <section class="section 2">
-  <div class="row">
+  <div class="row1">
       <div class="card2">
       <h1 class="who">Êtes-vous expert dans un domaine ? </h1>
       <p class="nous">Rejoignez notre platforme afin de partager votre expertise avec plusieurs utilisateurs. Ne perdez pas de temps, Inscrivez vous!</p>
@@ -133,9 +119,14 @@ display: flex; justify-content: center; align-items: center;" ></i></section>
   </div>
 </section>
 
+<section><i class="fas fa-angle-down fa-light fa-beat fa-2xl" style="color: #c0c0c0;
+  display: flex; justify-content: center; align-items: center;" ></i></section>
 
+<section class="section-zetta">
 
+<div class="cardio" (click)="redirectToLink('/contact')" href="#">Un problème avec un utilisateur ?</div>
 
+</section>
 
 <app-back2-top></app-back2-top>
 

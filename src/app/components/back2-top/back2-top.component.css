@@ -6,3 +6,18 @@ button {
     border-radius: 999px!important;
        }
 
+       @media (max-width: 768px) {
+        button {
+          bottom: 8%;
+          right: 3%;
+          
+        }
+      }
+      
+      @media (max-width: 480px) {
+        button {
+          bottom: 4%;
+          right: 2%;
+          
+        }
+      }

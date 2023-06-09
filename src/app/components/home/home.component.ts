@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -15,9 +17,11 @@ export class HomeComponent {
 
 
   
-  constructor(){}
+  constructor(private router: Router){}
   
   ngOnInit(): void {this.startImageRotation();}
+
+
   startImageRotation(): void {
     setTimeout(() => {
       this.rotateImage();
@@ -26,7 +30,12 @@ export class HomeComponent {
   }
 
   rotateImage(): void {
+    const previousImageIndex = this.currentImageIndex;
     this.currentImageIndex = (this.currentImageIndex + 1) % this.images.length;
+  
+    const imageContainers = document.getElementsByClassName('image-container');
+    imageContainers[previousImageIndex].classList.add('hidden');
+    imageContainers[this.currentImageIndex].classList.remove('hidden');
   }
 
 
@@ -40,5 +49,11 @@ export class HomeComponent {
     localStorage.removeItem('access_token');
   }
 
+  
+  redirectToLink(url: string): void {
+    this.router.navigate([url]);
+  }
+  
+  
 }
 
