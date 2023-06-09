@@ -19,10 +19,11 @@
                                         <div class="frontside">
                                             <div class="card">
                                                 <div class="card-body text-center" >
-                                                    <p><img class=" img-fluid" [src]="o.imgUrl" alt="image ici"></p>
+                                                    <p><img class=" img-fluid" [src]="o.imgUrl" alt="Pas d'image"></p>
                                                     <h4 class="card-title">{{o.titreAnnonce}}</h4>
                                                     <p class="card-text">{{o.ville}}</p>
-                                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                                    {{o.dateCreated | date: 'dd/MM/yyyy HH:mm:ss'}}
+                                                    
                                                 </div>
                                             </div>
                                         </div>

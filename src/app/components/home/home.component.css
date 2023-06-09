@@ -187,22 +187,27 @@ h1.premier {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-animation: aitf 5s linear infinite;
+  -webkit-animation: barberPoleAnimation 80s linear infinite;}
+
+
+
+@keyframes barberPoleAnimation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
 }
 
-
-/* Animate Background Image */
-
-@-webkit-keyframes aitf {
-0% { background-position: 0% 50%; }
-100% { background-position: 100% 50%; }
-}
 
 
 @media screen and (max-width: 768px) {
   h1.premier {
     font-size: 42px;
     animation-duration: 1.5s;
+    -webkit-animation: barberPoleAnimation 60s linear infinite;
+    animation: barberPoleAnimation 60s linear infinite;
   }
 }
 
@@ -210,6 +215,8 @@ h1.premier {
   h1.premier {
     font-size: 32px;
     animation-duration: 1s;
+    -webkit-animation: barberPoleAnimation 60s linear infinite;
+    animation: barberPoleAnimation 60s linear infinite;
   }
 }
 
@@ -412,6 +419,7 @@ h1.premier {
       height: auto;
     }
   }
+  
 
 
 

@@ -46,7 +46,7 @@ button {
 
 .contact-container {
   margin:150px!important;
-  max-width: 720px;
+  max-width: 620px !important;
   background-color: #212529;
   padding: 24px;
   padding-bottom: 12px;
@@ -161,11 +161,11 @@ textarea{
   font-weight: 900;
 }
 
-
-
-
-
-
+@media (max-width: 768px) {
+  .contact-container {
+    margin: 20px;
+  }
+}
 
 
 
