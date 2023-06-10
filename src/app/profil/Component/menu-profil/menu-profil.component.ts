@@ -52,7 +52,7 @@ export class MenuProfilComponent implements OnInit{
         
       },
       (error) => {
-        console.log(error); // Handle the error appropriately
+        console.log(error); // erreur
       }
     );;
     this.listArtisanService.getUserRoles(id)
@@ -88,10 +88,10 @@ export class MenuProfilComponent implements OnInit{
     deleteUser(id: number) {
       
       alertifyjs.confirm("Voulez vous vraiment supprimer votre compte ?", () => {
-        // User confirmed deletion
+        // confirmation
         this.listArtisanService.deleteUser(id).subscribe(
           () => {
-            // User deleted successfully
+            // suppression réussi
             console.log('Utilisateur supprimé');
             this.users = this.users.filter(user => user.id !== id);
             localStorage.removeItem('access_token');
@@ -100,14 +100,14 @@ export class MenuProfilComponent implements OnInit{
             alertifyjs.success('Utilisateur supprimé');
           },
           (error) => {
-            // An error occurred while deleting the user
+            // 
             console.error('Erreur', error);
-            // Handle error, e.g., show an error message
+            // 
             alertifyjs.error('Erreur lors de la suppression');
           }
         );
       }, () => {
-        // User canceled the deletion
+        // annulation de la suppression
         alertifyjs.error('Suppression annulée');
       }).set({title:"Suppression de compte"}).set('labels', {ok:'Oui', cancel:'Annuler'}); ;
     }
@@ -140,6 +140,16 @@ export class MenuProfilComponent implements OnInit{
           this.isEditing = false;
           
         }     
+
+
+
+
+
+        
+
+
+
+
 
   }
 

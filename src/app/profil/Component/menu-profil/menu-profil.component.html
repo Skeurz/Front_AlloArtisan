@@ -7,7 +7,7 @@
               class="rounded-circle img-fluid" style="width: 150px;">
             <h5 class="my-3">{{profil.prenom}} {{profil.nom}}</h5>
             <p class="text-muted mb-4">{{profil.adresse}}</p>
-            <p class="text-muted mb-4">Rôle ici</p>
+            <p class="text-muted mb-4">{{userRoles}}</p>
             <div class="d-flex justify-content-center mb-2">
               <button type="button" class="btn btn-primary" (click)="toggleEdit()" *ngIf="!isEditing">Éditer mon profil</button>
               <button type="button" class="btn btn-primary" (click)="togglerEdit()"*ngIf="isEditing">Revenir</button>
