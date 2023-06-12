@@ -26,7 +26,8 @@
           <td><span>{{p.ville}}</span></td>
           <td><span>{{p.titreAnnonce}}</span></td>
           <td><span>{{p.description}}</span></td>
-          <td><span>{{p.imgUrl}}</span></td>
+          <td><span><td><span><img [src]="p.imgUrl" alt="Aucune image"
+            class="img-fluid" style="width: 45px; height: 45px;"></span></td></span></td>
           <td>
             
             <button class="btn btn-sm" style="background-color: #1c498d; color: white;" (click)="Activation(p)">

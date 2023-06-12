@@ -3,18 +3,23 @@
     <p class="title">S'inscrire :</p>
     <p class="welcome-message"> Veuillez fournir les données nécessaires pour s'inscrire </p>
     <form class="register-form" [formGroup]="artisanForm">
+      <label for="nom">Nom :</label>
       <div class="form-control">
         <input type="text" name="nom" placeholder="Nom" formControlName="nom" required>      
       </div>
+      <label for="prenom">Prénom :</label>
       <div class="form-control">
         <input type="text" name="prenom" placeholder="Prénom" formControlName="prenom"  required>      
       </div>
+      <label for="userName">Nom d'utilisateur :</label>
       <div class="form-control">
         <input type="text" name="userName" placeholder="Nom d'utilisateur" formControlName="userName" required>      
       </div>
+      <label for="email">Email :</label>
       <div class="form-control">
         <input type="email" name="email" placeholder="Email" formControlName="email" required>      
       </div>
+      <label for="password">Mot de passe :</label>
       <div class="form-control">
         <input type="password" name="password" placeholder="Mot de passe" formControlName="password" required>
       </div>

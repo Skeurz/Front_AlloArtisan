@@ -60,10 +60,11 @@ export class MenuProfilComponent implements OnInit{
         roles => this.userRoles = roles,
         error => console.log('Error:', error)
       );
-    
-      
-    
+
     }
+
+
+    
 
     updateUser(user: User): Observable<User> {
       return this.listArtisanService.updateUser(user);
@@ -132,17 +133,29 @@ export class MenuProfilComponent implements OnInit{
 
      //Ouverture fermeture bouton editer
         toggleEdit() {
-          
-          this.isEditing = true;
-          
+          this.isEditing = true;  
         } 
+
+
         togglerEdit() {
-          this.isEditing = false;
-          
+          this.isEditing = false;   
         }     
 
 
-
+        avatar() {
+          const oldValue = this.profil.profileImage;
+          alertifyjs.prompt('Veuillez rentrer le lien image (laisser vide pour retirer votre avatar):', oldValue,
+          (_evt: any, value: String) => {
+           
+          alertifyjs.success('Avatar ajouté');
+          this.profil.profileImage = value;
+          console.log( this.profil.profileImage);
+             },
+             
+          () => {alertifyjs.error('Annulation');this.profil.profileImage = oldValue;})
+          .set({title:"Avatar :"}).set('labels', {ok:'Valider', cancel:'Annuler'}); ;
+                  }
+      
 
 
         

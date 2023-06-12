@@ -2,13 +2,13 @@
     <div class="container">
         <h1 class="title">J'ai oublié mon mot de passe</h1>
         <p class="message-email">Entrez votre email :</p>
-        <form>
+        <form (ngSubmit)="submitEmail()">
             <div class="form-control">
-            <input type="email" placeholder="📬 Email" required>
+            <input type="email" placeholder="📬 Email" e="email" id="email" name="email" [(ngModel)]="email" required>
             </div>
             <div>
-            <button (click)="showMessageSoon()" class="submit">Envoyer</button>
-            <p *ngIf="showMyMessage" class="succesmessage">✔ Email envoyé</p>
+            <button class="submit">Envoyer</button>
+           <!-- <p class="succesmessage">✔ Email envoyé</p>-->
         </div>
         </form>
     </div>

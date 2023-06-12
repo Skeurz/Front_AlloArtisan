@@ -10,10 +10,10 @@ body{
    text-align:center;
    margin:auto;
    padding:0;
-   overflow:-moz-hidden-unscrollable;
+  /* overflow:-moz-hidden-unscrollable;*/
    overflow-x: hidden;
  }
-img:hover{
+ .edited:hover{
   opacity: 0.5;
   cursor: pointer;
 }
@@ -22,8 +22,6 @@ img:hover{
   z-index: 0;
   box-sizing: border-box;
   position:relative;
-  margin-left: 100px !important;
-  
 }
 
 .card.mb-4{
@@ -47,8 +45,35 @@ p{
 }
 .col-lg-4 {
   margin-top: 100px !important;
+  margin-left: 85px;
 }
 .btn.btn-success {
   margin-left: 550px;
   width: 100px;
+}
+
+@media (max-width: 1440px) {
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .col-lg-8,
+  .col-lg-4 {
+    margin-top: 20px !important;
+    max-width: 100%;
+  }
+  .col-lg-4 {
+    margin-top: 100px !important;
+    margin-left: 0;
+  }
+  .col-lg-8 {
+    margin-bottom: 50px !important;
+  }
+  .btn.btn-success {
+    margin-bottom:20px ;
+    margin-top: 20px;
+  }
+  
+
 }

@@ -5,9 +5,11 @@
     ainsi que mot de passe </p>
   <form class="login-form" [formGroup]="FormConnexion">
  <!-- <form class="login-form" #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">  -->
+  <label for="userName">Nom d'utilisateur :</label>
     <div class="form-control">
       <input type="text" name="userName" placeholder="🙋🏽‍ Nom d'utilisateur" id="userName" formControlName="userName" required>
     </div>
+    <label for="password">Mot de passe :</label>
     <div class="form-control">
       <input type="password" name="password" placeholder="🔓 Mot de passe"  formControlName="password" required>
       <!--<input type="password" name="password" placeholder="🔓 Mot de passe" ngModel required>-->

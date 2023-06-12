@@ -13,7 +13,7 @@ import * as alertifyjs from 'alertifyjs';
 })
 export class RoleComponent implements OnInit {
   roleForm !:FormGroup;
-  user!:User;
+  user: User = {} as User;
   selectedRole: string;
 
 

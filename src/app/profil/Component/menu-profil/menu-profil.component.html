@@ -3,8 +3,10 @@
       <div class="col-lg-4">
         <div class="card mb-4 bg-dark">
           <div class="card-body text-center ">
-            <img src="https://static.vecteezy.com/system/resources/previews/005/544/718/original/profile-icon-design-free-vector.jpg" alt="avatar"
-              class="rounded-circle img-fluid" style="width: 150px;">
+            <img [src]="profil.profileImage" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px; height: 150px;" *ngIf="!isEditing">
+              <img [src]="profil.profileImage" alt="avatar"
+              class="edited rounded-circle img-fluid" style="width: 150px; height: 150px;" *ngIf="isEditing" (click)="avatar()" >
             <h5 class="my-3">{{profil.prenom}} {{profil.nom}}</h5>
             <p class="text-muted mb-4">{{profil.adresse}}</p>
             <p class="text-muted mb-4">{{userRoles}}</p>
@@ -12,12 +14,14 @@
               <button type="button" class="btn btn-primary" (click)="toggleEdit()" *ngIf="!isEditing">Éditer mon profil</button>
               <button type="button" class="btn btn-primary" (click)="togglerEdit()"*ngIf="isEditing">Revenir</button>
               <button type="button" class="btn btn-outline-primary ms-1" routerLink="post">Postuler une annonce</button>
+              
             </div>
             
           </div>
           
         </div>
         <button type="button" class="btn btn-danger"(click)="deleteUser(profil.id)"><i class="fa-regular fa-trash-can" style="color: #ffffff;"></i> Supprimer mon compte</button>
+        
  </div>
  
 
@@ -147,7 +151,7 @@
                <p class="text-muted mb-0" > {{userRoles}}</p>
               </div>  
               <div class="col-sm-9" *ngIf="isEditing">
-                <select  id="role" style="width: 80px;">
+                <select  id="role" style="width: 80px;"[(ngModel)]="userRoles">
                   <option></option>
                   <option>Artisan</option>
                   <option>Client</option>
@@ -161,13 +165,13 @@
               </div>
               <div class="col-sm-9" >
                 <p class="text-muted mb-0">{{profil.dateCreated | date: 'dd/MM/yyyy HH:mm:ss'}}</p>
-              </div>         
-            </div>
+              </div>   
+            </div>    
           </div>
         </div>
       </div>
-       <div class="btn btn-success" *ngIf="isEditing" (click)="onUpdateUser(profil)">Éditer</div>
     </div>
+    <div  class="btn btn-success" *ngIf="isEditing" (click)="onUpdateUser(profil)">Éditer</div> 
 </body>
 
 

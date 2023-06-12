@@ -1,7 +1,7 @@
 <body>
     <div class="contact-container"> 
       <p class="title">Rôle :</p>
-      <h3>Bienvenu, {{this.user.userName}} !</h3>
+      <h3>Bienvenu, {{user.userName}} !</h3>
       <p class="welcome-message"> Veuillez choisir votre rôle :</p>
       <form class="contact-form" (submit)="addRoleToUser(this.user.userName, selectedRole)">     
         <label>

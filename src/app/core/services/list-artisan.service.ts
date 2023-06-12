@@ -77,7 +77,11 @@ export class ListArtisanService {
 
     
  
-
+    sendPasswordResetEmail(email: string): Observable<any> {
+      const url = `${this.urlApi}/forgot-password`;
+      const payload = { email: email };
+      return this.http.post(url, payload);
+    }
 
 
 
