@@ -3,9 +3,9 @@
       <div class="col-lg-4">
         <div class="card mb-4 bg-dark">
           <div class="card-body text-center ">
-            <img [src]="profil.profileImage" alt="avatar"
+            <img [src]="profil.profileImage" alt=" avatar"
               class="rounded-circle img-fluid" style="width: 150px; height: 150px;" *ngIf="!isEditing">
-              <img [src]="profil.profileImage" alt="avatar"
+              <img [src]="profil.profileImage" alt="✏️ avatar"
               class="edited rounded-circle img-fluid" style="width: 150px; height: 150px;" *ngIf="isEditing" (click)="avatar()" >
             <h5 class="my-3">{{profil.prenom}} {{profil.nom}}</h5>
             <p class="text-muted mb-4">{{profil.adresse}}</p>
@@ -151,11 +151,10 @@
                <p class="text-muted mb-0" > {{userRoles}}</p>
               </div>  
               <div class="col-sm-9" *ngIf="isEditing">
-                <select  id="role" style="width: 80px;"[(ngModel)]="userRoles">
-                  <option></option>
+                <p class="text-muted mb-0" > {{userRoles}}</p>
+                 <!-- <option></option>
                   <option>Artisan</option>
-                  <option>Client</option>
-                </select>
+                  <option>Client</option>-->
               </div>           
             </div>
             <hr>

@@ -64,9 +64,9 @@ export class ListArtisanService {
     }
 
 
-    getUserByAdresse(adresse: string) {
+    getUserByAdresse(adresse: string): Observable<any> {
       const url = `${this.urlApi}/${adresse}`;
-      return this.http.get<User>(url);
+      return this.http.get<any>(url);
     }
 
 

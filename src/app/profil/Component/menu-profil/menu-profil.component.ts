@@ -17,7 +17,7 @@ import { AppRole } from 'src/app/core/modeles/role';
   styleUrls: ['./menu-profil.component.css']
 })
 export class MenuProfilComponent implements OnInit{
-  profil!:any;
+  profil:any;
   
   isEditing: boolean = false;
   loggedinUser : any;

@@ -20,10 +20,10 @@ export class PassoublieComponent {
     this.listArtisanService.sendPasswordResetEmail(this.email)
       .subscribe(
         () => {
-          // Handle success, e.g., show a success message
+          console.log("pas d'erreur")
         },
-        (error) => {
-          // Handle error, e.g., display an error message
+        (error) => { console.log("erreur")
+          
         }
       );
       console.log(this.email)

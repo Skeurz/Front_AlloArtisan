@@ -29,8 +29,8 @@ body {
      
 }
 #description{
-  width: 500px;
-  height:300px;
+  width: 400px;
+  height:200px;
 }
 input[type="text"],
 input[type="email"],
@@ -58,11 +58,7 @@ button {
   justify-content: center;
   align-items: center;
 }
-select{
-  width: 100%;
-  position:-ms-page;
-  margin-bottom: 20px;
-}
+
 
 .title {
   text-transform: uppercase;
@@ -82,19 +78,11 @@ select{
   line-height: 18px;
 }
 
-.form-control {
-  width: 100%;
-  position:static;
-  margin-bottom: 20px;
-}
 
 
 
-.form-control input {
-  padding-left: 36px;
-  letter-spacing: 0.5px;
-  font-size: 1em;
-}
+
+
 
 .form-control input:focus~i {
   color: #0a25c0;
@@ -162,9 +150,10 @@ textarea{
 }
 
 @media (max-width: 768px) {
-  .contact-container {
-    margin: 20px;
+  .contact-container, .title , .form-control, button, .welcome-message, .submit {
+    margin: 0px;
   }
+  #description {width: 250px;}
 }
 
 
