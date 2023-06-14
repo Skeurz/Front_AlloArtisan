@@ -19,9 +19,7 @@ export class ListArtisanService {
 
   constructor ( private http :HttpClient){}
 
- /*  getAllArtisan():Observable<User[]>{
-    return this.http.get<User[]>
-    ('http://localhost:8090/users');} */
+ 
 
     getAllArtisan():Observable<User[]>{
       return this.http.get<User[]>

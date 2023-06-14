@@ -1,5 +1,5 @@
- import { NgModule } from '@angular/core';
-import {  FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
@@ -16,7 +16,7 @@ import { ListBesoinsComponent } from './components/list-besoins/list-besoins.com
 import { OffreComponent } from './components/offre/offre.component';
 import { PassoublieComponent } from './components/passoublie/passoublie.component';
 import { AuthentificationServiceService } from './core/services/authentification-service.service';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { AdminEditComponent } from './components/admin-edit/admin-edit.component';
 import { JwtModule, JwtHelperService } from '@auth0/angular-jwt';

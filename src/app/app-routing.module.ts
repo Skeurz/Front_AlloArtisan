@@ -16,7 +16,7 @@ import { AdminReclamationComponent } from './components/admin-reclamation/admin-
 
 
 
-
+// Pour ajouter une route il s'agirait d'importer d'abords le composant puis ajouter sa route ci-dessous
 const routes: Routes = [
   {path :'',component: HomeComponent},
   {path :'passoublie',component: PassoublieComponent},
@@ -27,10 +27,10 @@ const routes: Routes = [
   {path :'besoin',component: ListBesoinsComponent},
   {path :'admin/users',component: AdminPageComponent},
   {path :'admin/reclamations', component: AdminReclamationComponent},
+  {path :'admin/posts', component: AdminListeOffresBesoinsComponent},
  // {path :'admin/edit', component: AdminEditComponent},
   {path :'login',component: LoginComponent},
   {path :'profil', loadChildren: () => import('./profil/profil.module').then(m => m.ProfilModule) },
-  {path :'admin/posts', component: AdminListeOffresBesoinsComponent},
   {path :'role/:userName',component: RoleComponent},
    
 

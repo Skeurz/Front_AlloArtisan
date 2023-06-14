@@ -11,14 +11,16 @@
             <p class="text-muted mb-4">{{profil.adresse}}</p>
             <p class="text-muted mb-4">{{userRoles}}</p>
             <div class="d-flex justify-content-center mb-2">
-              <button type="button" class="btn btn-primary" (click)="toggleEdit()" *ngIf="!isEditing">Éditer mon profil</button>
-              <button type="button" class="btn btn-primary" (click)="togglerEdit()"*ngIf="isEditing">Revenir</button>
-              <button type="button" class="btn btn-outline-primary ms-1" routerLink="post">Postuler une annonce</button>
-              
+              <button type="button" class="btn btn-primary" (click)="toggleEdit()" *ngIf="!isEditing">
+                <i class="fa-solid fa-pen-to-square"></i>&nbsp; Éditer mon profil</button>
+              <button type="button" class="btn btn-primary" (click)="togglerEdit()"*ngIf="isEditing">
+                <i class="fa-solid fa-arrow-left"></i>&nbsp; Revenir</button>
+              <button type="button" class="btn btn-outline-primary ms-1" routerLink="post">
+                <i class="fa-sharp fa-solid fa-plus"></i>&nbsp; Postuler une annonce</button><br>
+              <button type="button" class="btn btn-light ms-1">
+                <i class="fa-solid fa-list"></i>&nbsp; Mes annonces</button>
             </div>
-            
           </div>
-          
         </div>
         <button type="button" class="btn btn-danger"(click)="deleteUser(profil.id)"><i class="fa-regular fa-trash-can" style="color: #ffffff;"></i> Supprimer mon compte</button>
         

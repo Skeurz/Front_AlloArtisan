@@ -9,6 +9,7 @@
         <th>Date de création</th>
         <th>Date de modification</th>
         <th>Avatar</th>
+       <!-- <th>Rôle</th> -->
         <th>ID</th>
         <th>Prénom </th>
         <th>Nom</th>
@@ -24,6 +25,7 @@
         <td><span>{{a.lastModified | date: 'dd/MM/yyyy HH:mm:ss'}}</span></td>
         <td><span><img [src]="a.profileImage" alt="Aucune avatar"
           class="img-fluid" style="width: 45px; height: 45px;"></span></td>
+         <!-- <td><span>x</span></td> -->
         <td><span>{{a.id}}</span></td>
         <td><span>{{a.prenom}}</span></td>
         <td><span>{{a.nom}}</span></td>
