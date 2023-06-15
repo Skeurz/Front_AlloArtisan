@@ -9,16 +9,18 @@ import { ListServiceComponent } from './components/list-service/list-service.com
 import { ListBesoinsComponent } from './components/list-besoins/list-besoins.component';
 import { PassoublieComponent } from './components/passoublie/passoublie.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
-import { AdminEditComponent } from './components/admin-edit/admin-edit.component';
 import { AdminListeOffresBesoinsComponent } from './components/admin-liste-offres-besoins/admin-liste-offres-besoins.component';
 import { RoleComponent } from './components/role/role.component';
 import { AdminReclamationComponent } from './components/admin-reclamation/admin-reclamation.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+
 
 
 
 // Pour ajouter une route il s'agirait d'importer d'abords le composant puis ajouter sa route ci-dessous
 const routes: Routes = [
   {path :'',component: HomeComponent},
+  {path :'404',component: NotFoundComponent},
   {path :'passoublie',component: PassoublieComponent},
   {path :'contact',component: ContactComponent },
   {path :'authentifier',component: InscriptionFormComponent},
@@ -28,12 +30,12 @@ const routes: Routes = [
   {path :'admin/users',component: AdminPageComponent},
   {path :'admin/reclamations', component: AdminReclamationComponent},
   {path :'admin/posts', component: AdminListeOffresBesoinsComponent},
- // {path :'admin/edit', component: AdminEditComponent},
   {path :'login',component: LoginComponent},
   {path :'profil', loadChildren: () => import('./profil/profil.module').then(m => m.ProfilModule) },
   {path :'role/:userName',component: RoleComponent},
-   
 
+  // Page introuvable
+  {path: '**', redirectTo: '/404',pathMatch: 'full'},
 ];
 
 @NgModule({

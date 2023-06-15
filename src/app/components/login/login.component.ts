@@ -63,10 +63,10 @@ export class LoginComponent implements OnInit {
     this.authentifie = true;
     
     localStorage.setItem('access_token', data.token);
-    this.router.navigate(['/']);
-    
+    this.router.navigate(['/']).then(() => {window.location.reload();});
     alertifyjs.set('notifier','position', 'bottom-center');
     alertifyjs.success('Connexion réussi');
+    
 
   },
   error => {

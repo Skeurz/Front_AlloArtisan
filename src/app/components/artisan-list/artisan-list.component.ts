@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { ListArtisanService } from '../../core/services/list-artisan.service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { User } from 'src/app/core/modeles/user';
 
 
@@ -25,10 +25,7 @@ export class ArtisanListComponent implements OnInit {
 
   ngOnInit() : void {}
 
-  tous() {
-    
-    this.artisan$=this.listArtisanService.getUsersByRoleId(8);
-  }
+  tous() {this.artisan$=this.listArtisanService.getUsersByRoleId(8);this.searchUsers(this.selectedadresse = '')}
 
   clearSearch() {window.location.reload();}
 
@@ -36,7 +33,8 @@ export class ArtisanListComponent implements OnInit {
   
 
 
-  searchUsers(selectedadresse: string) {
+  searchUsers(selectedadresse: string) { 
+    this.users = [];
     if (!this.selectedadresse) {
       return console.log("No"); 
     }

@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit {
   url: string = "http://localhost:8080/";
   id:number
   username: any;
+  profil:any;
 
   
  
@@ -32,7 +33,20 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router,private listArtisanService :ListArtisanService,private service:AuthentificationServiceService,
                       private jwtHelper: JwtHelperService){}
-  ngOnInit(): void {this.artisan$=this.listArtisanService.getAllArtisan();
+  ngOnInit(): void {
+    
+    this.loggedinUser = localStorage.getItem('access_token')!;
+   const decodedToken: any = jwt_decode(this.loggedinUser); 
+   const subject = decodedToken.payload;
+   const id = subject.id  
+    this.listArtisanService.getArtisanById(id).subscribe(
+      (user: User) => {
+        this.profil = user;
+      },
+      (error) => {
+        console.log(error); // erreur
+      }
+    );;
 
  /*   const token = localStorage.getItem('access_token'); 
     
@@ -67,6 +81,7 @@ if (token) {
   // const decodedToken: any = jwt_decode(this.loggedinUser); 
   // console.log(decodedToken)
     return this.loggedinUser
+    
   }
 
   session() {
@@ -80,6 +95,7 @@ if (token) {
 
   onLogout() {
     localStorage.removeItem('access_token');
+    
   }
 }
 

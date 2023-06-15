@@ -24,6 +24,7 @@ import { AdminListeOffresBesoinsComponent } from './components/admin-liste-offre
 import { Back2TopComponent } from './components/back2-top/back2-top.component';
 import { RoleComponent } from './components/role/role.component';
 import { AdminReclamationComponent } from './components/admin-reclamation/admin-reclamation.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 
@@ -50,6 +51,7 @@ import { AdminReclamationComponent } from './components/admin-reclamation/admin-
     Back2TopComponent,
     RoleComponent,
     AdminReclamationComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

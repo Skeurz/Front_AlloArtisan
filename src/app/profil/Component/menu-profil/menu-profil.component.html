@@ -3,12 +3,12 @@
       <div class="col-lg-4">
         <div class="card mb-4 bg-dark">
           <div class="card-body text-center ">
-            <img [src]="profil.profileImage" alt=" avatar"
+            <img [src]="profil?.profileImage" alt=" avatar"
               class="rounded-circle img-fluid" style="width: 150px; height: 150px;" *ngIf="!isEditing">
-              <img [src]="profil.profileImage" alt="✏️ avatar"
+              <img [src]="profil?.profileImage" alt="✏️ avatar"
               class="edited rounded-circle img-fluid" style="width: 150px; height: 150px;" *ngIf="isEditing" (click)="avatar()" >
-            <h5 class="my-3">{{profil.prenom}} {{profil.nom}}</h5>
-            <p class="text-muted mb-4">{{profil.adresse}}</p>
+            <h5 class="my-3">{{profil?.prenom}} {{profil?.nom}}</h5>
+            <p class="text-muted mb-4">{{profil?.adresse}}</p>
             <p class="text-muted mb-4">{{userRoles}}</p>
             <div class="d-flex justify-content-center mb-2">
               <button type="button" class="btn btn-primary" (click)="toggleEdit()" *ngIf="!isEditing">
@@ -22,7 +22,8 @@
             </div>
           </div>
         </div>
-        <button type="button" class="btn btn-danger"(click)="deleteUser(profil.id)"><i class="fa-regular fa-trash-can" style="color: #ffffff;"></i> Supprimer mon compte</button>
+        <button type="button" class="btn btn-danger"(click)="deleteUser(profil?.id)">
+          <i class="fa-regular fa-trash-can" style="color: #ffffff;"></i> Supprimer mon compte</button>
         
  </div>
  
@@ -36,7 +37,7 @@
                 <p class="mb-0">Nom d'utilisateur</p>
               </div>
               <div class="col-sm-9" *ngIf="!isEditing">
-                <p class="text-muted mb-0" >{{profil.userName}}</p>
+                <p class="text-muted mb-0" >{{profil?.userName}}</p>
               </div>
               <div class="col-sm-9" *ngIf="isEditing">
                 <input type="text" [(ngModel)]="profil.userName"/>
@@ -48,7 +49,7 @@
                 <p class="mb-0">Prénom</p>
               </div>
               <div class="col-sm-9" *ngIf="!isEditing">
-                <p class="text-muted mb-0" >{{profil.prenom}}</p>
+                <p class="text-muted mb-0" >{{profil?.prenom}}</p>
               </div>
               <div class="col-sm-9" *ngIf="isEditing">
                 <input type="text" [(ngModel)]="profil.prenom"/>
@@ -60,7 +61,7 @@
                 <p class="mb-0">Nom </p>
               </div>
               <div class="col-sm-9" *ngIf="!isEditing">
-                <p class="text-muted mb-0">{{profil.nom}}</p>
+                <p class="text-muted mb-0">{{profil?.nom}}</p>
               </div>
               <div class="col-sm-9" *ngIf="isEditing">
                 <input type="text" [(ngModel)]="profil.nom"/>
@@ -72,7 +73,7 @@
                 <p class="mb-0">Email</p>
               </div>
               <div class="col-sm-9" *ngIf="!isEditing">
-                <p class="text-muted mb-0">{{profil.email}}</p>
+                <p class="text-muted mb-0">{{profil?.email}}</p>
               </div>
               <div class="col-sm-9" *ngIf="isEditing">
                 <input type="text" [(ngModel)]="profil.email"/>
@@ -84,7 +85,7 @@
                 <p class="mb-0">Téléphone</p>
               </div>
               <div class="col-sm-9" *ngIf="!isEditing">
-                <p class="text-muted mb-0">{{profil.telephone}}</p>
+                <p class="text-muted mb-0">{{profil?.telephone}}</p>
               </div>
               <div class="col-sm-9" *ngIf="isEditing">
                 <input type="text" [(ngModel)]="profil.telephone"/>
@@ -97,7 +98,7 @@
                 <p class="mb-0">Ville</p>
               </div>
               <div class="col-sm-9" *ngIf="!isEditing">
-                <p class="text-muted mb-0">{{profil.adresse}}</p>
+                <p class="text-muted mb-0">{{profil?.adresse}}</p>
               </div> 
               <div class="col-sm-9" *ngIf="isEditing">
                 
@@ -165,7 +166,7 @@
                 <p class="mb-0">Date de création</p>
               </div>
               <div class="col-sm-9" >
-                <p class="text-muted mb-0">{{profil.dateCreated | date: 'dd/MM/yyyy HH:mm:ss'}}</p>
+                <p class="text-muted mb-0">{{profil?.dateCreated | date: 'dd/MM/yyyy HH:mm:ss'}}</p>
               </div>   
             </div>    
           </div>

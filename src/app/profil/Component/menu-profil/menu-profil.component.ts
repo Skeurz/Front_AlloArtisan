@@ -18,7 +18,6 @@ import { AppRole } from 'src/app/core/modeles/role';
 })
 export class MenuProfilComponent implements OnInit{
   profil:any;
-  
   isEditing: boolean = false;
   loggedinUser : any;
   userName: string;
@@ -60,7 +59,6 @@ export class MenuProfilComponent implements OnInit{
         roles => this.userRoles = roles,
         error => console.log('Error:', error)
       );
-
     }
 
 
