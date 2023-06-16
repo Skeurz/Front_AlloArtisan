@@ -25,7 +25,7 @@ section {
 .paragraph1 {
   text-align: center;
   padding: 20px;
-  font-size: 30px;
+  font-size: 50px;
 }
 
 .btn {
@@ -46,6 +46,7 @@ section {
   .btn {
     font-size: 14px;
   }
+  .paragraph1 { font-size: 30px;}
 }
 
 @media screen and (max-width: 480px) {
@@ -56,6 +57,7 @@ section {
   .btn {
     font-size: 12px;
   }
+  .paragraph1 { font-size: 30px;}
 }
 
 
@@ -79,13 +81,13 @@ section {
 
 
 img{
-    width:600px;
+    width:700px;
     height:500px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 900px) {
     img {
-      width: 380px;
+      width: 300px;
       height: 300px;
     }
   }

@@ -2,14 +2,22 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="card mb-4 bg-dark">
-          <div class="card-body text-center ">
+          <div class="card-body text-center ">    
             <img [src]="profil?.profileImage" alt=" avatar"
               class="rounded-circle img-fluid" style="width: 150px; height: 150px;" *ngIf="!isEditing">
               <img [src]="profil?.profileImage" alt="✏️ avatar"
               class="edited rounded-circle img-fluid" style="width: 150px; height: 150px;" *ngIf="isEditing" (click)="avatar()" >
             <h5 class="my-3">{{profil?.prenom}} {{profil?.nom}}</h5>
             <p class="text-muted mb-4">{{profil?.adresse}}</p>
-            <p class="text-muted mb-4">{{userRoles}}</p>
+            <p class="text-muted mb-4" style="font-style: italic;">{{userRoles}}</p>
+
+
+
+            <div class="admin"><button routerLink="/admin/users" class="btn btn-light">
+              <i class="fa-solid fa-star"></i> Menu Admin</button></div> 
+        
+
+
             <div class="d-flex justify-content-center mb-2">
               <button type="button" class="btn btn-primary" (click)="toggleEdit()" *ngIf="!isEditing">
                 <i class="fa-solid fa-pen-to-square"></i>&nbsp; Éditer mon profil</button>
@@ -85,10 +93,10 @@
                 <p class="mb-0">Téléphone</p>
               </div>
               <div class="col-sm-9" *ngIf="!isEditing">
-                <p class="text-muted mb-0">{{profil?.telephone}}</p>
+                <p class="text-muted mb-0"><b>🇲🇦 +212</b> {{profil?.telephone}}</p>
               </div>
-              <div class="col-sm-9" *ngIf="isEditing">
-                <input type="text" [(ngModel)]="profil.telephone"/>
+              <div class="col-sm-9 tel" *ngIf="isEditing">
+                <b>🇲🇦 +212</b><input type="text" [(ngModel)]="profil.telephone"/>
               </div>
             </div>
             

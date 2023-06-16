@@ -51,6 +51,21 @@ body {
  margin-left: 250px;
  margin-bottom: 150px;
 }
+
+@media (max-width: 768px) {
+  .container {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
 .border{
 padding: 10px;
 }

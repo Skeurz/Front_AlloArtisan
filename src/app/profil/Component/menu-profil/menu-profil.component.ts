@@ -35,25 +35,19 @@ export class MenuProfilComponent implements OnInit{
   }
 
   ngOnInit(): void {
-   /* this.profilForm= this.formBuilder.group({
-      userName: [null, Validators.required],
-      roleName:[null, Validators.required],})*/
-      
+
    this.loggedinUser = localStorage.getItem('access_token')!;
    const decodedToken: any = jwt_decode(this.loggedinUser); 
    const subject = decodedToken.payload;
-   const id = subject.id  
-   
-   
-    this.listArtisanService.getArtisanById(id).subscribe(
+   const id = subject.id    
+   this.listArtisanService.getArtisanById(id).subscribe(
       (user: User) => {
         this.profil = user;
-        
       },
       (error) => {
-        console.log(error); // erreur
+        console.log(error); 
       }
-    );;
+    );
     this.listArtisanService.getUserRoles(id)
       .subscribe(
         roles => this.userRoles = roles,
@@ -70,7 +64,6 @@ export class MenuProfilComponent implements OnInit{
     
     onUpdateUser(user: User) {
       this.updateUser(user).subscribe(updatedUser => {
-        // Handle the updated user response if needed
         console.log('User updated:', updatedUser);
         alertifyjs.set('notifier','position', 'bottom-center');
         alertifyjs.success('Utilisateur modifié avec succès');
@@ -78,7 +71,6 @@ export class MenuProfilComponent implements OnInit{
         
     
       }, error => {
-        // Handle error if the update fails
         console.error('Error updating user:', error);
       });
     }

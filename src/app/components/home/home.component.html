@@ -42,6 +42,7 @@
   <div class="row1">
 <div class="image-wrapper ">
   <div *ngFor="let image of images; let i = index" class="image-container  border border-primary border-5 rounded"
+   style="border-color: #1c498d!important;"
    [class.hidden]="i !== currentImageIndex">
     <img [src]="image" alt="Image">
   </div>

@@ -13,12 +13,10 @@ body {
   display:flex;
   justify-content: center;
   align-items: center;
-  
-    /* background:#212529;*/
-    z-index: -50;
-       background:
-       url("https://i.imgur.com/QIgu50K.jpg");
-       background-repeat: no-repeat;
+     z-index: -50;
+     background:
+     url("https://i.imgur.com/QIgu50K.jpg");
+     background-repeat: no-repeat;
      height: 1000px;
      background-size: cover; 
      background-position: center center;

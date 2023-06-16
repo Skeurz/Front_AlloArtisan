@@ -73,7 +73,7 @@
                    <div class="widget-49">
                        <div class="widget-49-title-wrapper">
                            <div class="widget-49-date-primary">
-                              <img src="https://static.vecteezy.com/system/resources/previews/005/544/718/original/profile-icon-design-free-vector.jpg">
+                              <img [src]="a?.profileImage" alt="avatar">
                            </div>
                            <div class="widget-49-meeting-info">
                                <span class="widget-49-pro-title">{{a.nom}} {{a.prenom}}</span>
@@ -95,7 +95,7 @@
    </div>
 </div>
 
-
+<!-------------------------------------------------------------------->
 
 <div class="container">
     <div class="row">
@@ -108,7 +108,7 @@
                     <div class="widget-49">
                         <div class="widget-49-title-wrapper">
                             <div class="widget-49-date-primary">
-                               <img src="https://static.vecteezy.com/system/resources/previews/005/544/718/original/profile-icon-design-free-vector.jpg">
+                               <img [src]="s?.profileImage" alt="avatar">
                             </div>
                             <div class="widget-49-meeting-info">
                                 <span class="widget-49-pro-title">{{s.nom}} {{s.prenom}}</span>
@@ -129,12 +129,5 @@
         </div>
     </div>
  </div>
-
-
-
-  <!--<div class="container">
-   <app-artisan  *ngFor=" let a of artisan$ | async "  [artisan]="a" >
-      </app-artisan>
-   </div>-->
-  </body> 
+</body> 
 

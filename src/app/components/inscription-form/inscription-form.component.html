@@ -23,17 +23,10 @@
       <div class="form-control">
         <input type="password" name="password" placeholder="Mot de passe" formControlName="password" required>
       </div>
-     <!-- <div class="form-control">
-              <input type="password" name="confirmpassword" placeholder="Confirmer mot de passe" formControlName="confirmpassword" required>
-      </div>-->
      
       <div *ngIf="artisanForm.get('email')?.invalid && artisanForm.get('email')?.touched">
-        <p class="error-message">Invalid email address</p></div>
-     
-      <!--<select id="role" class="drop" required>
-        <option class="drop"> artisan</option>
-        <option class="drop"> client</option>
-      </select> -->
+        <p class="error-message">Adresse email invalide</p></div>
+
       <button class="submit" (click)="onSubmitForm()">Inscription</button>
       
       <div> Vous possédez déjà un compte? <a href="login">Connectez vous !</a></div>
@@ -41,39 +34,6 @@
   </div>
   </body>
 
-  
-
-
-<!--
-<div class="container" >
-  <h2>S'authentifier</h2>
-
-  <form  [formGroup]="artisanForm">
-
-    <label for="nom"></label>
-    <input type="text" id="nom"  placeholder="Nom" formControlName="nom">
-
-    <label  for="prenom"></label>
-    <input type="text" id="prenom"   placeholder="Preom" formControlName="prenom">
-
-    <label for="username"></label>
-    <input type="text" id="username"  placeholder="Username" formControlName="userName">
-
-    <label for="password"></label>
-    <input type="password" id="password"  placeholder="Mot de passe" formControlName="password">
-
-    
-    <label  for="email"></label>
-    <input type="email" id="email"   placeholder="E-mails"  formControlName="email">
-
-     <label for="role"></label>
-    <select  id="role" >
-
-        <option > artisan </option>
-        <option >client</option>
-    </select> 
-    <button  type="submit"  (click)="onSubmitForm()">Enregistre</button>
-    </form>    </div> -->
   
 
 

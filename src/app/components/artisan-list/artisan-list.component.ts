@@ -17,32 +17,32 @@ export class ArtisanListComponent implements OnInit {
  users: any;
  
 
- 
-
-
-
  constructor(private listArtisanService :ListArtisanService){ }
 
   ngOnInit() : void {}
 
-  tous() {this.artisan$=this.listArtisanService.getUsersByRoleId(8);this.searchUsers(this.selectedadresse = '')}
+  tous() {this.resetSearch();this.artisan$=this.listArtisanService.getUsersByRoleId(8)}
 
-  clearSearch() {window.location.reload();}
+  clearSearch() {this.artisan$ = of([]);this.resetSearch()}
 
-    
-  
-
-
-  searchUsers(selectedadresse: string) { 
+  searchUsers(selectedadresse: string) {
+    this.artisan$ = of([]);
     this.users = [];
-    if (!this.selectedadresse) {
-      return console.log("No"); 
+    if (!selectedadresse) {
+      return console.log("Aucune adresse n'est selectionné");
     }
-    this.listArtisanService.getUserByAdresse(this.selectedadresse)
-    .subscribe(users => {
-      this.users = users;
-      console.log(this.users)
-    });
+    this.listArtisanService.getUsersByRoleId(8)
+      .subscribe((artisanUsers: User[]) => {
+        this.users = artisanUsers.filter((user: User) => user.adresse === selectedadresse);
+        console.log(this.users);
+      });
   }
+  
+  resetSearch() {
+    this.selectedadresse = '';
+    this.searchUsers(this.selectedadresse);
+  }
+  
+  
 
 }
