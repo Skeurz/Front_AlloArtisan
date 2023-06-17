@@ -13,7 +13,7 @@
 
 
 
-            <div class="admin"><button routerLink="/admin/users" class="btn btn-light">
+            <div class="admin"><button (click)="navigateTo()" class="btn btn-light" *ngIf="userRoles[0] === 'Admin'">
               <i class="fa-solid fa-star"></i> Menu Admin</button></div> 
         
 

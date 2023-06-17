@@ -13,8 +13,8 @@ import { User } from 'src/app/core/modeles/user';
 export class ArtisanListComponent implements OnInit {
  selectedadresse: string;
  artisan$!: Observable<User[]>;
-
  users: any;
+
  
 
  constructor(private listArtisanService :ListArtisanService){ }

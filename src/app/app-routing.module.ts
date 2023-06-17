@@ -14,6 +14,7 @@ import { RoleComponent } from './components/role/role.component';
 import { AdminReclamationComponent } from './components/admin-reclamation/admin-reclamation.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthGuard } from './auth.guard';
+import { AdminGuard } from './admin.guard';
 
 
 
@@ -28,9 +29,9 @@ const routes: Routes = [
   {path :'artisans',component: ArtisanListComponent},
   {path :'service',component: ListServiceComponent},
   {path :'besoin',component: ListBesoinsComponent},
-  {path :'admin/users',component: AdminPageComponent},
-  {path :'admin/reclamations', component: AdminReclamationComponent},
-  {path :'admin/posts', component: AdminListeOffresBesoinsComponent},
+  {path :'admin/users',component: AdminPageComponent, canActivate: [AdminGuard]},
+  {path :'admin/reclamations', component: AdminReclamationComponent, canActivate: [AdminGuard]},
+  {path :'admin/posts', component: AdminListeOffresBesoinsComponent, canActivate: [AdminGuard]},
   {path :'login',component: LoginComponent, canActivate: [AuthGuard]},
   {path :'profil', loadChildren: () => import('./profil/profil.module').then(m => m.ProfilModule), canActivate: [AuthGuard] },
   {path :'role/:userName',component: RoleComponent},

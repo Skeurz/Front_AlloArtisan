@@ -16,11 +16,11 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
       if (this.authService.isLoggedIn()) {
         this.router.navigate(['/profil']); /* Si l'utilisateur est connecté et essaye d'acceder a la page login 
         ou inscription il va se rediriger vers sa page profil */
-
         return false; // Bloque l'accès
       } else {
         return true; // Permet l'accès
       }
+      
 
     } 
     else {
@@ -34,6 +34,10 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
       }
     }
   }
+
+
+
+
  /* canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

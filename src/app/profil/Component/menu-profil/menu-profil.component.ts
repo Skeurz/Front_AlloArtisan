@@ -9,6 +9,7 @@ import { ListArtisanService } from 'src/app/core/services/list-artisan.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as alertifyjs from 'alertifyjs';
 import { AppRole } from 'src/app/core/modeles/role';
+import { AdminGuard } from 'src/app/admin.guard';
 
 
 @Component({
@@ -25,12 +26,13 @@ export class MenuProfilComponent implements OnInit{
   id: number;
   user!:User;
   users: any[] = [] 
+  yeetus: any;
   
 
 
 
   constructor(private router: Router,private listArtisanService :ListArtisanService,private service:AuthentificationServiceService,
-    private jwtHelper: JwtHelperService ,private formBuilder: FormBuilder, private route: ActivatedRoute){
+    private jwtHelper: JwtHelperService ,private formBuilder: FormBuilder, private route: ActivatedRoute, private adminGuard : AdminGuard){
 
   }
 
@@ -145,6 +147,13 @@ export class MenuProfilComponent implements OnInit{
           () => {alertifyjs.error('Annulation');this.profil.profileImage = oldValue;})
           .set({title:"Avatar :"}).set('labels', {ok:'Valider', cancel:'Annuler'}); ;
                   }
+
+                  navigateTo(): void {
+                    this.adminGuard.setAccessedByButton(true);
+                    this.router.navigateByUrl('/admin/users'); 
+                  }
+
+                  
       
 
 

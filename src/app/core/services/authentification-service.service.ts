@@ -80,9 +80,8 @@ export class AuthentificationServiceService {
 
 
   isLoggedIn(): boolean {
-    // Check if the user is logged in by validating the JWT token
     const token = localStorage.getItem('access_token');
-    return !!token; // Returns true if the token exists, false otherwise
+    return !!token;
   }
 
 

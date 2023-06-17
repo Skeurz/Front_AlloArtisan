@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
 })
 
 export class ListArtisanService {
-
+  private loggedInUserId: number;
   urlApi="http://localhost:8090"
   
   headers = new HttpHeaders({'Access-Control-Allow-Origin' : '*'})
@@ -26,7 +26,6 @@ export class ListArtisanService {
       (this.urlApi+'/users');}
 
       getArtisanById(id: number): Observable<User>{
-        //  return this.http.get<User>(`${this.urlApi}user/${id}`)
         return this.http.get<User>(`${this.urlApi}/profil/${id}`)
         }  
 
@@ -49,10 +48,7 @@ export class ListArtisanService {
       return this.http.get<User>(`${this.urlApi}/users/${userName}`)
   
     }
-   /* getUserRoles(id: number): Observable<AppRole> {
-      const url = `${this.urlApi}/${id}/roles`;
-      return this.http.get<AppRole>(url);
-    }*/
+   
 
     getUserRoles(id: number): Observable<string[]> {
       const url = `${this.urlApi}/${id}/roles`;
@@ -81,6 +77,12 @@ export class ListArtisanService {
       return this.http.post(url, payload);
     }
 
+    isLoggedIn(): boolean { 
+      const token = localStorage.getItem('access_token');
+      return !!token; 
+    }
+
+   
 
 
 }
