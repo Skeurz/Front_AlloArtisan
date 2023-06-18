@@ -13,7 +13,6 @@
         <h5 class="section-title h1"><b>Les besoins disponibles :</b></h5>
         <div class="row">
             <!-- Les besoins dispo -->
-                    <!-- Les offres dispo -->
                     <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let b of post$ |async">
                         <div class="image-flip" >
                             <div class="mainflip flip-0">
@@ -23,7 +22,8 @@
                                             <p><img class=" img-fluid" [src]="b.imgUrl" alt="Pas d'image"></p>
                                             <h4 class="card-title">{{b.titreAnnonce}}</h4>
                                             <p class="card-text">{{b.ville}}</p>
-                                            <p>{{b.dateCreated | date: 'dd/MM/yyyy HH:mm:ss'}}</p>
+                                            Créer en : <p style="font-weight: bold;">{{b.dateCreated | date: 'dd/MM/yyyy HH:mm:ss'}}
+                                                    </p>
                                           
                                         </div>
                                     </div>
@@ -45,56 +45,3 @@
             </div>
                     
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<form action="" class="myform">
-   
-    <input type="text" name="nom" id="nom" placeholder="Ville" >
- 
-    <input type="text" name="prenom" id="prenom" placeholder="Artisant ">
-    <button type="submit">Rechercher</button>
-  </form>  
- 
-  <h5>Critére de Rechercher</h5>
-   <div class="container">
-   <app-offre *ngFor=" let b of besoin$ | async "  [service]="b" > </app-offre>
-    </div>
-
-  -->

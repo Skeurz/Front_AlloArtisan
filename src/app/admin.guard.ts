@@ -5,6 +5,16 @@ import { switchMap, map, catchError } from 'rxjs/operators';
 import { of, Observable } from 'rxjs';
 
 
+
+
+
+
+
+
+
+/* Guard qui empêche l'accès à /admin et la rend uniquement accessible
+ par bouton dans le profil des comptes admin */
+
 @Injectable({
   providedIn: 'root'
 })

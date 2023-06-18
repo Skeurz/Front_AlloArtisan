@@ -75,6 +75,9 @@ margin-right: 10px;
 }
 
 
+#edit:hover {filter: brightness(85%);}
+
+
 
 .edit{
    font-family: 'Open Sans', sans-serif;

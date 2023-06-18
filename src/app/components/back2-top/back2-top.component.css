@@ -14,7 +14,7 @@ button {
         }
       }
       
-      @media (max-width: 480px) {
+      @media (max-width: 1440px) {
         button {
           bottom: 4%;
           right: 2%;

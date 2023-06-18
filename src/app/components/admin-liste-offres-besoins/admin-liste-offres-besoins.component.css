@@ -44,6 +44,8 @@ body {
 .text-muted.mb-0 {
 
 }*/
+#edit:hover {filter: brightness(85%);}
+
 .container{
   width: 160vh;
    align-content: center;

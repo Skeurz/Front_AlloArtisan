@@ -22,7 +22,8 @@
                                                     <p><img class=" img-fluid" [src]="o.imgUrl" alt="Pas d'image"></p>
                                                     <h4 class="card-title">{{o.titreAnnonce}}</h4>
                                                     <p class="card-text">{{o.ville}}</p>
-                                                    {{o.dateCreated | date: 'dd/MM/yyyy HH:mm:ss'}}
+                                                    Créer en : <p style="font-weight: bold;">{{o.dateCreated | date: 'dd/MM/yyyy HH:mm:ss'}}
+                                                    </p>
                                                     
                                                 </div>
                                             </div>

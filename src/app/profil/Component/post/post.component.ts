@@ -46,6 +46,8 @@ export class PostComponent implements OnInit {
 
     alertifyjs.set('notifier','position', 'bottom-center');
     alertifyjs.success('Post ajouté avec succès');
+
+    this.router.navigate(['/profil'])
   
 
   

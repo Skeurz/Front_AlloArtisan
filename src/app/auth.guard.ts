@@ -3,9 +3,25 @@ import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanDeactivate, C
 import { Observable } from 'rxjs';
 import { AuthentificationServiceService } from './core/services/authentification-service.service';
 
+
+
+
+
+
+/* Guard qui empêche les utilisateurs non connectés à acceder à /profil et tous ses childs par exemple (/profil/post)
+et qui empêche aussi les utilisateurs connectés  à acceder à /login et /authentifier */
+
+
+
+
+
+
+
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad, CanMatch {
 
   constructor(private router: Router, private authService: AuthentificationServiceService) {}
@@ -20,7 +36,6 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
       } else {
         return true; // Permet l'accès
       }
-      
 
     } 
     else {
