@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
 import * as alertifyjs from 'alertifyjs';
-import { AdminEditComponent } from '../admin-edit/admin-edit.component';
+
 
 
 
@@ -25,7 +25,8 @@ export class AdminPageComponent implements OnInit {
   userRoles: string[] = [];
 
 
-  constructor(private listArtisanService :ListArtisanService,private router: Router, private http: HttpClient, private location: Location){ }
+  constructor(private listArtisanService :ListArtisanService,private router: Router, private http: HttpClient, private location: Location,
+  ){ }
 
 
  deleteUser(id: number) {
@@ -34,10 +35,8 @@ export class AdminPageComponent implements OnInit {
       () => { console.log('User deleted successfully.');
       this.users = this.users.filter(user => user.id !== id);
       window.location.reload();
-        // Handle successful deletion, e.g., show a success message
       },
       (error) => {  console.error('An error occurred while deleting the user:', error)
-        // Handle error, e.g., show an error message
       }
     );
 }
@@ -59,17 +58,17 @@ updateUser(user: User): Observable<User> {
 
 onUpdateUser(user: User) {
   this.updateUser(user).subscribe(updatedUser => {
-    // Handle the updated user response if needed
     console.log('User updated:', updatedUser);
     alertifyjs.set('notifier','position', 'bottom-center');
-    alertifyjs.success('Utilisateur modifié avec succès');
-    
+    alertifyjs.success('Utilisateur modifié avec succès'); 
 
   }, error => {
-    // Handle error if the update fails
+
     console.error('Error updating user:', error);
   });
 }
+
+
 
 }
 

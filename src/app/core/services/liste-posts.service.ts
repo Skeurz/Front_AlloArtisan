@@ -49,6 +49,11 @@ export class ListePostsService {
         return this.http.get<Post[]>(url);
       }
 
+    getPostsByArtisan(artisan: string): Observable<Post[]> {
+        const url = `${this.urlApi}/offres/u/${artisan}`;
+        return this.http.get<Post[]>(url);
+      }
+
 
 
 

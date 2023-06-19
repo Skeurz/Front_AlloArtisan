@@ -32,6 +32,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +53,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     RoleComponent,
     AdminReclamationComponent,
     NotFoundComponent,
+    
   ],
   imports: [
     BrowserModule,

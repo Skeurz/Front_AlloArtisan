@@ -42,10 +42,8 @@ export class AdminListeOffresBesoinsComponent {
         () => { console.log('User deleted successfully.');
         this.posts = this.posts.filter(post => post.id !== id);
         window.location.reload();
-          // Handle successful deletion, e.g., show a success message
         },
         (error) => {  console.error('An error occurred while deleting the user:', error)
-          // Handle error, e.g., show an error message
         }
       );
   }

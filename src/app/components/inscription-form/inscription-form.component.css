@@ -154,3 +154,11 @@ h2  {
   display: block;
   font-style: italic;
 }
+
+
+@media (max-width: 720px) {
+  .register-container {
+    max-width: 100%;
+    margin: 10px;
+  }
+}

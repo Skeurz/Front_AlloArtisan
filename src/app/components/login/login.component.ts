@@ -38,36 +38,19 @@ export class LoginComponent implements OnInit {
  
   }) 
  } 
-  /*onLogin(LoginForm: NgForm) {
-  console.log(LoginForm.value)
-  const user =this.authService.authUser(LoginForm.value);
-  if(user) {
-    console.log('Succes')
-  }
-  else {
-    console.log('failure')
-  }
-  
- }*/
- onAuthentifier() { //onLogin() {
+
+ onAuthentifier() { 
   this.errorMessage = null;
-  this.authentifie = false;
- 
-    
+  this.authentifie = false; 
   this.authService.login(this.FormConnexion.value) 
- // this.authService.login(this.loginForm.value) 
   .subscribe(data => {
     console.log(data)
     console.log()
-//const token= this.authService.login(this.FormConnexion.value)
     this.authentifie = true;
-    
     localStorage.setItem('access_token', data.token);
     this.router.navigate(['/']).then(() => {window.location.reload();});
     alertifyjs.set('notifier','position', 'bottom-center');
-    alertifyjs.success('Connexion réussi');
-    
-
+    alertifyjs.success('Connexion réussi'); 
   },
   error => {
     console.error(error);

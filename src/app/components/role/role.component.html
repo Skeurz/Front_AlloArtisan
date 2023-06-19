@@ -1,18 +1,18 @@
 <body>
-    <div class="contact-container"> 
-      <p class="title">Rôle :</p>
-      <h3>Bienvenu, {{user.userName}} !</h3>
-      <p class="welcome-message"> Veuillez choisir votre rôle :</p>
-      <form class="contact-form" (submit)="addRoleToUser(this.user.userName, selectedRole)">     
-        <label>
-          <input type="radio" name="role" value="Artisan" [(ngModel)]="selectedRole" required > Artisan &nbsp;&nbsp;&nbsp;
-        </label>     
-        <label>
-          <input type="radio" name="role" value="Client" [(ngModel)]="selectedRole" required> Client
-        </label>
-        
-        <button class="submit" id="button" >Finaliser l'inscription</button>
-      </form>
-      <i style="font-size: 12px; color: rgb(111, 209, 111);">N'oublier pas d'ajouter votre ville et numéro de telephone depuis votre profil !</i>
-    </div>
-  </body>
+  <div class="contact-container"> 
+    <p class="title">Rôle :</p>
+    <h3>Bienvenu, {{user.userName}} !</h3>
+    <p class="welcome-message"> Veuillez choisir votre rôle :</p>
+    <form class="contact-form" (submit)="addRoleToUser(this.user.userName, selectedRole)">     
+      <label>
+        <input type="radio" name="role" value="Artisan" [(ngModel)]="selectedRole" required> Artisan &nbsp;&nbsp;&nbsp;
+      </label>     
+      <label>
+        <input type="radio" name="role" value="Client" [(ngModel)]="selectedRole" required> Client
+      </label>
+      
+      <button class="submit" id="button" >Finaliser l'inscription</button>
+    </form>
+    <i style="font-size: 12px; color: rgb(111, 209, 111);">N'oublier pas d'ajouter votre ville et numéro de telephone depuis votre profil !</i>
+  </div>
+</body>

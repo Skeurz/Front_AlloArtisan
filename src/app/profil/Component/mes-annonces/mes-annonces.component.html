@@ -1,0 +1,40 @@
+
+<body>
+  
+    <div class="container">
+        <h5 class="section-title h1"><b>Mes annonces :</b></h5>
+        <div class="row">
+                          <!-- Les offres dispo -->
+                          <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let o of lab$ |async">
+                              <div class="image-flip" >
+                                  <div class="mainflip flip-0">
+                                      <div class="frontside">
+                                          <div class="card">
+                                              <div class="card-body text-center" >
+                                                  <p><img class=" img-fluid" [src]="o.imgUrl" alt="Pas d'image"></p>
+                                                  <h4 class="card-title">{{o.titreAnnonce}}</h4>
+                                                  <p class="card-text">{{o.ville}}</p>
+                                                  Créer en : <p style="font-weight: bold;">{{o.dateCreated | date: 'dd/MM/yyyy HH:mm:ss'}}
+                                                  </p>  
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="backside">
+                                          <div class="card">
+                                              <div class="card-body text-center mt-4">
+                                                  <h4 class="card-title">{{o.artisan}}</h4>
+                                                  <p class="card-text">{{o.description}}</p>
+                                                  <h4 class="card-text">{{o.prix}} DH</h4>
+                                              </div>
+                                              <div><button class="btn btn-sm btn-danger" (click)="deletePost(o.id)"
+                                                 style="margin-left: 300px;margin-bottom: 10px;"> <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>
+                                              </button></div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>   
+                      </div>
+                  </div>
+        
+      </body>

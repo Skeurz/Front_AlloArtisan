@@ -157,3 +157,11 @@ button.submit:hover {
 .additional-action p:hover {
   color: #e60505;
 }
+
+
+@media (max-width: 720px) {
+  .login-container {
+    max-width: 100%;
+    margin: 10px;
+  }
+}

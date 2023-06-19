@@ -29,6 +29,9 @@ export class AdminGuard implements CanActivate {
     if (this.isAccessedByButton) {
       return true;
     }
+    if (performance && performance.navigation.type === PerformanceNavigation.TYPE_RELOAD) {
+      return true; // Allow the page refresh
+    }
     return this.router.parseUrl('/404'); 
   }
   

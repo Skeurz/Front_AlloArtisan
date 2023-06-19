@@ -15,6 +15,7 @@ import { AdminReclamationComponent } from './components/admin-reclamation/admin-
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthGuard } from './auth.guard';
 import { AdminGuard } from './admin.guard';
+import { MesAnnoncesComponent } from './profil/Component/mes-annonces/mes-annonces.component';
 
 
 
@@ -22,7 +23,6 @@ import { AdminGuard } from './admin.guard';
 // Pour ajouter une route il s'agirait d'importer d'abords le composant puis ajouter sa route ci-dessous
 const routes: Routes = [
   {path :'',component: HomeComponent},
-  {path :'404',component: NotFoundComponent},
   {path :'passoublie',component: PassoublieComponent},
   {path :'contact',component: ContactComponent },
   {path :'authentifier',component: InscriptionFormComponent, canActivate: [AuthGuard]},
@@ -37,6 +37,7 @@ const routes: Routes = [
   {path :'role/:userName',component: RoleComponent},
 
   // Page introuvable
+  {path :'404',component: NotFoundComponent},
   {path: '**', redirectTo: '/404',pathMatch: 'full'},
 ];
 

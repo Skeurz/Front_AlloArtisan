@@ -105,23 +105,7 @@ export class MenuProfilComponent implements OnInit{
       }).set({title:"Suppression de compte"}).set('labels', {ok:'Oui', cancel:'Annuler'}); ;
     }
     
-  
- /* getData() {
-    return sessionStorage.getItem('token');
-  }*/
-   
- /* getUserById(id: number) {
-   this.profil=this.listArtisanService.getArtisanById(id);
-  } */
 
-   /*  getUserRoles(id: number): void {
-    this.listArtisanService.getUserRoles(id)
-      .subscribe(
-        roles => this.userRoles = roles.map(role => role.roleName),
-        error => console.log('Error:', error)
-      );
-  }*/
-  
 
      //Ouverture fermeture bouton editer
         toggleEdit() {

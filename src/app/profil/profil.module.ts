@@ -4,13 +4,15 @@ import { PostComponent } from './Component/post/post.component';
 import { ProfilRoutingModule } from './profil-routing.module';
 import { MenuProfilComponent } from './Component/menu-profil/menu-profil.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MesAnnoncesComponent } from './Component/mes-annonces/mes-annonces.component';
 
 
 
 @NgModule({
   declarations: [  
     PostComponent,
-    MenuProfilComponent
+    MenuProfilComponent,
+    MesAnnoncesComponent
   ],
   imports: [
     CommonModule,

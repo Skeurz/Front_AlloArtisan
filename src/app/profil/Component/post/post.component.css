@@ -32,8 +32,9 @@ body {
 }
 input[type="text"],
 input[type="email"],
+select, #subject,
 button {
-  width: 100%;
+  width: 500px !important;
   padding: 10px 24px;
   background: #e6e6e6;
   color: #696969;
@@ -46,7 +47,7 @@ margin-bottom: 10px;
 }
 
 .contact-container {
-  max-width: 720px;
+  max-width: 600px;
   background-color: #212529;
   padding: 24px;
   padding-bottom: 12px;
@@ -57,6 +58,7 @@ margin-bottom: 10px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 select{
   width: 100%;
@@ -152,6 +154,19 @@ textarea{
 .succesmessage{
   color: green;
   font-weight: 900;
+}
+
+@media (max-width: 720px) {
+  .contact-container {
+    max-width: 100%;
+    margin: 10px;
+  }
+  
+  input[type="text"],
+input[type="email"],
+select, #subject,
+button {
+  width: 100% !important; }
 }
 
 

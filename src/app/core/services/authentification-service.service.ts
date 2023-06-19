@@ -20,32 +20,20 @@ export class AuthentificationServiceService {
 
   constructor(private http: HttpClient) { }
 
-  /*authUser(user: any) {
-    let UserArray= [];
-    if(localStorage.getItem('Users')) {
-      UserArray = JSON.parse(localStorage.getItem('Users')!);
-    }
-    return UserArray.find((p: { userName: any; password: any; }) => p.userName === user.userName && p.password===user.password);
-  }*/
-
  login(user:User):Observable<Itoken>{
  return this.http.post<Itoken>(`${this.urlApi}/authenticate`,user);}
 
 
  getUserByUserName (userName:string){
   return this.http.get<User>(`${this.urlApi}/users/${userName}`)
-
 }
 
   
   ajouterUser(user: User): Observable<User> {
-    
-    return this.http.post<User>(`${this.urlApi}/register`, user);
-    
+    return this.http.post<User>(`${this.urlApi}/register`, user); 
   }
 
   getArtisanById(id: number): Observable<User>{
-    //  return this.http.get<User>(`${this.urlApi}user/${id}`)
     return this.http.get<User>(`${this.urlApi}/profile/${id}`)
     }
 
@@ -63,10 +51,8 @@ export class AuthentificationServiceService {
    handleError(error: HttpErrorResponse) {
     let msg = '';
     if (error.error instanceof ErrorEvent) {
-      // client-side error
       msg = error.error.message;
     } else {
-      // server-side error
       msg = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     return throwError(msg);
