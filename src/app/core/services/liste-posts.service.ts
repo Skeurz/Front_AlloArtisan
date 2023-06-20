@@ -54,6 +54,11 @@ export class ListePostsService {
         return this.http.get<Post[]>(url);
       }
 
+    getPostsByVille(ville: string): Observable<Post[]> {
+        const url = `${this.urlApi}/offres/ville/${ville}`;
+        return this.http.get<Post[]>(url);
+      }
+
 
 
 

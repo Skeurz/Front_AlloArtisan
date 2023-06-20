@@ -42,6 +42,8 @@ export class AdminListeOffresBesoinsComponent {
         () => { console.log('User deleted successfully.');
         this.posts = this.posts.filter(post => post.id !== id);
         window.location.reload();
+        alertifyjs.set('notifier','position', 'bottom-center');
+        alertifyjs.success('Annonce supprimée');
         },
         (error) => {  console.error('An error occurred while deleting the user:', error)
         }

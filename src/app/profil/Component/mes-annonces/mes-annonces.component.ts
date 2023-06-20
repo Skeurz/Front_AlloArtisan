@@ -5,6 +5,7 @@ import jwt_decode from 'jwt-decode';
 import { ListArtisanService } from 'src/app/core/services/list-artisan.service';
 import { ListePostsService } from 'src/app/core/services/liste-posts.service';
 import { Router } from '@angular/router';
+import * as alertifyjs from 'alertifyjs';
 
 @Component({
   selector: 'app-mes-annonces',
@@ -38,6 +39,8 @@ deletePost(id: number) {
       () => { console.log('User deleted successfully.');
       this.posts = this.posts.filter(post => post.id !== id);
       window.location.reload();
+      alertifyjs.set('notifier','position', 'bottom-center');
+      alertifyjs.success('Annonce supprimée');
       },
       (error) => {  console.error('An error occurred while deleting the user:', error)
       }

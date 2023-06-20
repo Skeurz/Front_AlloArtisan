@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';import { Post } from 'src/app/core/modeles/post';
+import { Observable, of } from 'rxjs';import { Post } from 'src/app/core/modeles/post';
 import { ListArtisanService } from 'src/app/core/services/list-artisan.service';
 import { ListePostsService } from 'src/app/core/services/liste-posts.service';
 
@@ -12,7 +12,8 @@ import { ListePostsService } from 'src/app/core/services/liste-posts.service';
 export class ListServiceComponent implements OnInit {
   
   post$!: Observable<Post[]>;
- // service$!:Observable<Post[]>;
+  posts: any;
+  selectedville: any;
 
 
   constructor(private listePostsService :ListePostsService){ }
@@ -20,6 +21,27 @@ export class ListServiceComponent implements OnInit {
 
   ngOnInit(): void {
     this.post$=this.listePostsService.getPostsByType("offre");
+  }
+
+
+  triVille(selectedville: string): Observable<Post[]> {
+    if (selectedville) {
+      this.post$ = of([]);
+      this.posts = [];
+      //Verifie qu'il s'agit de type offre d'abords
+      this.listePostsService.getPostsByType("offre").subscribe(posts => {
+        const filteredPosts = posts.filter(post => post.ville === selectedville);
+        this.posts = filteredPosts;
+      });
+    }
+    return of(this.posts);
+  }
+
+  resetTri() {
+    this.selectedville = '';
+    this.triVille(this.selectedville);
+    this.post$=this.listePostsService.getPostsByType("besoin");
+    this.posts = [];
   }
 
 
