@@ -5,9 +5,7 @@ import { User } from 'src/app/core/modeles/user';
 import { Observable, of } from 'rxjs';
 import { ChatService } from 'src/app/core/services/chat.service';
 import { Message } from 'src/app/core/modeles/message';
-import { map } from 'rxjs/operators';
-//import { formatDistanceToNow } from 'date-fns';
-//import { DatePipe } from '@angular/common';
+
 
 
 @Component({
@@ -18,7 +16,10 @@ import { map } from 'rxjs/operators';
 export class ChatComponent implements OnInit {
   loggedinUser : any;
   profil: any;
-  messages: Message[] = [];
+  messages: any;
+  moussages: any;
+  messagess: Message[] = [];
+  mergedMessages: Message[] = [];
   messageContent: string;
   senderId: any;
   message: Observable<Message>
@@ -28,6 +29,7 @@ export class ChatComponent implements OnInit {
   selectedUser: User;
   userRoles: string[] = [];
   receivedMessages: Message[] = [];
+  reception : Observable<Message[]>
   
 
   constructor(private liste: ListArtisanService, private chatService : ChatService, /*private datePipe: DatePipe*/){}
@@ -55,70 +57,86 @@ export class ChatComponent implements OnInit {
   
 
   sendMessage(): void {
-    const senderId = this.senderId; 
-    const receiverId = this.selectedUser.id; 
-    const content = this.messageContent; 
-    this.chatService.sendMessage(senderId, receiverId, content)
-      .subscribe((message: Message) => {
-        this.messages.unshift(message); // Empile les messages du plus recent au plus ancien
-        this.messageContent = ''; // Vide le textarea
+    const senderId = this.senderId;
+    const receiverId = this.selectedUser.id;
+    const content = this.messageContent;
+  
+    this.chatService.sendMessage(senderId, receiverId, content).subscribe((message: Message) => {
+      const conversationKey = this.getConversationKey(senderId, receiverId);
+      let conversation = this.getConversationFromLocalStorage(conversationKey);
+      conversation.push(message);
 
-        const conversation = this.getConversationFromLocalStorage();
-      conversation.unshift(message); // Stock le message dans conversation
-      this.saveConversationToLocalStorage(conversation);
+     
+  
+      conversation.sort((a: Message, b: Message) => {
+        const dateA = new Date(a.createdAt).getTime();
+        const dateB = new Date(b.createdAt).getTime();
+        return dateB - dateA; // Tri descendant
       });
- /* const existingUser = this.contactedUsers.find(user => user.id === receiverId);
-
-  // If the receiver is not in the contactedUsers array, add them
-  if (!existingUser) {
-    // Code to retrieve the user information based on the receiverId
-    const user: User =  Retrieve the user information based on receiverId ;
-
-    // Add the user to the contactedUsers array
-    this.contactedUsers.push(user);
-  }*/
+  
+      const maxMessages = 150;
+      if (conversation.length > maxMessages) {
+        conversation = conversation.slice(0, maxMessages);
+      }
+  
+      this.saveConversationToLocalStorage(conversationKey, conversation);
+      this.messages = conversation;
+  
+      this.messageContent = '';
+    });
   }
+  
+  
+  
+  private getConversationKey(senderId: number, receiverId: number): string {
+    return `conversation_${senderId}_${receiverId}`;
+  }
+  
+  private getConversationFromLocalStorage(conversationKey: string): Message[] {
+    const conversationStr = localStorage.getItem(conversationKey);
+    return conversationStr ? JSON.parse(conversationStr) : [];
+  }
+  
+  private saveConversationToLocalStorage(conversationKey: string, conversation: Message[]): void {
+    localStorage.setItem(conversationKey, JSON.stringify(conversation));
+  }
+  
+
+  
 
 
   choix(user: User) {
     this.selectedUser = user;
-    
-    // Extrait la conversisation du local storage.
-    const conversation: Message[] = JSON.parse(localStorage.getItem('conversation') || '[]');
-    
-    if (conversation) {
-      this.messages = conversation.filter(
-        (message: Message) => 
-          (message.sender.id === this.senderId && message.receiver.id === user.id) ||
-          (message.sender.id === user.id && message.receiver.id === this.senderId)
-      );
-    } else {
-      this.messages = [];
-    }
-
-  }
-
-
-  mesMessages() {
-  const userId = this.senderId;
-  this.chatService.getMessagesByUser(userId).subscribe(
-    (messages: Message[]) => {
-      this.receivedMessages = messages;
-    },
-    (error) => {
-      console.log(error);
-    }
-  );
-  }
-
-  private saveConversationToLocalStorage(conversation: Message[]): void {
-    localStorage.setItem('conversation', JSON.stringify(conversation));
+  
+    // Construire une clé de conversation basée sur senderId et receiverId
+    const conversationKey = this.getConversationKey(this.senderId, user.id);
+  
+    // Récupérer la conversation du stockage local
+    const conversation: Message[] = this.getConversationFromLocalStorage(conversationKey) || [];
+  
+    // Filtrer les messages pour l'utilisateur sélectionné
+    this.messages = conversation.filter((message: Message) =>
+      (message.sender.id === this.senderId && message.receiver.id === user.id) ||
+      (message.sender.id === user.id && message.receiver.id === this.senderId)
+    );
+  
+    this.recevoir();
   }
   
-  private getConversationFromLocalStorage(): Message[] {
-    const conversation = localStorage.getItem('conversation');
-    return conversation ? JSON.parse(conversation) : [];
+
+
+  recevoir() {
+    this.chatService.getMessagesByUser(this.senderId).subscribe((moussages) => { 
+      this.moussages = moussages
+        .filter((message) => message.senderId === this.selectedUser.id)
+        .sort((a, b) => {
+          const dateA = new Date(a.createdAt).getTime();
+          const dateB = new Date(b.createdAt).getTime();
+          return dateB - dateA; // Tri par odre descendant
+        });
+    });
   }
+  
 
     
 }

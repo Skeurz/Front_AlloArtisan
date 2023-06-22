@@ -221,7 +221,7 @@ main header h2{
 }
 #chat .you .triangle{
 		border-color: transparent transparent #6fbced transparent;
-		margin-left:15px;
+		margin-left:0px;
 }
 #chat .me .triangle{
 		border-color: transparent transparent #1c498d transparent;

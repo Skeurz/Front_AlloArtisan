@@ -27,23 +27,23 @@
                     <h2>Chat avec <b>{{selectedUser.userName}}</b></h2>
                 </div>  
             </header>
+
+
             <ul id="chat">
-
-
-             <li class="you" *ngFor="let message of receivedMessages">
+             <li class="you" *ngFor="let m of moussages">
                     <div class="entete" >
                         <span class="status green"></span>
                         <h2>{{selectedUser.userName}}</h2>
-                        <h3>&nbsp; Date d'envoi</h3>
+                        <h3>&nbsp; {{m.createdAt | date: 'dd/MM/yyyy HH:mm'}}</h3>
                     </div>
                     <div class="triangle"></div>
                     <div class="message">
-                        {{ message.content }}
+                        {{ m.content }}
                     </div>
                 </li>
 
 
-                <li class="me" *ngFor="let message of messages">
+                <li class="me" *ngFor="let message of messages" >
                     <div class="entete">
                         <h3>{{message.createdAt | date: 'dd/MM/yyyy HH:mm'}}</h3>
                         <h2> &nbsp; {{profil?.userName}}</h2>
@@ -55,6 +55,8 @@
                     </div>
                 </li>       
             </ul>
+
+
             <footer style="">
                 <form (ngSubmit)="sendMessage()">
                 <textarea placeholder="Votre message..." [(ngModel)]="messageContent" name="content" required></textarea>  
