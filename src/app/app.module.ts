@@ -33,6 +33,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +57,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     AdminReclamationComponent,
     NotFoundComponent,
     
+    
   ],
   imports: [
     BrowserModule,
@@ -73,9 +77,10 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
         disallowedRoutes: ['http://localhost:4200/login'], 
       },
     }),
+    
 
   ],
-  providers: [AuthentificationServiceService, JwtHelperService,],
+  providers: [AuthentificationServiceService, JwtHelperService],
   bootstrap: [AppComponent]
   
 })

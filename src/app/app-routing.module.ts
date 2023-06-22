@@ -15,7 +15,8 @@ import { AdminReclamationComponent } from './components/admin-reclamation/admin-
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthGuard } from './auth.guard';
 import { AdminGuard } from './admin.guard';
-import { MesAnnoncesComponent } from './profil/Component/mes-annonces/mes-annonces.component';
+
+
 
 
 
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path :'login',component: LoginComponent, canActivate: [AuthGuard]},
   {path :'profil', loadChildren: () => import('./profil/profil.module').then(m => m.ProfilModule), canActivate: [AuthGuard] },
   {path :'role/:userName',component: RoleComponent},
+  
 
   // Page introuvable
   {path :'404',component: NotFoundComponent},

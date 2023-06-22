@@ -30,7 +30,7 @@ export class AdminGuard implements CanActivate {
       return true;
     }
     if (performance && performance.navigation.type === PerformanceNavigation.TYPE_RELOAD) {
-      return true; // Allow the page refresh
+      return true; // Permet l'actualisation de la page.
     }
     return this.router.parseUrl('/404'); 
   }

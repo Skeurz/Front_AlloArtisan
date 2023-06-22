@@ -5,6 +5,7 @@ import { ProfilRoutingModule } from './profil-routing.module';
 import { MenuProfilComponent } from './Component/menu-profil/menu-profil.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MesAnnoncesComponent } from './Component/mes-annonces/mes-annonces.component';
+import { ChatComponent } from './Component/chat/chat.component';
 
 
 
@@ -12,7 +13,8 @@ import { MesAnnoncesComponent } from './Component/mes-annonces/mes-annonces.comp
   declarations: [  
     PostComponent,
     MenuProfilComponent,
-    MesAnnoncesComponent
+    MesAnnoncesComponent,
+    ChatComponent,
   ],
   imports: [
     CommonModule,

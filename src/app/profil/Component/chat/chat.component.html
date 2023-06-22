@@ -1,0 +1,66 @@
+<body>
+    <div id="container" style="">
+        <aside>
+            <header>
+                <input type="text" placeholder="Chercher">
+            </header>
+            <ul class="contact-list"> 
+                <li *ngFor="let a of nunu | async" class="contact-info" (click)="choix(a)">
+                    <div class="contact-info">
+                        <img [src]="a.profileImage" alt="" class="profile-image">
+                        <h2 >{{a.prenom}} {{a.nom}}</h2>
+                        <h3 ></h3>
+                    </div>
+                </li>
+            </ul>
+        </aside>
+        <main>
+            <header>
+
+                <div class="chat-header" *ngIf="!selectedUser">                   
+                    <h2><b>Cliquer sur un utilisateur pour commencer une conversation</b></h2>
+                </div> 
+
+                <div class="chat-header" *ngIf="selectedUser">
+                    <img [src]="selectedUser.profileImage"
+                 alt="" id="headerimage">
+                    <h2>Chat avec <b>{{selectedUser.userName}}</b></h2>
+                </div>  
+            </header>
+            <ul id="chat">
+
+
+             <li class="you" *ngFor="let message of receivedMessages">
+                    <div class="entete" >
+                        <span class="status green"></span>
+                        <h2>{{selectedUser.userName}}</h2>
+                        <h3>&nbsp; Date d'envoi</h3>
+                    </div>
+                    <div class="triangle"></div>
+                    <div class="message">
+                        {{ message.content }}
+                    </div>
+                </li>
+
+
+                <li class="me" *ngFor="let message of messages">
+                    <div class="entete">
+                        <h3>{{message.createdAt | date: 'dd/MM/yyyy HH:mm'}}</h3>
+                        <h2> &nbsp; {{profil?.userName}}</h2>
+                        <span class="status blue"></span>
+                    </div>
+                    <div class="triangle"></div>
+                    <div class="message">
+                        {{message.content}}
+                    </div>
+                </li>       
+            </ul>
+            <footer style="">
+                <form (ngSubmit)="sendMessage()">
+                <textarea placeholder="Votre message..." [(ngModel)]="messageContent" name="content" required></textarea>  
+                <a (click)="sendMessage()">Envoyer &nbsp;<i class="fa-solid fa-angles-right"></i></a>
+            </form>
+            </footer>
+        </main>
+    </div>
+</body>

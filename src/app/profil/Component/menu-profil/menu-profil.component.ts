@@ -49,6 +49,7 @@ export class MenuProfilComponent implements OnInit{
       (error) => {
         console.log(error); 
       }
+      
     );
     this.listArtisanService.getUserRoles(id)
       .subscribe(
