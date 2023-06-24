@@ -2,14 +2,26 @@
     <div id="container" style="">
         <aside>
             <header>
-                <input type="text" placeholder="Chercher">
+                <button class="btn btn-outline-light" (click)="envoyer()">Messages envoyés</button>
+                <button id="recu" class="btn btn-outline-light" (click)="recevoir()">Messages reçus</button>
             </header>
-            <ul class="contact-list"> 
-                <li *ngFor="let a of nunu | async" class="contact-info" (click)="choix(a)">
+            <h4 *ngIf="showMessagesRecus">{{msgrecu}} </h4>
+            <h4 *ngIf="showMessagesEnvoyes">{{msgenvoye}} </h4>
+            <ul class="contact-list" *ngIf="showMessagesRecus"> 
+                <li *ngFor="let a of massages?.reverse()" class="contact-info">
                     <div class="contact-info">
-                        <img [src]="a.profileImage" alt="" class="profile-image">
-                        <h2 >{{a.prenom}} {{a.nom}}</h2>
-                        <h3 ></h3>
+                        <h3 >Envoyeur : <b>{{a.sender.userName}}</b></h3>
+                        <h3>{{a.createdAt | date: 'dd/MM/yyyy HH:mm'}}</h3>
+                        <p>{{a.content}}</p>     
+                    </div>
+                </li>
+            </ul>
+            <ul class="contact-list" *ngIf="showMessagesEnvoyes"> 
+                <li *ngFor="let a of messages?.reverse()" class="contact-info" >
+                    <div class="contact-info">
+                        <h3 >Destinataire : <b>{{a.receiver.userName}}</b></h3>
+                        <h3>{{a.createdAt | date: 'dd/MM/yyyy HH:mm'}}</h3>
+                        <p>{{a.content}}</p>                 
                     </div>
                 </li>
             </ul>
@@ -17,51 +29,57 @@
         <main>
             <header>
 
-                <div class="chat-header" *ngIf="!selectedUser">                   
-                    <h2><b>Cliquer sur un utilisateur pour commencer une conversation</b></h2>
+                <div class="chat-header" *ngIf="showMessagesEnvoyes">                   
+                    <h2><b>Ecrivez le nom d'utilisateur du destinataire puis envoyer votre message.</b></h2>
                 </div> 
-
-                <div class="chat-header" *ngIf="selectedUser">
-                    <img [src]="selectedUser.profileImage"
-                 alt="" id="headerimage">
-                    <h2>Chat avec <b>{{selectedUser.userName}}</b></h2>
-                </div>  
+                <div class="chat-header" *ngIf="!showMessagesEnvoyes">                   
+                    <h2><b>Vos messages reçus :</b></h2>
+                </div> 
             </header>
 
 
             <ul id="chat">
-             <li class="you" *ngFor="let m of moussages">
+             <li class="you"*ngIf="showMessagesRecus" >
+                <div class="whole1" *ngFor="let m of massages?.reverse()">
                     <div class="entete" >
-                        <span class="status green"></span>
-                        <h2>{{selectedUser.userName}}</h2>
-                        <h3>&nbsp; {{m.createdAt | date: 'dd/MM/yyyy HH:mm'}}</h3>
+                        <h2> De: 
+                            <img [src]="m.sender.profileImage" alt="" class="profile-flegma"><b>{{m.sender.userName}}</b></h2>
+                        <h3 style="">{{m.createdAt | date: 'dd/MM/yyyy HH:mm'}}</h3>         
                     </div>
                     <div class="triangle"></div>
                     <div class="message">
-                        {{ m.content }}
+                        {{m.content}}
                     </div>
+                </div>
                 </li>
 
 
-                <li class="me" *ngFor="let message of messages" >
-                    <div class="entete">
-                        <h3>{{message.createdAt | date: 'dd/MM/yyyy HH:mm'}}</h3>
-                        <h2> &nbsp; {{profil?.userName}}</h2>
-                        <span class="status blue"></span>
+                <li class="me"  *ngIf="showMessagesEnvoyes">
+                    <div class="whole" *ngFor="let message of messages?.reverse()">
+                    <div class="entete">      
+                        <h2> À: <b>{{message.receiver.userName}}</b></h2>
+                        <img [src]="message.receiver.profileImage" alt="" class="profile-flegma">
+                        <h3 style="">{{message.createdAt | date: 'dd/MM/yyyy HH:mm'}}</h3>
+                        <h2> De: <b>{{message.sender.userName}}<img [src]="message.sender.profileImage" alt="" class="profile-flegma"></b></h2>
                     </div>
                     <div class="triangle"></div>
                     <div class="message">
                         {{message.content}}
                     </div>
+                </div>
                 </li>       
             </ul>
 
 
-            <footer style="">
-                <form (ngSubmit)="sendMessage()">
-                <textarea placeholder="Votre message..." [(ngModel)]="messageContent" name="content" required></textarea>  
-                <a (click)="sendMessage()">Envoyer &nbsp;<i class="fa-solid fa-angles-right"></i></a>
-            </form>
+            <footer>
+                <form [formGroup]="FormEnvoi" (ngSubmit)="sendMessage()" *ngIf="showMessagesEnvoyes">
+                    <div style="margin-left: 45px;">
+                    <label for="destinataire">Nom d'utilisateur du destinataire :</label>
+                    <input type="text" name="destinataire"[(ngModel)]="userIdInput" formControlName="destinataire" required style="margin-bottom: 5px;" placeholder=" Destinataire">
+                    </div>
+                    <textarea placeholder="Votre message..."formControlName="messageContent" name="messageContent" required></textarea>  
+                    <button class="btn btn-primary" type="submit" style="background-color: #1c498d; margin-left: 300px; color: aliceblue;">Envoyer &nbsp;<i class="fa-solid fa-angles-right"></i></button>
+                </form>
             </footer>
         </main>
     </div>

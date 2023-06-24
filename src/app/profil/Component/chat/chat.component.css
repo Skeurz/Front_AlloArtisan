@@ -21,11 +21,7 @@ body {
     overflow-x:hidden;
   }
 
-img {
-    border-radius: 999px;
-    height: 50px;
-    width: 50px;
-}
+
   #container{
     margin-top: 80px !important;
     margin-bottom: 120px !important;
@@ -64,38 +60,27 @@ aside header{
 	display: flex;
     justify-content: flex-start;
     align-items: center;
+	margin-left: 5px;
+	margin-right: 5px;
 }
-aside input{
-	margin-left: 10%;
-	width:80%;
-	height:50px;
-	line-height:50px;
-	padding:0 50px 0 20px;
-	background-color:#3b3e49;
-	border:none;
-	border-radius:3px;
-	color:#c9c9c9;
-	background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_search.png);
-	background-repeat:no-repeat;
-	background-position:160px;
-	background-size:40px;
+aside header button{
+	margin-left:3px
 }
-aside input::placeholder{
-	color:#fff;
-}
+
 aside ul{
 	padding-left:0;
 	margin:0;
 	list-style-type:none;
 	overflow-y:auto;
-	max-height: 87%;
+	max-height: 75%;
 }
 aside li{
 	padding:10px 0;
+	align-items: left !important;
 }
 aside li:hover{
 	background-color:#3b3e49;
-	cursor: pointer;
+	cursor:cell;
 }
 h2,h3{
 	margin:0;
@@ -108,35 +93,26 @@ aside li img{
 aside li div{
 	display:inline-block;
 	vertical-align:top;
-	margin-top:12px;
+	margin-top:0px;
+	word-wrap: break-word;
+	max-width: 100%;
+	
 }
-aside li h2{
-	font-size:14px;
+aside li p{
+	font-size:11px;
 	color:#fff;
 	font-weight:normal;
-	margin-bottom:5px;
+	margin-bottom:0px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 aside li h3{
-	font-size:12px;
+	font-size:15px;
 	color:#6fbced;
 	font-weight:normal;
 }
 
-.status{
-	width:8px;
-	height:8px;
-	border-radius:50%;
-	display:inline-block;
-	margin-right:7px;
-}
-.green{
-	background-color:#6fbced;
-}
-.blue{
-	background-color:#1c498d;
-	margin-right:0;
-	margin-left:7px;
-}
+
 
 header {height: 80px!important;}
 
@@ -170,7 +146,7 @@ main header h2{
 	margin:0;
 	list-style-type:none;
 	overflow-y:scroll;
-	height:360px;
+	height:320px;
 	border-top:2px solid #fff;
 	border-bottom:2px solid #fff;
 	display: flex;
@@ -186,9 +162,14 @@ main header h2{
 }
 #chat h3{
 	color:#bbb;
+	margin-left: 190px;
+}
+#chat h2{
+	color:#bbb;
 }
 #chat .entete{
 	margin-bottom:5px;
+	
 }
 #chat .message{
 	padding:10px;
@@ -199,19 +180,29 @@ main header h2{
 	text-align:left;
 	border-radius:5px;
 }
-#chat .me{
+
+#chat .me .whole{
+	margin-top: 3px;
 	text-align:right;
-	margin-top: 5px;
+	border-top-style:dashed;
+	border-color: #1c498d;
 }
-#chat .you{
+#chat .you .whole1{
+	margin-top: 3px;
 	text-align:left;
+	border-top-style:dashed;
+	border-color: #6fbced;
 }
 #chat .you .message{
 	background-color:#6fbced;
+	word-wrap: break-word;
+	max-width: 100%;
     
 }
 #chat .me .message{
 	background-color:#1c498d;
+	word-wrap: break-word;
+	max-width: 100%;
 }
 #chat .triangle{
 	width: 0;
@@ -221,7 +212,7 @@ main header h2{
 }
 #chat .you .triangle{
 		border-color: transparent transparent #6fbced transparent;
-		margin-left:0px;
+		margin-left:5px;
 }
 #chat .me .triangle{
 		border-color: transparent transparent #1c498d transparent;
@@ -266,10 +257,16 @@ main footer a:hover{color:#ffff; cursor: pointer;}
   }
   
   .profile-image {
-	border: 3px solid #6fbced!important;
-	width: 50px!important;
-	height: 50px!important;
-	margin-right: 20px !important;
+	width: 30px!important;
+	height: 30px!important;
+	border-radius: 999px;
+	margin-left: 3px;
+  }
+  .profile-flegma {
+	width: 30px!important;
+	height: 30px!important;
+	border-radius: 999px;
+	margin-left: 3px;
   }
   
  

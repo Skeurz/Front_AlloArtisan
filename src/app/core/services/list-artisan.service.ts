@@ -46,7 +46,6 @@ export class ListArtisanService {
 
     getUserByUserName (userName:string){
       return this.http.get<User>(`${this.urlApi}/users/${userName}`)
-  
     }
    
 

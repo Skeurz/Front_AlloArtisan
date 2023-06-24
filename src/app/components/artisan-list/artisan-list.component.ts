@@ -2,6 +2,9 @@ import { Component,OnInit } from '@angular/core';
 import { ListArtisanService } from '../../core/services/list-artisan.service';
 import { Observable, of } from 'rxjs';
 import { User } from 'src/app/core/modeles/user';
+import * as alertifyjs from 'alertifyjs';
+import { Router } from '@angular/router';
+import { catchError } from 'rxjs/operators';
 
 
 
@@ -17,7 +20,7 @@ export class ArtisanListComponent implements OnInit {
 
  
 
- constructor(private listArtisanService :ListArtisanService){ }
+ constructor(private listArtisanService :ListArtisanService, private router: Router){ }
 
   ngOnInit() : void {}
 
@@ -25,24 +28,29 @@ export class ArtisanListComponent implements OnInit {
 
   clearSearch() {this.artisan$ = of([]);this.resetSearch()}
 
-  searchUsers(selectedadresse: string) {
-    this.artisan$ = of([]);
-    this.users = [];
-    if (!selectedadresse) {
-      return console.log("Aucune adresse n'est selectionné");
-    }
-    this.listArtisanService.getUsersByRoleId(8)
-      .subscribe((artisanUsers: User[]) => {
-        this.users = artisanUsers.filter((user: User) => user.adresse === selectedadresse);
-        console.log(this.users);
-      });
-  }
+ searchUsers(selectedadresse: string) {
+  this.artisan$ = of([]);
+  this.users = [];
+
+  this.listArtisanService.getUsersByRoleId(8)
+    .pipe(
+      catchError(error => {
+        alertifyjs.error('Une erreur s\'est produite lors de la recherche des utilisateurs');
+        return of([]);
+      })
+    )
+    .subscribe((artisanUsers: User[]) => {
+      this.users = artisanUsers.filter((user: User) => user.adresse === selectedadresse);
+    });
+}
   
   resetSearch() {
     this.selectedadresse = '';
     this.searchUsers(this.selectedadresse);
   }
   
-  
+  redirectToPage(userId: string): void {
+    this.router.navigate(['profil/chat'], { queryParams: { userId : userId } });
+  }
 
 }

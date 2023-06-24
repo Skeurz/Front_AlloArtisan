@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';import { Post } from 'src/app/core/modeles/post';
 import { ListArtisanService } from 'src/app/core/services/list-artisan.service';
 import { ListePostsService } from 'src/app/core/services/liste-posts.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class ListServiceComponent implements OnInit {
   selectedville: any;
 
 
-  constructor(private listePostsService :ListePostsService){ }
+  constructor(private listePostsService :ListePostsService, private router: Router){ }
 
 
   ngOnInit(): void {
@@ -43,6 +44,12 @@ export class ListServiceComponent implements OnInit {
     this.post$=this.listePostsService.getPostsByType("besoin");
     this.posts = [];
   }
+
+
+  redirectToPage(userId: string): void {
+    this.router.navigate(['profil/chat'], { queryParams: { userId : userId } });
+  }
+  
 
 
 }
