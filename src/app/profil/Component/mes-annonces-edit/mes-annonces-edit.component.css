@@ -1,0 +1,171 @@
+* {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+  }
+
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    font-size: 14px; 
+    color: #ffffff;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+       z-index: -50;
+       background:
+       url("https://i.imgur.com/QIgu50K.jpg");
+       background-repeat: no-repeat;
+       height: 1000px;
+       background-size: cover; 
+       background-position: center center;
+       background-repeat: no-repeat;
+       text-align:center;
+       margin:auto;
+       padding:0;
+       overflow:auto
+  }
+  #description{
+    width: 500px;
+    height:300px;
+  }
+  input[type="text"],
+  input[type="email"],
+  select, #subject,
+  button {
+    width: 500px !important;
+    padding: 10px 24px;
+    background: #e6e6e6;
+    color: #696969;
+    border: none;
+    outline: none;
+    font-size: 0.9em;
+  }
+  input{
+  margin-bottom: 10px;
+  }
+  
+  .contact-container {
+    max-width: 600px;
+    background-color: #212529;
+    padding: 24px;
+    padding-bottom: 12px;
+    border-radius: 4px;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.25), 
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  select{
+    width: 100%;
+    position:-ms-page;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 4px 0;
+    border-bottom: 2px solid #2e44c2;
+    margin-bottom: 20px;
+  }
+  
+  
+  .form-control {
+    width: 100%;
+    position:static;
+    margin-bottom: 20px;
+  }
+  
+  
+  
+  .form-control input {
+    padding-left: 36px;
+    letter-spacing: 0.5px;
+    font-size: 1em;
+  }
+  
+  .form-control input:focus~i {
+    color: #0a25c0;
+  }
+  
+  .form-control input:focus {
+    animation: shadow 0.5s;
+  }
+  
+  @keyframes shadow {
+    0%, 100% {
+        box-shadow: none;
+    }
+    50% {
+        box-shadow: 0 0 20px 0 rgba(197, 22, 216, 0.2);
+    }
+  }
+  
+  
+  button.submit {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 32px auto;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 4px;
+    background-image: linear-gradient(to right, #1c498d, #df1818, #1c498d );
+    background-size: 300% 100%;    
+    transition: background-position 0.4s;
+  }
+  button.submit:disabled {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 32px auto;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 4px;
+    background-image: linear-gradient(to right, #b6b6b6, #555555, #b6b6b6 );
+    background-size: 300% 100%;    
+    transition: background-position 0.4s;
+  }
+  
+  button.submit:hover {
+    background-position: 100% 0;
+  }
+  
+  
+  .additional-action p {
+    margin: auto;
+    color: #696969b0;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .additional-action p:hover {
+    color: #e60505;
+  }
+  textarea{
+    color: #696969;
+  }
+  .succesmessage{
+    color: green;
+    font-weight: 900;
+  }
+  
+  @media (max-width: 720px) {
+    .contact-container {
+      max-width: 100%;
+      margin: 10px;
+    }
+    
+    input[type="text"],
+  input[type="email"],
+  select, #subject,
+  button {
+    width: 100% !important; }
+  }
+  

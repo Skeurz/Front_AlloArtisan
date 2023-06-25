@@ -3,7 +3,7 @@ import { ListArtisanService } from '../../core/services/list-artisan.service';
 import { Observable, of } from 'rxjs';
 import { User } from 'src/app/core/modeles/user';
 import * as alertifyjs from 'alertifyjs';
-import { Router } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 
 
@@ -20,7 +20,7 @@ export class ArtisanListComponent implements OnInit {
 
  
 
- constructor(private listArtisanService :ListArtisanService, private router: Router){ }
+ constructor(private listArtisanService :ListArtisanService, private router: Router, private route: ActivatedRoute){ }
 
   ngOnInit() : void {}
 
@@ -52,5 +52,12 @@ export class ArtisanListComponent implements OnInit {
   redirectToPage(userId: string): void {
     this.router.navigate(['profil/chat'], { queryParams: { userId : userId } });
   }
+  redirectToProfil(utilisateur: string): void {
+    const userName = this.route.snapshot.paramMap.get('utilisateur');
+  this.router.navigate(['user/', utilisateur], { queryParams: { userName: userName } });
+}
+
 
 }
+
+

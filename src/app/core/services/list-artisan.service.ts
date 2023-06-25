@@ -56,6 +56,13 @@ export class ListArtisanService {
       );
     }
 
+    getRoleByUsername(userName: String): Observable<string[]> {
+      const url = `${this.urlApi}/${userName}/role`;
+      return this.http.get<AppRole[]>(url).pipe(
+        map((roles: AppRole[]) => roles.map(role => role.role))
+      );
+    }
+
 
     getUserByAdresse(adresse: string): Observable<any> {
       const url = `${this.urlApi}/${adresse}`;
@@ -67,6 +74,7 @@ export class ListArtisanService {
     getUsersByRoleId(idRole: number): Observable<any> {
       return this.http.get<any>(`${this.urlApi}/roles/${idRole}`);
     }
+    
 
     
  

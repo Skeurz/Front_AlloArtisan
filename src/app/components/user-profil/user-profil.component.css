@@ -1,0 +1,166 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    height: 100vh !important;
+    width: 100%;
+    z-index: -50;
+    background:url("https://i.imgur.com/iIO95Ri.png");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+.padding {
+    padding: 3rem !important
+}
+
+.user-card-full {
+    margin-left: 30px;
+    overflow: hidden;
+    margin-top: 190px;
+    background-color: #212529;
+    color: white;
+}
+
+.card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    border: none;
+    margin-bottom: 30px;
+}
+
+.m-r-0 {
+    margin-right: 0px;
+}
+
+.m-l-0 {
+    margin-left: 0px;
+}
+
+.user-card-full .user-profile {
+    border-radius: 5px 0 0 5px;
+}
+
+.bg-c-lite-green {
+        background: -webkit-gradient(linear, left top, right top, from(#1c498d), to(#3d5c8b));
+    background: linear-gradient(to right, #3d5c8b, #1c498d);
+}
+
+.user-profile {
+    padding: 20px 0;
+}
+
+.card-block {
+    padding: 1.25rem;
+}
+
+.m-b-25 {
+    margin-bottom: 25px;
+}
+
+.img-radius {
+    border-radius: 999px; height: 50px; width: 50px;
+}
+
+
+ 
+h6 {
+    font-size: 14px;
+}
+
+.card .card-block p {
+    line-height: 25px;
+}
+
+@media only screen and (min-width: 1400px){
+p {
+    font-size: 14px;
+}
+}
+
+.card-block {
+    padding: 1.25rem;
+}
+
+.b-b-default {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
+}
+
+.p-b-5 {
+    padding-bottom: 5px !important;
+}
+
+.card .card-block p {
+    line-height: 25px;
+}
+
+.m-b-10 {
+    margin-bottom: 10px;
+}
+
+.text-muted {
+    color: #919aa3 !important;
+}
+
+.b-b-default {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.f-w-600 {
+    font-weight: 600;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
+}
+
+.m-t-40 {
+    margin-top: 20px;
+}
+
+.p-b-5 {
+    padding-bottom: 5px !important;
+}
+
+.m-b-10 {
+    margin-bottom: 10px;
+}
+
+.m-t-40 {
+    margin-top: 20px;
+}
+
+.moum-wrapper {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+ }
+ 
+ .moum {
+    margin-top: 200px;
+    order: 2;
+    position: relative;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #f00000;
+    letter-spacing: 5px;
+    z-index: 1;
+ }
+
+
+
+@media (max-width: 750px) {
+    .user-card-full {
+        margin-top: 5px;
+    }
+    body{height: auto;}
+  }

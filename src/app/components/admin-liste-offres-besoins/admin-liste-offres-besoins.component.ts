@@ -56,14 +56,12 @@ export class AdminListeOffresBesoinsComponent {
 
   onUpdatePost(post: Post) {
     this.updatePost(post).subscribe(updatedPost => {
-      // Handle the updated user response if needed
-      console.log('Offre / Besoin éditer:', updatedPost);
+      console.log('Offre / Besoin édité:', updatedPost);
       alertifyjs.set('notifier','position', 'bottom-center');
       alertifyjs.success('Offre / besoin modifié avec succès');
       
   
     }, error => {
-      // Handle error if the update fails
       console.error('Error updating user:', error);
     });
   }

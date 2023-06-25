@@ -16,18 +16,21 @@ import { Router } from '@angular/router';
 export class ListBesoinsComponent implements OnInit {
 
   
-  
+  selectedSortOption: string;
   post$!: Observable<Post[]>;
   posts: any;
   selectedville: any;
+  time:any;
+  sortedPosts$: Observable<any[]>;
 
   constructor(private listePostsService :ListePostsService, private router: Router){ }
 
 
   ngOnInit(): void {
+    
    /* this.besoin$=this.listePostsService.getAllBesoin();*/
    this.post$=this.listePostsService.getPostsByType("besoin");
-
+   
   }
 
 
@@ -56,7 +59,7 @@ export class ListBesoinsComponent implements OnInit {
   redirectToPage(userId: string): void {
     this.router.navigate(['profil/chat'], { queryParams: { userId : userId } });
   }
-  
+
   
   
   

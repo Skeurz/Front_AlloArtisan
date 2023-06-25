@@ -15,6 +15,7 @@ import { AdminReclamationComponent } from './components/admin-reclamation/admin-
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthGuard } from './auth.guard';
 import { AdminGuard } from './admin.guard';
+import { UserProfilComponent } from './components/user-profil/user-profil.component';
 
 
 
@@ -36,6 +37,7 @@ const routes: Routes = [
   {path :'login',component: LoginComponent, canActivate: [AuthGuard]},
   {path :'profil', loadChildren: () => import('./profil/profil.module').then(m => m.ProfilModule), canActivate: [AuthGuard] },
   {path :'role/:userName',component: RoleComponent},
+  {path :'user/:utilisateur',component: UserProfilComponent},
   
 
   // Page introuvable

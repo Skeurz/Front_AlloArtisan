@@ -25,6 +25,7 @@ import { Back2TopComponent } from './components/back2-top/back2-top.component';
 import { RoleComponent } from './components/role/role.component';
 import { AdminReclamationComponent } from './components/admin-reclamation/admin-reclamation.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { UserProfilComponent } from './components/user-profil/user-profil.component';
 
 
 
@@ -56,6 +57,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     RoleComponent,
     AdminReclamationComponent,
     NotFoundComponent,
+    UserProfilComponent,
     
     
   ],

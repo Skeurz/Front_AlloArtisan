@@ -95,7 +95,6 @@ export class ChatComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       const userId = params['userId'];
-      // Assign the user ID to the input field or perform any desired action
       this.userIdInput = userId;
     });
     this.FormEnvoi=this.formBuilder.group({

@@ -6,6 +6,7 @@ import { MenuProfilComponent } from './Component/menu-profil/menu-profil.compone
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MesAnnoncesComponent } from './Component/mes-annonces/mes-annonces.component';
 import { ChatComponent } from './Component/chat/chat.component';
+import { MesAnnoncesEditComponent } from './Component/mes-annonces-edit/mes-annonces-edit.component';
 
 
 
@@ -15,6 +16,7 @@ import { ChatComponent } from './Component/chat/chat.component';
     MenuProfilComponent,
     MesAnnoncesComponent,
     ChatComponent,
+    MesAnnoncesEditComponent
   ],
   imports: [
     CommonModule,

@@ -26,8 +26,11 @@
                                                   <p class="card-text">{{o.description}}</p>
                                                   <h4 class="card-text">{{o.prix}} DH</h4>
                                               </div>
-                                              <div><button class="btn btn-sm btn-danger" (click)="deletePost(o.id)"
-                                                 style="margin-left: 300px;margin-bottom: 10px;"> <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>
+                                              <div>
+                                                <button class="btn btn-primary" style="background-color: #1c498d;" (click)="redirectToPage(o.id)"
+                                                 style="margin-left: 300px;margin-bottom: 10px; height: 40px; width:40px"> <i class="fa-solid fa-pen" style="color: #ffffff;"></i></button>
+                                                <button class="btn btn-sm btn-danger" (click)="deletePost(o.id)"
+                                                 style="margin-left: 300px;margin-bottom: 10px; height: 40px; width:40px"> <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>
                                               </button></div>
                                           </div>
                                       </div>

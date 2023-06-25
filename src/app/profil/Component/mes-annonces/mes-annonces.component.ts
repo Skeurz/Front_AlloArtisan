@@ -4,7 +4,7 @@ import { User } from 'src/app/core/modeles/user';
 import jwt_decode from 'jwt-decode';
 import { ListArtisanService } from 'src/app/core/services/list-artisan.service';
 import { ListePostsService } from 'src/app/core/services/liste-posts.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import * as alertifyjs from 'alertifyjs';
 
 @Component({
@@ -20,7 +20,7 @@ export class MesAnnoncesComponent implements OnInit {
 
   constructor(private listePostsService :ListePostsService,
     private router: Router,
-    private liste:ListArtisanService,) {}
+    private liste:ListArtisanService, private route: ActivatedRoute) {}
 
 
 
@@ -47,7 +47,9 @@ deletePost(id: number) {
     );
 }
 
-
-
+redirectToPage(postId: number): void {
+  const postIdiot = this.route.snapshot.paramMap.get('postId');
+  this.router.navigate(['profil/mes-annonces/', postId], { queryParams: { postIdiot: postIdiot } });
+}
 
 }
