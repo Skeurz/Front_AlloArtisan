@@ -13,6 +13,7 @@
           <th>Ville</th>
           <th>Titre</th>
           <th>Description</th>
+          <th>prix</th>
           <th>Image Url</th>
           <th>Action</th>
         </tr>
@@ -26,6 +27,7 @@
           <td><span>{{p.ville}}</span></td>
           <td><span>{{p.titreAnnonce}}</span></td>
           <td><span>{{p.description}}</span></td>
+          <td><span>{{p.prix}}</span></td>
           <td><span><td><span><img [src]="p.imgUrl" alt="Aucune image"
             class="img-fluid" style="width: 45px; height: 45px;"></span></td></span></td>
           <td>
@@ -49,32 +51,33 @@
           <form class="register-form">
               <label>Nom d'utilisateur :</label>
               <div class="form-control">
-                <input type="text" name="artisan" placeholder="Nom d'utilisateur de l'artisan ou client" [(ngModel)]="selectedPost.artisan" required>      
+                <input type="text" name="artisan" placeholder="Nom d'utilisateur de l'artisan ou client"
+                 [(ngModel)]="selectedPost.artisan" required [ngModelOptions]="{standalone: true}">      
               </div>
               <label>Titre d'annonce :</label>
               <div class="form-control">
-                <input type="text" name="titreAnnonce" placeholder="Titre d'annonce" [(ngModel)]="selectedPost.titreAnnonce" required>      
+                <input type="text" name="titreAnnonce" placeholder="Titre d'annonce" [(ngModel)]="selectedPost.titreAnnonce" required [ngModelOptions]="{standalone: true}">      
               </div>
               <label>Ville :</label>
               <div class="form-control">
-                <input type="text" name="ville" placeholder="Ville" [(ngModel)]="selectedPost.ville" required>      
+                <input type="text" name="ville" placeholder="Ville" [(ngModel)]="selectedPost.ville" required [ngModelOptions]="{standalone: true}">      
               </div>
             <label>Prix :</label>
             <div class="form-control">
-              <input type="text" name="prix" placeholder="Prix en MAD"  [(ngModel)]="selectedPost.prix" required>      
+              <input type="text" name="prix" placeholder="Prix en MAD"  [(ngModel)]="selectedPost.prix" required [ngModelOptions]="{standalone: true}">      
             </div>
             <label>Description de l'annonce :</label>
             
            
-              <textarea id="description" name="description" [(ngModel)]="selectedPost.description" placeholder="Votre message.." style="height:100px;width: 400px;" formControlName="description" required></textarea>    
+              <textarea id="description" name="description" [(ngModel)]="selectedPost.description" [ngModelOptions]="{standalone: true}" placeholder="Votre message.." style="height:100px;width: 400px;" required></textarea>    
             
             <label>lien de la photo descriptive :</label>
             <div class="form-control">
-              <input type="email" name="email" placeholder="Email"  [(ngModel)]="selectedPost.imgUrl" required>      
+              <input type="email" name="email" placeholder="Email"  [(ngModel)]="selectedPost.imgUrl" [ngModelOptions]="{standalone: true}" required>      
             </div>
             <label>Type :</label>
             
-                <select formControlName="type" [(ngModel)]="selectedPost.type" required>
+                <select  [(ngModel)]="selectedPost.type" required [ngModelOptions]="{standalone: true}">
                     <option >Offre</option>
                     <option >Besoin</option>
                 </select>

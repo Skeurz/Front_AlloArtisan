@@ -16,6 +16,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthGuard } from './auth.guard';
 import { AdminGuard } from './admin.guard';
 import { UserProfilComponent } from './components/user-profil/user-profil.component';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import { PreConfirmationComponent } from './components/pre-confirmation/pre-confirmation.component';
 
 
 
@@ -38,6 +40,9 @@ const routes: Routes = [
   {path :'profil', loadChildren: () => import('./profil/profil.module').then(m => m.ProfilModule), canActivate: [AuthGuard] },
   {path :'role/:userName',component: RoleComponent},
   {path :'user/:utilisateur',component: UserProfilComponent},
+  {path: 'confirm', component: ConfirmationComponent },
+  {path: 'pre-confirm', component: PreConfirmationComponent },
+
   
 
   // Page introuvable

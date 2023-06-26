@@ -40,7 +40,7 @@ export class ListePostsService {
       }
   
     getPost(id: string): Observable<Post> {
-        const url = `${this.urlApi}/${id}`;
+        const url = `${this.urlApi}/offre/${id}`;
         return this.http.get<Post>(url);
       }
   

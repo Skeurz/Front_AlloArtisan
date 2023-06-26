@@ -26,11 +26,9 @@ export class InscriptionFormComponent implements OnInit {
   ngOnInit(): void {
     this.artisanForm = this.formBuilder.group({
       nom: [null, Validators.required],
-      userName: [null, Validators.required],
-      
+      userName: [null, Validators.required], 
       prenom: [null, Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      //email: [null, Validators.required],
       password: [null, Validators.required],
     });
 
@@ -41,7 +39,12 @@ export class InscriptionFormComponent implements OnInit {
   }
 
   onSubmitForm() {
-    console.log(this.artisanForm.controls['email'].status);
+
+    if (this.artisanForm.invalid) {
+      alertifyjs.set('notifier', 'position', 'bottom-center');
+        alertifyjs.error('Veuillez remplir tous les champs');
+      return;
+    }
     
   
     const email = this.artisanForm.value.email;

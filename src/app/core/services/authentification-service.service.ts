@@ -71,7 +71,14 @@ export class AuthentificationServiceService {
   }
 
 
+  confirmEmail(token: string) {
+    return this.http.get(`${this.urlApi}/confirm?token=${token}`);
+  }
 
+  isEmailConfirmed(userName: string): Observable<boolean> {
+    const url = `${this.urlApi}/${userName}/confirm`;
+    return this.http.get<boolean>(url);
+  }
   
 
 }

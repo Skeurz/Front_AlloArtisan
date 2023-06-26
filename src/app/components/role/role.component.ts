@@ -56,15 +56,13 @@ export class RoleComponent implements OnInit {
     
     this.service.addRoleToUser(userName, roleName).subscribe(
       () => {
-        // Handle success if needed
         console.log('Role added successfully');
         alertifyjs.set('notifier','position', 'bottom-center');
         alertifyjs.success('Rôle ajouté !');
-        this.router.navigateByUrl('login');
+        this.router.navigateByUrl('pre-confirm');
 
       },
       (error) => {
-        // Handle error if needed
         console.error('Error adding role:', error);
         alertifyjs.set('notifier','position', 'bottom-center');
         alertifyjs.error('Erreur');
@@ -72,10 +70,6 @@ export class RoleComponent implements OnInit {
     );
   }
 
-/*  onAddRole(){
-    this.service.addRoleToUser(this.roleForm.value).subscribe();
-    this.router.navigateByUrl(`/profil/${this.user.userName}`);
 
-  }*/
 
 }

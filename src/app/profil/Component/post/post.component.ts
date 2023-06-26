@@ -20,6 +20,7 @@ export class PostComponent implements OnInit {
   loggedinUser : any;
   profil: { userName: string };
   dataFormControl = new FormControl();
+  userRoles: string[] = [];
 
 
 
@@ -27,20 +28,22 @@ export class PostComponent implements OnInit {
   constructor(private listePostsService :ListePostsService,
      private router: Router,
      private formBuilder: FormBuilder,
-     private liste:ListArtisanService,) { this.profil = { userName: '' }; }
+     private liste:ListArtisanService,) { this.profil = { userName: '' };
+     }
 
   ngOnInit(): void {
 
-
+   
     this.userPost = this.formBuilder.group({
-      type: [null],
-      artisan: [null], 
-      titreAnnonce: [null],
-      description: [null],
-      ville: [null],
-      imgUrl: [null],
-      prix: [null],
+      type: [null, Validators.required],
+      artisan: [null, Validators.required], 
+      titreAnnonce: [null, Validators.required],
+      description: [null, Validators.required],
+      ville: [null, Validators.required],
+      imgUrl: [null, Validators.required],
+      prix: [null, Validators.required],
     });
+    
 
 
 
@@ -57,6 +60,11 @@ export class PostComponent implements OnInit {
         console.log(error); 
       }
     );
+    this.liste.getUserRoles(id)
+      .subscribe(
+        roles => this.userRoles = roles,
+        error => console.log('Error:', error)
+      );
   }
 
  
@@ -64,13 +72,27 @@ export class PostComponent implements OnInit {
  
   
   onSubmit() {
+    if (this.userPost.invalid) {
+      alertifyjs.set('notifier', 'position', 'bottom-center');
+        alertifyjs.error('Veuillez remplir tous les champs');
+      return;
+    }
+  
     console.log(this.userPost.value);
-    this.listePostsService.lancerPost(this.userPost.value).subscribe();
-
-    alertifyjs.set('notifier','position', 'bottom-center');
-    alertifyjs.success('Post ajouté avec succès');
-
-   this.router.navigate(['/profil'])
+    this.listePostsService.lancerPost(this.userPost.value).subscribe(
+      () => {
+        alertifyjs.set('notifier', 'position', 'bottom-center');
+        alertifyjs.success('Post ajouté avec succès');
+        this.router.navigate(['/profil']);
+      },
+      (error) => {
+        alertifyjs.set('notifier', 'position', 'bottom-center');
+        alertifyjs.error('Une erreur s\'est produite lors de l\'ajout du post.');
+        console.error(error);
+      }
+    );
   }
+  
+  
 
 }

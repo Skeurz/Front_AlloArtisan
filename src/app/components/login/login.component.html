@@ -18,7 +18,7 @@
     <!--<button class="submit" [disabled]="!loginForm.valid" >Connexion</button>-->
     <button class="submit" id="button"  (click)="onAuthentifier()" [disabled]="FormConnexion.invalid">Connexion</button>
     <div>Vous ne possédez pas de compte ?<a href="authentifier"> Inscrivez vous !</a></div>
-    <div *ngIf="errorMessage && !authentifie" class="error-message" style="color: red;">{{ errorMessage }}</div>
+    <div *ngIf="errorMessage" class="error-message" style="color: red;">{{ errorMessage }}</div>
   </form>
 </div>
 </body>

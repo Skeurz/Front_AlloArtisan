@@ -26,6 +26,8 @@ import { RoleComponent } from './components/role/role.component';
 import { AdminReclamationComponent } from './components/admin-reclamation/admin-reclamation.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { UserProfilComponent } from './components/user-profil/user-profil.component';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import { PreConfirmationComponent } from './components/pre-confirmation/pre-confirmation.component';
 
 
 
@@ -58,6 +60,8 @@ import { UserProfilComponent } from './components/user-profil/user-profil.compon
     AdminReclamationComponent,
     NotFoundComponent,
     UserProfilComponent,
+    ConfirmationComponent,
+    PreConfirmationComponent,
     
     
   ],

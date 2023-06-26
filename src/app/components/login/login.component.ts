@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
   urlApi="http://localhost:8090/authenticate";
   errorMessage: string | null;
   authentifie: boolean;
+  emailConfirmed: boolean = true;
+  userName: string;
+  poop : any;
 
   constructor( private router: Router ,private formBuilder: FormBuilder ,
      private authService: AuthentificationServiceService, 
@@ -31,33 +34,55 @@ export class LoginComponent implements OnInit {
     }
 
   ngOnInit() : void {
+    
   this.FormConnexion=this.formBuilder.group({
-  //  this.loginForm=this.formBuilder.group({
     userName: [null , Validators.required],
     password: [null, Validators.required],
- 
   }) 
  } 
 
- onAuthentifier() { 
+ onAuthentifier() {
   this.errorMessage = null;
-  this.authentifie = false; 
-  this.authService.login(this.FormConnexion.value) 
-  .subscribe(data => {
-    console.log(data)
-    console.log()
-    this.authentifie = true;
-    localStorage.setItem('access_token', data.token);
-    this.router.navigate(['/']).then(() => {window.location.reload();});
-    alertifyjs.set('notifier','position', 'bottom-center');
-    alertifyjs.success('Connexion réussi'); 
-  },
-  error => {
-    console.error(error);
-    // Gérer l'erreur de la requête si mdp ou NdU est incorrecte
-    this.errorMessage= "Nom d'utilisateur ou mot de passe incorrecte.";
-  }
-);
+  this.authentifie = false;
+
+  this.authService.isEmailConfirmed(this.FormConnexion.value.userName).subscribe(
+    response => {
+      // Response is the string value from the API
+      if (response === true) {
+        // Email is confirmed, proceed with login
+        this.authService.login(this.FormConnexion.value).subscribe(
+          data => {
+            console.log(data);
+            this.authentifie = true;
+            localStorage.setItem('access_token', data.token);
+            this.router.navigate(['/']).then(() => { window.location.reload(); });
+            alertifyjs.set('notifier', 'position', 'bottom-center');
+            alertifyjs.success('Connexion réussie');
+          },
+          error => {
+            console.error(error);
+            // Handle login error
+            this.errorMessage = "Nom d'utilisateur ou mot de passe incorrecte.";
+          }
+        );
+      } else {
+        // Email is not confirmed or user not found
+        if (response === false) {
+          this.errorMessage = "Votre email n'a pas été confirmé.";
+        } else if (response === false) {
+          this.errorMessage = "Utilisateur non trouvé.";
+        } else {
+          this.errorMessage = "Erreur lors de la vérification de l'email.";
+        }
+      }
+    },
+    error => {
+      console.error(error);
+      this.errorMessage = "Mot de passe ou nom d'utilisateur incorrecte / utilisateur non activé";
+    }
+  );
 }
+
 }
+
 

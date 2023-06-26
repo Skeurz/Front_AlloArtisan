@@ -1,0 +1,22 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    height: 100vh;
+    width: 100%;
+    font-size: 14px; 
+    color: #ffffff;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -50;
+    background:
+    url("https://i.imgur.com/QIgu50K.jpg");
+    background-repeat: no-repeat;
+
+    background-size: cover; 
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align:center;
+    margin:auto;
+    padding:0;
+    overflow:auto
+  }

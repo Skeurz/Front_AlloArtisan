@@ -24,6 +24,7 @@ export class MesAnnoncesEditComponent implements OnInit {
     this.listePostsService.getPost(postId).subscribe(
       (post: Post) => {
         this.post = post;
+        console.log(post)
       },
       (error: any) => {
         console.error(error);
@@ -39,7 +40,7 @@ export class MesAnnoncesEditComponent implements OnInit {
 
 
 
- 
+
 
 
 
@@ -52,7 +53,7 @@ export class MesAnnoncesEditComponent implements OnInit {
       console.log('annonce éditée:', updatedPost);
       alertifyjs.set('notifier','position', 'bottom-center');
       alertifyjs.success('Offre / besoin modifié avec succès');
-      
+      this.router.navigate(['profil/mes-annonces'])
   
     }, error => {
       console.error('Error updating user:', error);
