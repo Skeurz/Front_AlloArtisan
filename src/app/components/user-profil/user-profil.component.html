@@ -1,11 +1,11 @@
-<body>
+<body style="height: 100vh!important">
 
-<div class="page-content page-container" id="page-content">
+  
     <div class="padding">
         <div class="row container d-flex justify-content-center" *ngIf="user">
-<div class="col-xl-6 col-md-12">
-                                                <div class="card user-card-full">
-                                                    <div class="row m-l-0 m-r-0">
+          <div class="col-xl-8 ">
+                                                <div class="card user-card-full" >
+                                                    <div class="row">
                                                         <div class="col-sm-4 bg-c-lite-green user-profile">
                                                             <div class="card-block text-center text-white">
                                                                 <div class="m-b-25">
@@ -36,18 +36,85 @@
                                                                         <h6 class="text-muted f-w-400">placeholder</h6>
                                                                     </div>
                                                                     <div class="col-sm-6">
-                                                                        <p class="m-b-10 f-w-600">placeholder</p>
+                                                                        <p class="m-b-10 f-w-600"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
+                                                                            <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i></p>
                                                                         <button class="btn btn-primary" style="background-color: #1c498d;"
                                                                         (click)="redirectToPage(user.userName)">Contacter</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div><button class="btn btn-dark" *ngIf="!showForm"
+                                                         style="align-items: center; display:flex;justify-content: center; background-color: #1c498d;" 
+                                                         (click)="toggleForm()">+ Évaluer</button>
+                                                         <button class="btn btn-dark" *ngIf="showForm"
+                                                         style="align-items: center; display:flex;justify-content: center; background-color: #1c498d;" 
+                                                         (click)="toggleForm()">Annuler</button>
                                                     </div>
                                                 </div>
                                             </div>
                                              </div>
                                              </div>
-         </div>
+
+
+
+
+                                             <div class="container d-flex justify-content-center align-items-center" id="format" style="margin-bottom: 40px;"
+                                             *ngFor="let r of reviews">
+                                              <div class="toggle-container" [ngClass]="{ 'show': showForm, 'hide': !showForm }">
+                                                <div class="card bg-dark text-light" *ngIf="showForm" style="width: 400px;">
+                                                  <div class="card-body">
+                                                    <h5 class="card-title">Review Form</h5>
+                                                    <form (ngSubmit)="submitReview()" [formGroup]="reviewForm">
+                                                      <div class="form-group">
+                                                        <label for="userId">Reviewer :</label>
+                                                        <input type="text" class="form-control" id="reviewer" placeholder="" readonly [(ngModel)]="profil.userName" formControlName="reviewer">
+                                                      </div>
+                                                      <div class="form-group">
+                                                        <label for="description">Commentaire:</label>
+                                                        <textarea class="form-control" id="comment" rows="4" placeholder="Evaluer cet utilisateur en quelques mots !" formControlName="comment"></textarea>
+                                                      </div>
+                                                      <div class="form-group">
+                                                        <label for="receiverId">Receiver :</label>
+                                                        <input type="text" class="form-control" id="receiver" placeholder="Enter receiver" readonly [(ngModel)]="r.receiver" formControlName="receiver">
+                                                      </div>
+                                                      <div class="form-group">
+                                                        <label for="starReview">Star Rating:</label>
+                                                        <input type="number" class="form-control" id="starReview" placeholder="Enter star rating" formControlName="starRating">
+                                                      </div>
+                                                      <button type="submit" class="btn btn-dark mt-1" style="background-color: #1c498d;">Évaluer</button>
+                                                    </form>
+                                                    
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            
+                                              
+                                              
+                                              
+                                              
+                                                
+                                         
+      
+
+
+
+
+         <div class="row let" style="margin-bottom: 30px; display:flex;justify-content: center;
+         align-items: center;" *ngFor="let r of reviews">
+            <div class="col-sm-6">
+              <div class="card bg-dark text-light">
+                <div class="card-body">
+                  <h5 class="card-title"><!--<img [src]="profil.profileImage"
+                    style="border-radius: 666px;height: 30px;width: 30px; margin-right: 6px;">-->{{r.reviewer}}</h5>
+                  <p class="card-text">{{r.comment}}</p>
+                   <p><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          
 
 </body>
