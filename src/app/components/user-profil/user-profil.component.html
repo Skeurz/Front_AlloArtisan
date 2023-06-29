@@ -29,15 +29,16 @@
                                                                         <h6 class="text-muted f-w-400">{{user.telephone}}</h6>
                                                                     </div>
                                                                 </div>
-                                                                <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">placeholder</h6>
+                                                                <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Contact et Évaluation :</h6>
                                                                 <div class="row">
                                                                     <div class="col-sm-6">
-                                                                        <p class="m-b-10 f-w-600">placeholder</p>
-                                                                        <h6 class="text-muted f-w-400">placeholder</h6>
+                                                                        <p class="m-b-10 f-w-600">Notes :<b style="color: gray;">&nbsp; {{averageRating}} / 5</b></p>
+                                                                        <h6 class="text-muted f-w-400">
+                                                                          
+                                                                          <span class="staros" *ngFor="let star of [1, 2, 3, 4, 5]" [class.active]="star <= averageRating">&#9733;</span>                                                                                                                                                                                                                                                                                                                                                                    </h6>
                                                                     </div>
                                                                     <div class="col-sm-6">
-                                                                        <p class="m-b-10 f-w-600"><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                                                                            <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i></p>
+                                                                        <p class="m-b-10 f-w-600">Contacter :</p>
                                                                         <button class="btn btn-primary" style="background-color: #1c498d;"
                                                                         (click)="redirectToPage(user.userName)">Contacter</button>
                                                                     </div>
@@ -58,28 +59,32 @@
 
 
 
-                                             <div class="container d-flex justify-content-center align-items-center" id="format" style="margin-bottom: 40px;"
-                                             *ngFor="let r of reviews">
+                                             <div class="container d-flex justify-content-center align-items-center" id="format" style="margin-bottom: 40px;">
                                               <div class="toggle-container" [ngClass]="{ 'show': showForm, 'hide': !showForm }">
                                                 <div class="card bg-dark text-light" *ngIf="showForm" style="width: 400px;">
                                                   <div class="card-body">
-                                                    <h5 class="card-title">Review Form</h5>
+                                                    <h5 class="card-title">Ajouter un commentaire</h5>
                                                     <form (ngSubmit)="submitReview()" [formGroup]="reviewForm">
                                                       <div class="form-group">
-                                                        <label for="userId">Reviewer :</label>
+                                                        <label for="userId">Vous :</label>
                                                         <input type="text" class="form-control" id="reviewer" placeholder="" readonly [(ngModel)]="profil.userName" formControlName="reviewer">
                                                       </div>
                                                       <div class="form-group">
                                                         <label for="description">Commentaire:</label>
-                                                        <textarea class="form-control" id="comment" rows="4" placeholder="Evaluer cet utilisateur en quelques mots !" formControlName="comment"></textarea>
+                                                        <textarea class="form-control" id="comment" rows="4" placeholder="Evaluer cet utilisateur en quelques mots ! (max 1024 caractères)" formControlName="comment"></textarea>
                                                       </div>
                                                       <div class="form-group">
-                                                        <label for="receiverId">Receiver :</label>
-                                                        <input type="text" class="form-control" id="receiver" placeholder="Enter receiver" readonly [(ngModel)]="r.receiver" formControlName="receiver">
-                                                      </div>
+                                                        
+                                                        <label for="receiverId">L'évalué :</label>
+                                                        <div *ngFor="let r of reviews ; let i = index">
+                                                        <input type="text" class="form-control" *ngIf="i === 0" id="receiver" placeholder="Enter receiver" readonly [(ngModel)]="r.receiver" formControlName="receiver">
+                                                      </div></div>
                                                       <div class="form-group">
-                                                        <label for="starReview">Star Rating:</label>
-                                                        <input type="number" class="form-control" id="starReview" placeholder="Enter star rating" formControlName="starRating">
+                                                        <label for="starReview" style="margin-top: 10px;">Note :</label>
+                                                        <div class="rating">
+                                                          <span class="star" *ngFor="let star of [1, 2, 3, 4, 5]" [class.active]="star <= starRating.value" (click)="updateRating(star)">&#9733;</span>
+                                                        </div>
+                                                        
                                                       </div>
                                                       <button type="submit" class="btn btn-dark mt-1" style="background-color: #1c498d;">Évaluer</button>
                                                     </form>
@@ -108,8 +113,10 @@
                   <h5 class="card-title"><!--<img [src]="profil.profileImage"
                     style="border-radius: 666px;height: 30px;width: 30px; margin-right: 6px;">-->{{r.reviewer}}</h5>
                   <p class="card-text">{{r.comment}}</p>
-                   <p><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i></p>
+                  <span class="staros" *ngFor="let star of [1, 2, 3, 4, 5]" [class.active]="star <= r.starRating">&#9733;</span>
+                  <p> Crée le : <b><i>{{r.dateCreated | date: 'dd/MM/yyyy HH:mm' }}</i></b></p>
                 </div>
+                
               </div>
             </div>
           </div>

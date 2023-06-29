@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';import { Post } from 'src/app/core/modeles
 import { ListArtisanService } from 'src/app/core/services/list-artisan.service';
 import { ListePostsService } from 'src/app/core/services/liste-posts.service';
 import { Router } from '@angular/router';
+import { catchError, map } from 'rxjs/operators';
 
 
 @Component({
@@ -15,6 +16,9 @@ export class ListServiceComponent implements OnInit {
   post$!: Observable<Post[]>;
   posts: any;
   selectedville: any;
+  selectedchrono: any;
+  time:any;
+  sortedPosts$: Observable<any[]>;
 
 
   constructor(private listePostsService :ListePostsService, private router: Router){ }
@@ -41,7 +45,7 @@ export class ListServiceComponent implements OnInit {
   resetTri() {
     this.selectedville = '';
     this.triVille(this.selectedville);
-    this.post$=this.listePostsService.getPostsByType("besoin");
+    this.post$=this.listePostsService.getPostsByType("offre");
     this.posts = [];
   }
 
@@ -50,6 +54,36 @@ export class ListServiceComponent implements OnInit {
     this.router.navigate(['profil/chat'], { queryParams: { userId : userId } });
   }
   
-
+  triChronologique(selectedchrono: string) {
+    if (selectedchrono == "recent") {
+        this.post$ = of([]);
+        this.posts = [];
+        this.post$ = this.listePostsService.getPostsByType('offre')
+      .pipe(
+        map(posts => posts.sort((a, b) => {
+          const dateA = a.dateCreated ? new Date(a.dateCreated).getTime() : 0;
+          const dateB = b.dateCreated ? new Date(b.dateCreated).getTime() : 0;
+          return dateB - dateA;
+          
+        }))
+      );
+      this.selectedville='';
+    }
+      
+      if (selectedchrono == "ancien") {
+        this.post$ = of([]);
+        this.posts = [];
+        this.post$ = this.listePostsService.getPostsByType('offre')
+          .pipe(
+            map(posts => posts.sort((a, b) => {
+              const dateA = a.dateCreated ? new Date(a.dateCreated).getTime() : 0;
+              const dateB = b.dateCreated ? new Date(b.dateCreated).getTime() : 0;
+              return dateA - dateB;
+            }))
+          );
+          this.selectedville=''
+        }
+  
+  }
 
 }

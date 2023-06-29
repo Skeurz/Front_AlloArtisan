@@ -14,7 +14,8 @@
         <div class="tri">
             <h4 style="color: white !important;"><b>Tri :</b></h4>
             
-            <select style="margin-bottom: 20px; margin-right: 10px; width: 150px; color: #1c498d; padding: 5px;" >
+            <select style="margin-bottom: 20px; margin-right: 10px; width: 150px; color: #1c498d; padding: 5px;" 
+            [(ngModel)]="selectedchrono" (ngModelChange)="triChronologique(selectedchrono)">
                 <option value="recent" >Du plus récent au plus ancien</option>
                 <option value="ancien">Du plus ancien au plus récent</option>
             </select>

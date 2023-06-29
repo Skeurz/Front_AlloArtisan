@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef} from '@angular/core';
 import { ListArtisanService } from 'src/app/core/services/list-artisan.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/core/modeles/user';
@@ -9,6 +9,9 @@ import { ReviewService } from 'src/app/core/services/review.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import jwt_decode from 'jwt-decode';
 import * as alertifyjs from 'alertifyjs';
+import { DomSanitizer } from '@angular/platform-browser';
+
+
 
 
 
@@ -30,12 +33,15 @@ starRating: FormControl;
 reviews: Review[] = [];
 profil:any;
 loggedinUser : any;
+starIcons: any[] = [];
+averageRating: number = 0;
 
 
 
   
 
   constructor(private liste: ListArtisanService, private route: ActivatedRoute, private http: HttpClient,private router: Router,
+    private sanitizer: DomSanitizer, private elementRef: ElementRef,
     private  reviewService: ReviewService) {this.reviewerId = new FormControl('', Validators.required);
     this.comment = new FormControl('', Validators.required);
     this.receiverId = new FormControl('', Validators.required);
@@ -51,6 +57,15 @@ loggedinUser : any;
 
 
 
+    calculateAverageRating(reviews: Review[]): number {
+      if (!reviews || reviews.length === 0) {
+        return 0; // 0 si y'a aucune note
+      }
+    
+      const totalRating = reviews.reduce((sum, review) => sum + review.starRating, 0);
+      const averageRating = totalRating / reviews.length;
+      return Math.round(averageRating * 10) / 10;
+    }
 
   ngOnInit(): void {
     const utilisateur = this.route.snapshot.paramMap.get('utilisateur');
@@ -71,14 +86,19 @@ loggedinUser : any;
     error => console.log('Error:', error)
   );} 
   if (utilisateur !== null) {
-  this.reviewService.getAllReviewsByReceiver(utilisateur).subscribe(
-    (reviews: Review[]) => {
-      this.reviews = reviews;
-    },
-    (error: any) => {
-      console.log('Error:', error);
-    }
-  );}
+    this.reviewService.getAllReviewsByReceiver(utilisateur).subscribe(
+      (reviews: Review[]) => {
+        this.reviews = reviews.sort((a, b) => {
+          const dateA = a.dateCreated ? new Date(a.dateCreated).getTime() : 0;
+          const dateB = b.dateCreated ? new Date(b.dateCreated).getTime() : 0;
+          return dateB - dateA; // Tri
+        });
+        this.averageRating = this.calculateAverageRating(reviews);
+      },
+      (error: any) => {
+        console.log('Error:', error);
+      }
+    );}
   this.loggedinUser = localStorage.getItem('access_token')!;
    const decodedToken: any = jwt_decode(this.loggedinUser); 
    const subject = decodedToken.payload;
@@ -93,6 +113,10 @@ loggedinUser : any;
       
     );
   }
+  updateRating(rating: number): void {
+  this.starRating.setValue(rating);
+}
+
 
   redirectToPage(userId: string): void {
     this.router.navigate(['profil/chat'], { queryParams: { userId : userId } });
@@ -100,6 +124,8 @@ loggedinUser : any;
 
   toggleForm() {
     this.showForm = !this.showForm;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
   }
 
   submitReview() {
@@ -112,12 +138,13 @@ loggedinUser : any;
             alertifyjs.success('Merci pour votre commentaire.');
       },
       (error) => {
-        console.log('Erreur:', error);
+        alertifyjs.error('Erreur lors de la submission du commentaire.');
       }
     );
   }
   else {alertifyjs.error('Vous ne pouvez pas commentez sur votre propre profil.');}
 }
+
 
 
 

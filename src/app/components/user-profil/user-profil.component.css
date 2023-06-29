@@ -164,10 +164,7 @@ p {
     z-index: 1;
  }
 
- i:hover {
-    color: #ebd82e;
-    cursor: pointer;
- }
+
 
 
 
@@ -203,3 +200,34 @@ p {
     max-height: 0;
     transition: opacity 1s ease, visibility 1s ease, max-height 1s ease;
   }
+
+ 
+  .rating {
+    font-size: 30px;
+    color: #ccc;
+  }
+  
+  .star {
+    cursor: pointer;
+  }
+  
+  .star.active {
+    color: gold;
+  }
+  .staros.active {
+    color: gold;
+    
+  }
+  .staros{font-size: 30px;}
+
+
+  .staros {
+    transition: color 0.3s ease; /* Add a transition effect for color change */
+  }
+  
+  .star-icon {
+    font-size: 24px; /* Adjust the font size as needed */
+    color: gold; /* Customize the color */
+  }
+ 
+  

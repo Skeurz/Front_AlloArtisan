@@ -20,6 +20,7 @@ export class ListBesoinsComponent implements OnInit {
   post$!: Observable<Post[]>;
   posts: any;
   selectedville: any;
+  selectedchrono: any;
   time:any;
   sortedPosts$: Observable<any[]>;
 
@@ -27,14 +28,48 @@ export class ListBesoinsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
-   /* this.besoin$=this.listePostsService.getAllBesoin();*/
-   this.post$=this.listePostsService.getPostsByType("besoin");
+    this.post$ = this.listePostsService.getPostsByType('besoin')
    
+}
+
+
+triChronologique(selectedchrono: string) {
+  if (selectedchrono == "recent") {
+      this.post$ = of([]);
+      this.posts = [];
+      this.post$ = this.listePostsService.getPostsByType('besoin')
+    .pipe(
+      map(posts => posts.sort((a, b) => {
+        const dateA = a.dateCreated ? new Date(a.dateCreated).getTime() : 0;
+        const dateB = b.dateCreated ? new Date(b.dateCreated).getTime() : 0;
+        return dateB - dateA;
+        
+      }))
+    );
+    this.selectedville='';
   }
+    
+    if (selectedchrono == "ancien") {
+      this.post$ = of([]);
+      this.posts = [];
+      this.post$ = this.listePostsService.getPostsByType('besoin')
+        .pipe(
+          map(posts => posts.sort((a, b) => {
+            const dateA = a.dateCreated ? new Date(a.dateCreated).getTime() : 0;
+            const dateB = b.dateCreated ? new Date(b.dateCreated).getTime() : 0;
+            return dateA - dateB;
+          }))
+        );
+        this.selectedville=''
+      }
+
+}
+
+  
 
 
   triVille(selectedville: string): Observable<Post[]> {
+    this.selectedchrono="";
     if (selectedville) {
       this.post$ = of([]);
       this.posts = [];
@@ -53,6 +88,7 @@ export class ListBesoinsComponent implements OnInit {
     this.triVille(this.selectedville);
     this.post$=this.listePostsService.getPostsByType("besoin");
     this.posts = [];
+    this.selectedchrono='';
   }
 
 
