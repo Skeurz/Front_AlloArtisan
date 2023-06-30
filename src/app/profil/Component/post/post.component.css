@@ -34,7 +34,7 @@ input[type="text"],
 input[type="email"],
 select, #subject,
 button {
-  width: 500px !important;
+  width: 400px !important;
   padding: 10px 24px;
   background: #e6e6e6;
   color: #696969;
@@ -46,8 +46,8 @@ input{
 margin-bottom: 10px;
 }
 
-.contact-container {
-  max-width: 600px;
+.post-container {
+  max-width: 500px;
   background-color: #212529;
   padding: 24px;
   padding-bottom: 12px;

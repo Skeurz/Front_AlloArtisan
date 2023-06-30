@@ -16,7 +16,6 @@
           
             <select style="margin-bottom: 20px; margin-right: 10px; width: 150px; color: #1c498d; padding: 5px;"
             [(ngModel)]="selectedchrono" (ngModelChange)="triChronologique(selectedchrono)">
-                <option value="null">Aucun tri</option>
                 <option value="recent">Du plus récent au plus ancien</option>
                 <option value="ancien">Du plus ancien au plus récent</option>
             </select>
@@ -89,8 +88,9 @@
                                                     <h4 class="card-title">{{o.artisan}}</h4>
                                                     <p class="card-text">{{o.description}}</p>
                                                     <h4 class="card-text">{{o.prix}} DH</h4>
+                                                    <div class="btn btn-primary" (click)="redirectToPage(o.artisan)">Contacter</div><br>
+                                            <div class="btn btn-primary" style="margin-top: 3px;" (click)="pageToRedirect(o.artisan)">Profil du client</div>
                                                 </div>
-                                                <div class="btn btn-primary"(click)="redirectToPage(o.artisan)">Contacter</div>
                                             </div>
                                         </div>
                                     </div>
@@ -124,8 +124,9 @@
                                                 <h4 class="card-title">{{n.artisan}}</h4>
                                                 <p class="card-text">{{n.description}}</p>
                                                 <h4 class="card-text">{{n.prix}} DH</h4>
+                                                <div class="btn btn-primary" (click)="redirectToPage(n.artisan)">Contacter</div><br>
+                                            <div class="btn btn-primary" style="margin-top: 3px;" (click)="pageToRedirect(n.artisan)">Profil du client</div>
                                             </div>
-                                            <div class="btn btn-primary"(click)="redirectToPage(n.artisan)">Contacter</div>
                                         </div>
                                     </div>
                                 </div>

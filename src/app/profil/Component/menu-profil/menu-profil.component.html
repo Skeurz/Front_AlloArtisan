@@ -6,7 +6,8 @@
             <img [src]="profil?.profileImage" alt=" avatar"
               class="rounded-circle img-fluid" style="width: 150px; height: 150px;" *ngIf="!isEditing">
               <img [src]="profil?.profileImage" alt="✏️ avatar"
-              class="edited rounded-circle img-fluid" style="width: 150px; height: 150px;" *ngIf="isEditing" (click)="avatar()" >
+              class="edited rounded-circle img-fluid" style="width: 150px; height: 150px;" *ngIf="isEditing" (click)="avatar()">
+              
             <h5 class="my-3">{{profil?.prenom}} {{profil?.nom}}</h5>
             <p class="text-muted mb-4">{{profil?.adresse}}</p>
             <p class="text-muted mb-4" style="font-style: italic;">{{userRoles}}</p>

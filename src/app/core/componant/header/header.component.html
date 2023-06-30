@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark" >
+<nav class="navbar navbar-expand-lg navbar-dark p-0" style="background-color: #212529; height: 50px;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="/assets/images/borderized.png" height="50"></a>
+    <a class="navbar-brand" href="#"><img class="alloartisan" src="/assets/images/borderized.png" height="50"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -23,10 +23,10 @@
           <a class="btn dropdown-toggle" style="background-color: #1c498d; color: white;" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             S'authentifier
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" routerLink="authentifier">S'inscrire</a></li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #212529;">
+            <li><a class="dropdown-item" routerLink="authentifier" style="color: white;">S'inscrire</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" routerLink="login">Se connecter</a></li>
+            <li><a class="dropdown-item" routerLink="login" style="color: white;">Se connecter</a></li>
           </ul>
         </li>
 
@@ -36,12 +36,12 @@
        
           <a  class="nav-link mx-2" style="font-weight: 600; cursor: pointer;" data-bs-toggle="dropdown" aria-expanded="false">
             Bienvenu, <b>{{session()}}</b> !</a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" routerLink="profil"><i class="fas fa-user-circle"></i> Mon profil</a></li>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #212529;">
+            <li><a class="dropdown-item" routerLink="profil"  style="color: white;"><i class="fas fa-user-circle" ></i> Mon profil</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" routerLink="profil/chat"><i class="fa-solid fa-message"></i> Messagerie</a></li>
+            <li><a class="dropdown-item" routerLink="profil/chat"  style="color: white;"><i class="fa-solid fa-message" ></i> Messagerie</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" routerLink="/" (click)="onLogout()" style="color: red;"><i class=" fas fa-sign-out-alt"></i> Se déconnecter</a></li>
+            <li><a class="dropdown-item" id="sharpie" routerLink="/" (click)="onLogout()"><i class=" fas fa-sign-out-alt"></i> Se déconnecter</a></li>
           </ul>
           
         </li>

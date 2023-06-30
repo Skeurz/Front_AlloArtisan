@@ -17,7 +17,7 @@ body {
        background:
        url("https://i.imgur.com/QIgu50K.jpg");
        background-repeat:no-repeat;
-     height: 1000px;
+     height: 110vh;
      background-size: cover; 
      background-position: center center;
      background-repeat: no-repeat;
@@ -160,5 +160,7 @@ h2  {
   .register-container {
     max-width: 100%;
     margin: 10px;
+    margin-top: 30px;
   }
+  body{height: 115vh;}
 }

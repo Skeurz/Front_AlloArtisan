@@ -1,6 +1,9 @@
 <body style="height: 100vh!important">
 
-  
+  <h1 *ngIf="!user" style="text-align: center; margin-top: 300px; color: white; font-size: 
+  60px !important; font-weight: bold;-webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #1c498d;">
+    Utilisateur inexistant</h1>
     <div class="padding">
         <div class="row container d-flex justify-content-center" *ngIf="user">
           <div class="col-xl-8 ">

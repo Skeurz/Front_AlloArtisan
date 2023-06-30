@@ -8,6 +8,12 @@
     background-color: #343a40;
 }
 
+.dropdown-item:hover{
+  color: #212529 !important;
+}
+#sharpie {
+  color: red !important;
+}
 
 .nav-link.mx-2 {
     overflow: hidden;
@@ -65,6 +71,14 @@
     
     font-weight: 700;
     vertical-align: top;
+  }
+
+  .alloartisan:hover {
+    opacity: 75%;
+    transition: .5s ease;
+  }
+  .alloartisan{
+    transition: .5s ease;
   }
   
   

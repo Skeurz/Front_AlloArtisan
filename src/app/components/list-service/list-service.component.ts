@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';import { Post } from 'src/app/core/modeles/post';
 import { ListArtisanService } from 'src/app/core/services/list-artisan.service';
 import { ListePostsService } from 'src/app/core/services/liste-posts.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, map } from 'rxjs/operators';
 
 
@@ -21,7 +21,7 @@ export class ListServiceComponent implements OnInit {
   sortedPosts$: Observable<any[]>;
 
 
-  constructor(private listePostsService :ListePostsService, private router: Router){ }
+  constructor(private listePostsService :ListePostsService, private router: Router, private route: ActivatedRoute){ }
 
 
   ngOnInit(): void {
@@ -85,5 +85,10 @@ export class ListServiceComponent implements OnInit {
         }
   
   }
+
+  pageToRedirect(utilisateur: string): void {
+    const userName = this.route.snapshot.paramMap.get('utilisateur');
+  this.router.navigate(['user/', utilisateur], { queryParams: { userName: userName } });
+}
 
 }

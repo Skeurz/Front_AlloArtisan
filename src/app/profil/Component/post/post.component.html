@@ -1,8 +1,8 @@
 <body>
-    <div class="contact-container"> 
+    <div class="post-container"> 
       <p class="title">Postuler une anonnce :</p>
       <form [formGroup]="userPost" (ngSubmit)="onSubmit()">
-       <div class="form-group" *ngIf="!userRoles.includes('Artisan')">
+       <div class="form-group" *ngIf="userRoles.includes('Client')">
             <label for="role">Type d'annonce :</label>
             <select formControlName="type" id="annonce" required> 
                 <option disabled style="color: red;">Offre : Reservé aux artisans</option>
@@ -16,6 +16,13 @@
                   <option disabled style="color: red;">Besoin : Reservé aux clients</option>
               </select>
               </div>
+              <div class="form-group" *ngIf="userRoles.includes('Admin')">
+                <label for="role">Type d'annonce :</label>
+                <select formControlName="type" id="annonce" required> 
+                    <option>Offre</option>
+                    <option>Besoin</option>
+                </select>
+                </div>
             
             
         <div class="form-group">

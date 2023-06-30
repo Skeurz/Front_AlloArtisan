@@ -18,13 +18,12 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 9vh;
+    height: 4.5vh;
     transition:height 1s;
     overflow: hidden;
 }
 #myFooter.expanded {
-    
-    height: 50vh;
+    height: 45vh;
 }
 
 
@@ -49,3 +48,10 @@
 .fa-reddit-alien:hover{
     color:#e25300;
 }
+
+@media (max-width: 768px) {
+    #myFooter.expanded {
+        height: 100%;
+    }
+  
+  }

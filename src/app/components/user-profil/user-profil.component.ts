@@ -38,6 +38,7 @@ averageRating: number = 0;
 
 
 
+
   
 
   constructor(private liste: ListArtisanService, private route: ActivatedRoute, private http: HttpClient,private router: Router,
@@ -112,7 +113,16 @@ averageRating: number = 0;
       }
       
     );
+    if (utilisateur === null) {return this.introuvable()}
   }
+
+  introuvable(){}
+
+  
+
+
+
+
   updateRating(rating: number): void {
   this.starRating.setValue(rating);
 }

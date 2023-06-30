@@ -65,6 +65,7 @@ export class PostComponent implements OnInit {
         roles => this.userRoles = roles,
         error => console.log('Error:', error)
       );
+
   }
 
  
