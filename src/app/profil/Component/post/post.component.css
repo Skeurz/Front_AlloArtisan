@@ -17,7 +17,7 @@ body {
      background:
      url("https://i.imgur.com/QIgu50K.jpg");
      background-repeat: no-repeat;
-     height: 1000px;
+     height: 115vh;
      background-size: cover; 
      background-position: center center;
      background-repeat: no-repeat;
@@ -157,10 +157,11 @@ textarea{
 }
 
 @media (max-width: 720px) {
-  .contact-container {
+  .post-container {
     max-width: 100%;
     margin: 10px;
   }
+  body{height: 120vh;}
   
   input[type="text"],
 input[type="email"],

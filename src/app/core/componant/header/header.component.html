@@ -35,7 +35,7 @@
        <!--  <app-artisan  *ngFor=" let a of artisan$ | async "  [artisan]="a" ></app-artisan>   -->
        
           <a  class="nav-link mx-2" style="font-weight: 600; cursor: pointer;" data-bs-toggle="dropdown" aria-expanded="false">
-            Bienvenu, <b>{{session()}}</b> !</a>
+            Bienvenu, <b style="text-transform: capitalize;">{{session()}}</b> !</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: #212529;">
             <li><a class="dropdown-item" routerLink="profil"  style="color: white;"><i class="fas fa-user-circle" ></i> Mon profil</a></li>
             <li><hr class="dropdown-divider"></li>

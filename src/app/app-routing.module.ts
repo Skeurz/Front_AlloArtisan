@@ -40,7 +40,7 @@ const routes: Routes = [
   {path :'profil', loadChildren: () => import('./profil/profil.module').then(m => m.ProfilModule), canActivate: [AuthGuard] },
   {path :'role/:userName',component: RoleComponent},
   {path :'user/:utilisateur',component: UserProfilComponent, canActivate: [AuthGuard] },
-  {path: 'confirm', component: ConfirmationComponent, canActivate: [AuthGuard] },
+  {path: 'confirm', component: ConfirmationComponent},
   {path: 'pre-confirm', component: PreConfirmationComponent, canActivate: [AuthGuard] },
 
   

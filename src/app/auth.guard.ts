@@ -28,7 +28,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
 
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (state.url === '/login' || state.url === '/authentifier' || state.url === '/confirm' || state.url === '/pre-confirm') {
+    if (state.url === '/login' || state.url === '/authentifier'  || state.url === '/pre-confirm') {
       if (this.authService.isLoggedIn()) {
         this.router.navigate(['/profil']); /* Si l'utilisateur est connecté et essaye d'acceder a la page login 
         ou inscription il va se rediriger vers sa page profil */
