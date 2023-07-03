@@ -69,19 +69,14 @@
                                                     <h5 class="card-title">Ajouter un commentaire</h5>
                                                     <form (ngSubmit)="submitReview()" [formGroup]="reviewForm">
                                                       <div class="form-group">
-                                                        <label for="userId">Vous :</label>
-                                                        <input type="text" class="form-control" id="reviewer" placeholder="" readonly [(ngModel)]="profil.userName" formControlName="reviewer">
+                                                        <input type="text" class="form-control" id="reviewer" placeholder="" readonly [(ngModel)]="profil.userName"
+                                                         formControlName="reviewer" style="display: none;">
                                                       </div>
                                                       <div class="form-group">
                                                         <label for="description">Commentaire:</label>
                                                         <textarea class="form-control" id="comment" rows="4" placeholder="Evaluer cet utilisateur en quelques mots ! (max 1024 caractères)" formControlName="comment"></textarea>
                                                       </div>
-                                                      <div class="form-group">
-                                                        
-                                                        <label for="receiverId">L'évalué :</label>
-                                                        <div *ngFor="let r of reviews ; let i = index">
-                                                        <input type="text" class="form-control" *ngIf="i === 0" id="receiver" placeholder="Enter receiver" readonly [(ngModel)]="r.receiver" formControlName="receiver">
-                                                      </div></div>
+
                                                       <div class="form-group">
                                                         <label for="starReview" style="margin-top: 10px;">Note :</label>
                                                         <div class="rating">
@@ -89,6 +84,13 @@
                                                         </div>
                                                         
                                                       </div>
+                                                      <div class="form-group">
+                                                        <div>
+                                                        <p type="text" class="form-control"  id="receiver" placeholder="Enter receiver" readonly formControlName="receiver"
+                                                        style="display: none;"></p>
+                                                      </div>
+                                                    </div>
+                                                      
                                                       <button type="submit" class="btn btn-dark mt-1" style="background-color: #1c498d;">Évaluer</button>
                                                     </form>
                                                     

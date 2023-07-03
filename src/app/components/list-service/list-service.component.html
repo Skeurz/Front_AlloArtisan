@@ -109,7 +109,7 @@
                                 <div class="mainflip flip-0">
                                     <div class="frontside">
                                         <div class="card">
-                                            <div class="card-body text-center" >
+                                    <div class="card-body text-center" >
                                                 <p><img class=" img-fluid" [src]="n.imgUrl" alt="Pas d'image"></p>
                                                 <h4 class="card-title">{{n.titreAnnonce}}</h4>
                                                 <p class="card-text">{{n.ville}}</p>
@@ -125,7 +125,8 @@
                                                 <p class="card-text">{{n.description}}</p>
                                                 <h4 class="card-text">{{n.prix}} DH</h4>
                                                 <div class="btn btn-primary" (click)="redirectToPage(n.artisan)">Contacter</div><br>
-                                            <div class="btn btn-primary" style="margin-top: 3px;" (click)="pageToRedirect(n.artisan)">Profil du client</div>
+                                            <div class="btn btn-primary" style="margin-top: 3px;" (click)="pageToRedirect(n.artisan)">
+                                                Profil du client</div>
                                             </div>
                                         </div>
                                     </div>

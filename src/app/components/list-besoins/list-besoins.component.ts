@@ -47,7 +47,8 @@ triChronologique(selectedchrono: string) {
       }))
     );
     this.selectedville='';
-  }
+   
+  } 
     
     if (selectedchrono == "ancien") {
       this.post$ = of([]);

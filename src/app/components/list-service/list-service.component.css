@@ -139,8 +139,8 @@ section .section-title {
 .frontside .card,
 .backside .card {
     color: #fff !important;
-    background-color: #343a40 !important;
-    min-height: 312px;
+    background-color: #212529 !important;
+    height: 400px;
 }
 
 .backside .card a {

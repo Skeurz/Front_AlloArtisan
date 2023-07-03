@@ -35,7 +35,7 @@ profil:any;
 loggedinUser : any;
 starIcons: any[] = [];
 averageRating: number = 0;
-
+utilisateuri: any;
 
 
 
@@ -45,7 +45,7 @@ averageRating: number = 0;
     private sanitizer: DomSanitizer, private elementRef: ElementRef,
     private  reviewService: ReviewService) {this.reviewerId = new FormControl('', Validators.required);
     this.comment = new FormControl('', Validators.required);
-    this.receiverId = new FormControl('', Validators.required);
+    this.receiverId = new FormControl(this.utilisateuri = this.route.snapshot.paramMap.get('utilisateur'), Validators.required);
     this.starRating = new FormControl('0', Validators.required);
   
     this.reviewForm = new FormGroup({
@@ -69,6 +69,7 @@ averageRating: number = 0;
     }
 
   ngOnInit(): void {
+    
     const utilisateur = this.route.snapshot.paramMap.get('utilisateur');
     if (utilisateur !== null) {
       this.liste.getUserByUserName(utilisateur).subscribe(
@@ -134,6 +135,7 @@ averageRating: number = 0;
 
   toggleForm() {
     this.showForm = !this.showForm;
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
   }

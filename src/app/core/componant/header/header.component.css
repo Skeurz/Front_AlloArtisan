@@ -80,5 +80,17 @@
   .alloartisan{
     transition: .5s ease;
   }
-  
+
+  @media (max-width: 768px) {
+    #auth {
+      margin-bottom: 5px;
+      
+    }
+  }
+  @media (max-width: 768px) {
+    #loggedin {
+      margin-bottom: 5px;
+      
+    }
+  }
   
