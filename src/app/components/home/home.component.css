@@ -3,9 +3,21 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Roboto:wght@100&display=swap');
 
+
+.background-image {
+  background-image: url('\src\assets\images\home-background.webp');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+
+}
+
 body {
    background-color: black;
-   color: white;
    font-family: 'Roboto', sans-serif;
    padding: 0;
    margin: 0;
@@ -95,68 +107,28 @@ img{
 
 
 
-/*@-webkit-keyframes slide_animation{
-    0% {left:0px;}
-    10% {left:0px;}
-    20% {left:1200px;}
-    30% {left:1200px;}
-    40% {left:2400px;}
-    50% {left:2400px;}
-    60% {left:120px;}
-    70% {left:1200px;}
-    80% {left:0px;}
-    90% {left:0px;}
-    100% {left:0px;}
-}
-.slider-frame{
-    overflow: hidden;
-    height: 800px;
-    width: 1200px;
-    margin-left: 360px;
-    margin-left: 20px;
-}
-.slide-images{
-    width: 3600px; 
-    height: 800px;
-    margin: 0 0 0 -2400px;
-    position: relative;
-    -webkit-animation-name: slide_animation;
-    -webkit-animation-duration: 33s;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-direction: alternate;
-    -webkit-animation-play-state: running;
-}
-.img-container{
-    height: 800px;
-    width: 1200px;
-    position: relative;
-    float: left;
-}*/
-/*.section1 {
-    margin-left: 150px;
-    display: grid;
-    align-content: center;
-    min-height: 100vh;
-    
-}
 
-.section1 p{
-    font-size: 35px;  
-
-}*/
 .section1 b /*animation alloartisan*/{
     font-weight: 700;
-    text-align: center;
-    font-size: 35px;
+   /* text-align: center;*/
+    font-size: 50px;
     font-family: Hack, sans-serif;
-    background: linear-gradient(90deg, #1c498d, #fff, #1c498d);
+   /* -webkit-text-stroke: 1px #1c498d;*/
+   /* background: linear-gradient(90deg, #1c498d, #fff, #1c498d);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     background-repeat: no-repeat;
-    background-size: 80%;
-    animation: shine 2s linear infinite;
+    background-size: 80%;*/
+   /* animation: shine 2s linear infinite;*/
     position: relative;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0) !important;
+    background-color: #1c498d;
+    border-radius: 7px;
+    padding: 3px;
+    padding-right: 15px;
+   
+    font-family: 'Karantina', cursive;
   }
   @keyframes shine {
     0% {
@@ -166,6 +138,10 @@ img{
       background-position-x: 500%;
     }
   }
+
+  
+
+
 a{
     padding: 10px;
     height: 50px;
@@ -266,45 +242,7 @@ h1.premier {
     color: #1c498d;
     background-color: #fff;
   }
-  /*
-.btn:before{
-    animation: glitchTop 1s linear infinite;
-    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
-  }
-  
-  @keyframes glitchTop{
-    2%,64%{
-      transform: translate(2px,-2px);
-    }
-    4%,60%{
-      transform: translate(-2px,2px);
-    }
-    62%{
-      transform: translate(13px,-1px) skew(-13deg); 
-    }
-  }
-  
-.btn:after{
-    animation: glitchBotom 1.5s linear infinite;
-    clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
-    -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
-  }
-  
-  @keyframes glitchBotom{
-    2%,64%{
-      transform: translate(-2px,0);
-    }
-    4%,60%{
-      transform: translate(-2px,0);
-    }
-    62%{
-      transform: translate(-22px,5px) skew(21deg); 
-    }
-  }
-  
-*/
-
+ 
 /* carte presentation */
  .who{
     text-align: center;
@@ -585,6 +523,9 @@ font-weight: bold;
     height: 200px;
     margin-bottom: 50px;
     text-align: center;
+  }
+  .premier2{
+    
   }
 }
 

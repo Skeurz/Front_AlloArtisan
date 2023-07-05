@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -16,7 +16,18 @@ export class HomeComponent {
     'https://images.pexels.com/photos/4509089/pexels-photo-4509089.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     'https://images.pexels.com/photos/994164/pexels-photo-994164.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',];
   currentImageIndex: number = 0;
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+    const scrollPosition = window.pageYOffset;
+    const opacity = 1 - (scrollPosition / (window.innerHeight * 1.8)); 
+    this.updateBackgroundOpacity(opacity);
+  }
+  
 
+  updateBackgroundOpacity(opacity: number) {
+    const background = document.querySelector('.background-image') as HTMLElement;
+    background.style.opacity = opacity.toString();
+  }
 
   
   constructor(private router: Router){}

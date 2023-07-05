@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+body{
+  background-color: black;
+}
+
 /*.header{
   position: relative;
   width: 100%;
