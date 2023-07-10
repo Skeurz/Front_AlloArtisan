@@ -140,7 +140,7 @@ section .section-title {
 .backside .card {
     color: #fff !important;
     background-color: #343a40 !important;
-    min-height: 312px;
+    min-height: 400px;
 }
 
 .backside .card a {

@@ -31,7 +31,7 @@ section {
 
 
 .section1 {
-  margin-top: 120px;
+  margin-top: 80px;
 }
 
 .paragraph1 {
@@ -80,6 +80,8 @@ section {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin-top: 50px;
+  margin-left: 100px;
 }
 
 .image-container {
@@ -93,7 +95,7 @@ section {
 
 
 img{
-    width:700px;
+    width:600px;
     height:500px;
   }
 
@@ -124,7 +126,7 @@ img{
     position: relative;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0) !important;
     background-color: #1c498d;
-    border-radius: 7px;
+    border-radius: 0px 7px 7px 0px;
     padding: 3px;
     padding-right: 15px;
    
@@ -517,6 +519,19 @@ font-weight: bold;
   justify-content: center!important;
 }
 
+.container {
+  display: flex;
+}
+
+.section1 {
+  flex: 1;
+}
+
+.sectionX {
+  flex: 1;
+}
+
+
 @media (max-width: 768px) {
   .cardio {
     width: 80%;
@@ -524,13 +539,24 @@ font-weight: bold;
     margin-bottom: 50px;
     text-align: center;
   }
-  .premier2{
-    
+  .container {
+    flex-direction: column;
+  }
+  
+  .section1, .section2 {
+    flex: none;
+    width: 100%;
+  }
+  .image-wrapper{
+    margin: 5px;
   }
 }
 
 @media (max-width: 768px) {
   body {
     overflow-x: hidden;
+  }
+  .row1{
+    margin: 3px;
   }
 }

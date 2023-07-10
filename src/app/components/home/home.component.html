@@ -25,36 +25,38 @@
   <div class="background-image"></div>
 
   
+  <div class="container">
 
   <section class="section1" style="position: relative;">
-    <h1 class="premier" >Services artisanaux aux bouts des doigts</h1>
+    <h1 class="premier" style="-webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;">Services artisanaux aux bouts des doigts</h1>
     <p class="paragraph1" style="color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"> 
       Avez-vous besoin de travaux que ce soit en menuiseries, construction, carrelage, plomberie, jardinage ou n'importe quel 
       travaux artisanaux ? <b class="highlight"><b style="color: #1c498d !important;background-color: white;
-        border-radius: 7px; padding-left: 15px !important; padding-right: 1px !important;
+        border-radius: 7px 0px 0px 7px; padding-left: 15px !important; padding-right: 1px !important;
       ">Allo</b>Artisan</b> vous liera avec un artisan professionnel en quelques cliques !
-      <br><br>
+      <br>
       <a *ngIf="!loggedin()" class="btn" href="authentifier">S'inscrire >></a>
     </p>
   </section>
 
 
-  <section><i class="fas fa-angle-down fa-light fa-beat fa-2xl" style="color: #c0c0c0;
-    display: flex; justify-content: center; align-items: center;" ></i></section>
+ <!-- <section><i class="fas fa-angle-down fa-light fa-beat fa-2xl" style="color: #c0c0c0;
+    display: flex; justify-content: center; align-items: center;" ></i></section>-->
 
 
-<section>
+<section class="sectionX">
   <div class="row1">
 <div class="image-wrapper ">
-  <div *ngFor="let image of images; let i = index" class="image-container  border border-primary border-5 rounded"
-   style="border-color: #1c498d!important;"
+  <div *ngFor="let image of images; let i = index" class="image-container border border-primary border-5 rounded"
+   style="border-color: #fff!important; border-style: dashed !important;"
    [class.hidden]="i !== currentImageIndex">
     <img [src]="image" alt="Image">
   </div>
 </div>
 </div>
 </section>
-
+  </div>
 
 
 

@@ -50,9 +50,21 @@ p{
   margin-top: 100px !important;
   margin-left: 85px;
 }
-.btn.btn-success {
-  margin-left: 550px;
-  width: 100px;
+
+button.submit {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 4px;
+  background-image: linear-gradient(to right, #1c498d, #df1818, #1c498d );
+  background-size: 300% 100%;    
+  transition: background-position 0.4s;
+  border: 0px;
+}
+button.submit:hover {
+  background-position: 100% 0;
 }
 
 @media (max-width: 1440px) {
@@ -73,8 +85,7 @@ p{
   .col-lg-8 {
     margin-bottom: 50px !important;
   }
-  .btn.btn-success {
-    margin-bottom:20px ;
-    margin-top: 20px;
+  .submit {
+    margin-bottom:90px ;
   }
 }

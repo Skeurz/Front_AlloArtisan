@@ -16,6 +16,9 @@ export class HomeComponent {
     'https://images.pexels.com/photos/4509089/pexels-photo-4509089.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     'https://images.pexels.com/photos/994164/pexels-photo-994164.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',];
   currentImageIndex: number = 0;
+
+
+  
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
     const scrollPosition = window.pageYOffset;
@@ -39,7 +42,7 @@ export class HomeComponent {
     setTimeout(() => {
       this.rotateImage();
       this.startImageRotation();
-    }, 5000);
+    }, 5000); //5 secondes
   }
 
   rotateImage(): void {
