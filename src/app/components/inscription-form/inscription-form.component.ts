@@ -61,8 +61,19 @@ export class InscriptionFormComponent implements OnInit {
         alertifyjs.success('Compte créé');
       },
       error => {
-        alertifyjs.set('notifier', 'position', 'bottom-center');
-        alertifyjs.error('Erreur lors de la création du compte');
+        if (error.status === 409) {
+          const errorData = error.error;
+          if (errorData === 'email deja existant') {
+            this.artisanForm.controls['email'].setErrors({ 'emailExists': true });
+          } else if (errorData === "nom d'uti deja existant") {
+            this.artisanForm.controls['userName'].setErrors({ 'userNameExists': true });
+          }
+          alertifyjs.set('notifier', 'position', 'bottom-center');
+          alertifyjs.error("Nom d'utilisateur ou email déja existant");
+        } else {
+          alertifyjs.set('notifier', 'position', 'bottom-center');
+          alertifyjs.error('Erreur lors de la création du compte');
+        }
       }
     );
   }

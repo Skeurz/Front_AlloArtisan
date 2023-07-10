@@ -53,6 +53,7 @@ main{
 	font-size:15px;
 	vertical-align:top;
     border-right: 10px solid #3b3e49;
+	
 }
 
 aside header{
@@ -152,6 +153,7 @@ main header h2{
 	display: flex;
     flex-direction: column-reverse;
 }
+
 #chat li{
 	padding:10px 30px;
 }
@@ -182,13 +184,15 @@ main header h2{
 }
 
 #chat .me .whole{
-	margin-top: 3px;
+	margin-top: 10px;
+	margin-bottom: 20px;
 	text-align:right;
 	border-top-style:dashed;
 	border-color: #1c498d;
 }
 #chat .you .whole1{
-	margin-top: 3px;
+	margin-top: 10px;
+	margin-bottom: 20px;
 	text-align:left;
 	border-top-style:dashed;
 	border-color: #6fbced;
@@ -197,7 +201,7 @@ main header h2{
 	background-color:#6fbced;
 	word-wrap: break-word;
 	max-width: 100%;
-    
+    margin-left: 20px;
 }
 #chat .me .message{
 	background-color:#1c498d;
@@ -212,7 +216,7 @@ main header h2{
 }
 #chat .you .triangle{
 		border-color: transparent transparent #6fbced transparent;
-		margin-left:5px;
+		margin-left:30px;
 }
 #chat .me .triangle{
 		border-color: transparent transparent #1c498d transparent;

@@ -43,7 +43,8 @@
                 <div class="whole1" *ngFor="let m of massages?.reverse()">
                     <div class="entete" >
                         <h2> De: 
-                            <img [src]="m.sender.profileImage" alt="" class="profile-flegma"><b>{{m.sender.userName}}</b></h2>
+                            <img [src]="m.sender.profileImage" alt="" class="profile-flegma" style="margin-right: 3px !important;">
+                            <b>{{m.sender.userName}}</b></h2>
                         <h3 style="">{{m.createdAt | date: 'dd/MM/yyyy HH:mm'}}</h3>         
                     </div>
                     <div class="triangle"></div>
